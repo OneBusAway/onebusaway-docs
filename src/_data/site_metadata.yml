@@ -4,8 +4,11 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.metadata.myvariable }}.
 
-title: Your awesome title
-tagline: This site is totally awesome
-email: your-email@example.com
+title: OneBusAway Developers
+tagline: Real-time transit data and so much more.
+email: info@onebusaway.org
 description: >-
-  Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+  OneBusAway is a suite of open source transit information tools that enable transit agencies to provide real-time vehicle
+  locations, alerts, and arrival information to riders, with iOS and Android apps, a web platform, and robust APIs, as
+  well as back office support. OneBusAway lets your agency be in control, without needing to build everything yourselves
+  and without cutting corners.
