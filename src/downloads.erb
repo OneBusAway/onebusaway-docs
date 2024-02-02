@@ -1,0 +1,32 @@
+---
+layout: page
+title: Downloading the Software
+oba_version: 2.1.18-cs
+---
+
+<div class="space-y-4">
+  <p>You can download pre-built binaries from Cambridge Systematics's Maven Repository.</p>
+
+  <p>The latest known version of the OBA server software is <code><%= data.oba_version %></code></p>
+
+  <ul class='list-disc ml-4'>
+    <% site.data.application_modules.each do |k,v| %>
+    <% next if k == "TODOs"%>
+    <li class='ml-8x'>
+      <%= k %>
+      <% if v['description'] %>
+      - <%= v['description'] %>
+      <% end %>
+      <ul class='list-disc ml-4'>
+        <% v['downloads'].each do |url| %>
+          <li>
+            <a href="<%= url.gsub('{{OBA_VERSION}}', data.oba_version) -%>">
+              <%= url.split('/').last.gsub('{{OBA_VERSION}}', data.oba_version) %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+    <% end %>
+  </ul>
+</div>

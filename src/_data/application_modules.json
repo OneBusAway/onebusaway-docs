@@ -1,0 +1,221 @@
+{
+    "onebusaway-admin-webapp": {
+        "description": "Lorem ipsum dolor sit amet",
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-admin-webapp/{{OBA_VERSION}}/onebusaway-admin-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-agency-metadata": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-agency-metadata/{{OBA_VERSION}}/onebusaway-agency-metadata-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-alerts-persistence": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-alerts-persistence/{{OBA_VERSION}}/onebusaway-alerts-persistence-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-api-core": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-core/{{OBA_VERSION}}/onebusaway-api-core-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-api-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/{{OBA_VERSION}}/onebusaway-api-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-combined-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-combined-webapp/{{OBA_VERSION}}/onebusaway-combined-webapp-{{OBA_VERSION}}-api-only.war"
+        ]
+    },
+
+    "onebusaway-container": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-container/{{OBA_VERSION}}/onebusaway-container-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-core": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-core/{{OBA_VERSION}}/onebusaway-core-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-enterprise-acta-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/{{OBA_VERSION}}/onebusaway-enterprise-acta-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-enterprise-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-webapp/{{OBA_VERSION}}/onebusaway-enterprise-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-federations": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-federations/{{OBA_VERSION}}/onebusaway-federations-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-federations-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-federations-webapp/{{OBA_VERSION}}/onebusaway-federations-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-frontend-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-frontend-webapp/{{OBA_VERSION}}/onebusaway-frontend-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-geocoder": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-geocoder/{{OBA_VERSION}}/onebusaway-geocoder-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-geospatial": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-geospatial/{{OBA_VERSION}}/onebusaway-geospatial-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-gtfs-hibernate-spring": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-gtfs-hibernate-spring/{{OBA_VERSION}}/onebusaway-gtfs-hibernate-spring-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-gtfs-realtime-archiver": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-gtfs-realtime-archiver/{{OBA_VERSION}}/onebusaway-gtfs-realtime-archiver-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-gtfs-realtime-model": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-gtfs-realtime-model/{{OBA_VERSION}}/onebusaway-gtfs-realtime-model-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-gwt-common": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-gwt-common/{{OBA_VERSION}}/onebusaway-gwt-common-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-nextbus-api-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-nextbus-api-webapp/{{OBA_VERSION}}/onebusaway-nextbus-api-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-phone": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-phone/{{OBA_VERSION}}/onebusaway-phone-{{OBA_VERSION}}-withAllDependencies.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-phone/{{OBA_VERSION}}/onebusaway-phone-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-phone-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-phone-webapp/{{OBA_VERSION}}/onebusaway-phone-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-presentation": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-presentation/{{OBA_VERSION}}/onebusaway-presentation-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-quickstart": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-assembly/{{OBA_VERSION}}/onebusaway-quickstart-assembly-{{OBA_VERSION}}-api-webapp.war",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-assembly/{{OBA_VERSION}}/onebusaway-quickstart-assembly-{{OBA_VERSION}}-webapp.war",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-bootstrap/{{OBA_VERSION}}/onebusaway-quickstart-bootstrap-{{OBA_VERSION}}.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-common/{{OBA_VERSION}}/onebusaway-quickstart-common-{{OBA_VERSION}}.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-mains/{{OBA_VERSION}}/onebusaway-quickstart-mains-{{OBA_VERSION}}.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-quickstart-webapp/{{OBA_VERSION}}/onebusaway-quickstart-webapp-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-realtime-api": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-realtime-api/{{OBA_VERSION}}/onebusaway-realtime-api-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-sms-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-sms-webapp/{{OBA_VERSION}}/onebusaway-sms-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-status-agent": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-status-agent/{{OBA_VERSION}}/onebusaway-status-agent-{{OBA_VERSION}}-withAllDependencies.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-status-agent/{{OBA_VERSION}}/onebusaway-status-agent-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-transit-data": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data/{{OBA_VERSION}}/onebusaway-transit-data-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-transit-data-federation": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation/{{OBA_VERSION}}/onebusaway-transit-data-federation-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-transit-data-federation-builder": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/{{OBA_VERSION}}/onebusaway-transit-data-federation-builder-{{OBA_VERSION}}-dependencies.zip",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/{{OBA_VERSION}}/onebusaway-transit-data-federation-builder-{{OBA_VERSION}}.jar",
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/{{OBA_VERSION}}/onebusaway-transit-data-federation-builder-{{OBA_VERSION}}-withAllDependencies.jar"
+        ]
+    },
+
+    "onebusaway-transit-data-federation-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/{{OBA_VERSION}}/onebusaway-transit-data-federation-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-twilio-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-twilio-webapp/{{OBA_VERSION}}/onebusaway-twilio-webapp-{{OBA_VERSION}}.war"
+        ]
+    },
+
+    "onebusaway-users": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-users/{{OBA_VERSION}}/onebusaway-users-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-util": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-util/{{OBA_VERSION}}/onebusaway-util-{{OBA_VERSION}}.jar"
+        ]
+    },
+
+    "onebusaway-watchdog-webapp": {
+        "downloads": [
+            "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-watchdog-webapp/{{OBA_VERSION}}/onebusaway-watchdog-webapp-{{OBA_VERSION}}.war"
+        ]
+    }
+}
