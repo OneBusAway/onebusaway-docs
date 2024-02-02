@@ -1,0 +1,16 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<% resource_title = title.strip.gsub("\n", "") %>
+<title>
+  <% if resource_title != "Index" %>
+    <%= h(resource_title) %> | <%= h(metadata.title) %>
+  <% else %>
+    <%= h(metadata.title) %>: <%= h(metadata.tagline) %>
+  <% end %>
+</title>
+
+<meta name="description" content="<%= metadata.description %>" />
+
+<link rel="stylesheet" href="<%= asset_path 'css' %>" />
+<script src="<%= asset_path 'js' %>" defer></script>
+<%# Implement live_reload_dev_js if needed %>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="<%= site.locale %>">
+  <head>
+    <%= render "head", locals: { metadata: site.metadata, title: data.title } %>
+  </head>
+  <body class="<%= data.layout %> <%= data.page_class %>">
+    <%= render "navbar", locals: { metadata: site.metadata, resource: resource } %>
+
+    <main>
+      <%= content %>
+    </main>
+
+    <%= render "footer", locals: { metadata: site.metadata } %>
+  </body>
+</html>

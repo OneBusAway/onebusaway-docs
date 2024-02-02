@@ -20,7 +20,7 @@
 url: "https://developer.onebusaway.org" # the base hostname & protocol for your site, e.g. https://example.com
 
 permalink: pretty
-template_engine: liquid
+template_engine: erb
 
 # Other options you might want to investigate:
 #
