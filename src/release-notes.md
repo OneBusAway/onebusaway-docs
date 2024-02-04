@@ -60,7 +60,6 @@ title: Release Notes
     * Issue [#52](https://github.com/OneBusAway/onebusaway-application-modules/issues/52)
     * Issue [#48](https://github.com/OneBusAway/onebusaway-application-modules/issues/48)
     * Issue [#23](https://github.com/OneBusAway/onebusaway-application-modules/issues/23)
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/${currentVersion}/
 
 ## 1.1.7
 
@@ -122,14 +121,13 @@ title: Release Notes
       [commit](https://github.com/OneBusAway/onebusaway-application-modules/commit/7d1b35d83a7634903c4961c5d146e06cd19e667e)
     * Fix typo in setter for refreshInterval in GtfsRealtimeSource -
       [commit](https://github.com/OneBusAway/onebusaway-application-modules/commit/6671050f8c292cb71548e492e8f401985486dabd)
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.7/
 
 ## 1.0.6
 
 * New Features:
-    * Add [@ConfigurationParameter](apidocs/org/onebusaway/container/ConfigurationParameter.html) annotation for marking
+    * Add @ConfigurationParameter annotation for marking
       important OneBusAway bean configuration parameters.  Also add support for automatically generating
-      [documentation](oba-configs/index.html) for these parameters.
+      documentation for these parameters.
     * Make the Google Maps API key a configurable parameter: `defaultWebappConfigurationSource.googleMapsApiKey`
     * Allow such bean properties to be overriden from the command-line for the webapp quickstart with the same
       -PbeanName.propertyName=value syntax used in the bundle builder command-line app.
@@ -146,7 +144,6 @@ title: Release Notes
       [commit](https://github.com/OneBusAway/onebusaway-application-modules/commit/826b4bba2a67ec28f682b6431bd5965cd34fbe10)
     * Make sure vehicleId is properly set when creating a TripProblemReportBean from a DB record.
       [commit](https://github.com/OneBusAway/onebusaway-application-modules/commit/cbd1a132fcb5d518087afb9134b8580b37b9cad5)
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.6/
 
 ## 1.0.5
 
@@ -162,17 +159,14 @@ title: Release Notes
   running under Jetty.
 * Add a configuration parameter to disable location interpolation in the BlockLocationServiceImpl.
 * Remove a number of unused dependencies to get the size of release binaries down a bit.
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.5/
 
 ## 1.0.4
 
 * Merge some changes from the OneBusAway NYC branch.
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.4/
 
 ## 1.0.3
 
 * Fix problem with quickstart bundle.
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.3/
 
 ## 1.0.2
 
@@ -183,7 +177,6 @@ title: Release Notes
   label_only feature proposal.
 * Fix to make crossdomain action work whether its being called by the Struts Convention plugin OR the Rest2 plugin.
 * Migrate to GitHub.
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.2/
 
 ## 1.0.1
 
@@ -194,13 +187,11 @@ title: Release Notes
 * Move SMS actions into /sms namespace for onebusaway-sms-webapp
 * Make SMS abbreviations optional in onebusaway-sms-webapp
 * Additional documentation
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.1/
 
 ## 1.0.0
 
 * Initial Site Documentation
 * Bump to require Maven 3
-* Full Documentation:  ${site_base_url}/onebusaway-application-modules/1.0.0/
 
 ## 0.0.1
 

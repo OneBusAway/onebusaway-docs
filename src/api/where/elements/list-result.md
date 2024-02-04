@@ -15,8 +15,8 @@ The response is composed of two elements.  The first, `<list/>`, is the actual l
 
 Additionally, the list response will have a `<limitExceeded/>` element, which a single true or false value.  This value will be true if the number of elements that could have been potentially returned exceeded the limit sent by `maxCount`, either explicitly or the default value.
 
-Finally, some responses will also include an `<outOfRange/>` element, which will indicate if the search request was made outside the current areas of service for OneBusAway (see [agencies-with-coverage](../methods/agencies-with-coverage.html)).  The following geographic query methods currently include the `<outOfRange/>` element:
+Finally, some responses will also include an `<outOfRange/>` element, which will indicate if the search request was made outside the current areas of service for OneBusAway (see [agencies-with-coverage](/api/where/methods/agencies-with-coverage)).  The following geographic query methods currently include the `<outOfRange/>` element:
 
-* [routes-for-location](../methods/routes-for-location.html)
-* [stops-for-location](../methods/stops-for-location.html)
-* [trips-for-location](../methods/trips-for-location.html)
+* [routes-for-location](/api/where/methods/routes-for-location)
+* [stops-for-location](/api/where/methods/stops-for-location)
+* [trips-for-location](/api/where/methods/trips-for-location)

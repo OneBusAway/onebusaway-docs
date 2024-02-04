@@ -41,4 +41,4 @@ http://api.pugetsound.onebusaway.org/api/where/stop/1_75403.xml?key=TEST
 
 ## Response
 
-See details about the various properties of the [`<stop/>` element](../elements/stop.html).
+See details about the various properties of the [`<stop/>` element](/api/where/elements/stop).

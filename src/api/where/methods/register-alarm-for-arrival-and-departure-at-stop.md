@@ -28,7 +28,7 @@ http://api.pugetsound.onebusaway.org/api/where/register-alarm-for-arrival-and-de
 
 ## Request Parameters
 
-* id, tripId, serviceDate, vehicleId, stopSequence - see discussion in [arrival-and-departure-for-stop](arrival-and-departure-for-stop.html) API method for discussion of how to specify a particular arrival or departure
+* id, tripId, serviceDate, vehicleId, stopSequence - see discussion in [arrival-and-departure-for-stop](/api/where/methods/arrival-and-departure-for-stop) API method for discussion of how to specify a particular arrival or departure
 * url - callback URL that will be requested when the alarm is fired
 * alarmTimeOffset - time, in seconds, that controls how long before the arrival/departure the alarm will be fired.  Default is zero.
 * onArrival - set to true to indicate the alarm should be fired relative to vehicle arrival, false for departure.  The default is false for departure.
@@ -43,4 +43,4 @@ In order to specify an alarm for something like "5 minutes before a bus departs,
 
 The response is the alarm id.  Note that if you include `#ALARM_ID#` anywhere in your callback URL, we will automatically replace it with the id of the alarm being fired.  This can be useful when you register multiple alarms and need to be able to distinguish between them.
 
-Also see the [cancel-alarm](cancel-alarm.html) API method, which also accepts the alarm id as an argument.
+Also see the [cancel-alarm](/api/where/methods/cancel-alarm) API method, which also accepts the alarm id as an argument.

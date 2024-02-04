@@ -26,4 +26,4 @@ http://api.pugetsound.onebusaway.org/api/where/cancel_alarm/1_00859082-9b9d-4f72
 * id - the alarm id is encoded directly in the URL
     * `http://api.pugetsound.onebusaway.org/api/where/cancel_alarm/[ID GOES HERE].xml`
 
-The alarm id is returned in the call to [register-alarm-for-arrival-and-departure-at-stop](register-alarm-for-arrival-and-departure-at-stop.html) API method.
+The alarm id is returned in the call to [register-alarm-for-arrival-and-departure-at-stop](/api/where/methods/register-alarm-for-arrival-and-departure-at-stop) API method.

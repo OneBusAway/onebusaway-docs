@@ -48,4 +48,4 @@ http://api.pugetsound.onebusaway.org/api/where/route/1_100224.xml?key=TEST
 
 ## Response
 
-See details about the various properties of the [`<route/>` element](../elements/route.html).
+See details about the various properties of the [`<route/>` element](/api/where/elements/route).

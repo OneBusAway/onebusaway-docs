@@ -36,6 +36,6 @@ http://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage.xml?key=TE
 
 The response has the following fields:
 
-* `agencyId` - an agency id for the agency whose coverage is included.  Should match an [`<agency/>` element](../elements/agency.html) referenced in the `<references/>` section.
+* `agencyId` - an agency id for the agency whose coverage is included.  Should match an [`<agency/>` element](/api/where/elements/agency) referenced in the `<references/>` section.
 * `lat` and `lon` - indicates the center of the agency's coverage area
 * `latSpan` and `lonSpan` - indicate the height (lat) and width (lon) of the coverage bounding box for the agency.

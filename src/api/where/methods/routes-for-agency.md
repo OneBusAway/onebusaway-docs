@@ -40,4 +40,4 @@ http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.xml?key=TEST
 
 ## Response
 
-Returns a list of all route ids for routes served by the specified agency.  See the full description for the [`<route/>` element](../elements/route.html).
+Returns a list of all route ids for routes served by the specified agency.  See the full description for the [`<route/>` element](/api/where/elements/route).

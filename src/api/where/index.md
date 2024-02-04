@@ -8,13 +8,13 @@ powers the OneBusAway website and mobile tools.  You can use the api to write co
 
 ## Release Notes
 
-Check out the [Release Notes](release-notes.html) for details about what's changed with the API
+Check out the [Release Notes](/release-notes) for details about what's changed with the API.
 
 ## API Keys
 
 The following parameter must be included in all API requests:
 
-  * key - your assigned application key
+  * `key` - your assigned application key
 
 Example:
 
@@ -168,7 +168,7 @@ Many API methods also accept a "time" parameter that can be used to query the AP
 active service alerts on a particular date).  The semantics of how the time parameter is used by the method is method-specific
 but the parameter is parsed in the same way.  You can specify time in two possible forms:
 
-* Millisecond since the epoch: time=1365259214945
-* "Human-friendly": time=yyyy-MM-dd_HH-mm-ss
+* Millisecond since the epoch: `time=1365259214945`
+* "Human-friendly": `time=yyyy-MM-dd_HH-mm-ss`
 
 In human-friendly mode, the time will be parsed relative to the timezone where the OBA server is operating.

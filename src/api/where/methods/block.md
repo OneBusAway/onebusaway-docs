@@ -36,4 +36,4 @@ http://api.pugetsound.onebusaway.org/api/where/block/1_5678585.xml?key=TEST
 
 ## Response
 
-See details about the various properties of the [`<blockConfiguration/>` element](../elements/block-configuration.html).
+See details about the various properties of the [`<blockConfiguration/>` element](/api/where/elements/block-configuration).

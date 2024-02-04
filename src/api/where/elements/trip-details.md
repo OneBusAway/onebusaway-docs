@@ -7,10 +7,10 @@ The `<tripDetails/>` element captures extended information about a particular
 trip, potentially including the trip instance information, schedule, status, and
 active service alert information.  It is returned as a sub-element in a number of API calls.  For example:
 
-* [trip-details](../methods/trip-details.html)
-* [trip-for-vehicle](../methods/trip-for-vehicle.html)
-* [trips-for-location](../methods/trips-for-location.html)
-* [trips-for-route](../methods/trips-for-route.html)
+* [trip-details](/api/where/methods/trip-details)
+* [trip-for-vehicle](/api/where/methods/trip-for-vehicle)
+* [trips-for-location](/api/where/methods/trips-for-location)
+* [trips-for-route](/api/where/methods/trips-for-route)
 
 ## Example
 
@@ -40,14 +40,14 @@ active service alert information.  It is returned as a sub-element in a number o
 ## Details
 
 We start with the `tripId` for the trip, which can be used to look up the
-referenced [`<trip/>` element](trip.html) in the `<references/>`
+referenced [`<trip/>` element](/api/where/elements/trip) in the `<references/>`
 section.
 
 Next we have optional trip instance information, including the `<serviceDate/>`
-and optional [`<frequency/>` element](frequency.html).
+and optional [`<frequency/>` element](/api/where/elements/frequency).
 
 The optional `<status/>` element captures real-time information about the trip,
-where applicable.  For more details on the `<status/>` element, see the [`<tripStatus/>`](trip-status.html).
+where applicable.  For more details on the `<status/>` element, see the [`<tripStatus/>`](/api/where/elements/trip-status).
 
 The `<schedule/>` section, which includes the following elements:
 
@@ -62,4 +62,4 @@ Details about the `<tripStopTime/>` element.  Note that arrival and departure ti
 * departureTime - time, in seconds since the start of the service date, when the trip arrives at the specified stop
 * stopId - the stop id of the stop visited during the trip
 
-Finally, the `<situationIds/>` element contains ids for any active [`<situation/>` elements](situation.html) that currently apply to the trip.
+Finally, the `<situationIds/>` element contains ids for any active [`<situation/>` elements](/api/where/elements/situation) that currently apply to the trip.

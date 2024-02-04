@@ -10,7 +10,7 @@ quick and cheap information displays.
 
 Photo by Atomic Taco.
 
-To use sign-mode, use the [standard web interface](web.html) to browse to your favorite stop.  The URL for the page
+To use sign-mode, use the [standard web interface](/features/web) to browse to your favorite stop.  The URL for the page
 should have form like:
 
 http://your.host-name.com/where/standard/stop.action?id=X_Y
