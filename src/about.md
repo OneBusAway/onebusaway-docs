@@ -3,8 +3,4 @@ layout: page
 title: About
 ---
 
-This is the basic Bridgetown site template. You can find out more info about customizing your Bridgetown site, as well as basic Bridgetown usage documentation at [bridgetownrb.com](https://bridgetownrb.com/)
-
-You can find the source code for Bridgetown at GitHub:
-[bridgetownrb](https://github.com/bridgetownrb) /
-[bridgetown](https://github.com/bridgetownrb/bridgetown)
+OneBusAway is a suite of open source transit information tools that enable transit agencies to provide real-time vehicle locations, alerts, and arrival information to riders, with iOS and Android apps, a web platform, and robust APIs, as well as back office support. OneBusAway lets your agency be in control, without needing to build everything yourselves and without cutting corners.
