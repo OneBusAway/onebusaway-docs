@@ -11,32 +11,34 @@ Search for a route based on its name.
 
 ## Sample Response
 
-    {
-        "code": 200,
-        "currentTime": 1674233501267,
-        "data": {
-            "limitExceeded": false,
-            "list": [
-                {
-                    "agencyId": "1",
-                    "color": "727d84",
-                    "description": "",
-                    "id": "1_DC1",
-                    "longName": "CRYSTAL CITY-L'ENFANT PL SHUTTLE",
-                    "shortName": "DC1",
-                    "textColor": "000000",
-                    "type": 3,
-                    "url": ""
-                }
-            ],
-            "outOfRange": false,
-            "references": {
-                ...
+<pre><code class="language-json">
+{
+    "code": 200,
+    "currentTime": 1674233501267,
+    "data": {
+        "limitExceeded": false,
+        "list": [
+            {
+                "agencyId": "1",
+                "color": "727d84",
+                "description": "",
+                "id": "1_DC1",
+                "longName": "CRYSTAL CITY-L'ENFANT PL SHUTTLE",
+                "shortName": "DC1",
+                "textColor": "000000",
+                "type": 3,
+                "url": ""
             }
-        },
-        "text": "OK",
-        "version": 2
-    }
+        ],
+        "outOfRange": false,
+        "references": {
+            ...
+        }
+    },
+    "text": "OK",
+    "version": 2
+}
+</code></pre>
 
 ## Request Parameters
 

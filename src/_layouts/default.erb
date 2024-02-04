@@ -47,5 +47,11 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelectorAll('pre code').forEach((block) => {
+        block.textContent = block.textContent.trim();
+      });
+      hljs.highlightAll();
+    </script>
   </body>
 </html>
