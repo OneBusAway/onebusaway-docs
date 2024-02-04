@@ -1,16 +1,30 @@
-<header>
-  <img src="<%= relative_url('/images/logo.svg') %>" alt="Logo" />
-</header>
+<nav class="hidden lg:mt-10 lg:block">
+  <ul role="list">
+    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="/">API</a></li>
+    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="#">Documentation</a></li>
+    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="#">Support</a></li>
 
-<nav>
-  <ul>
-    <li><a href="<%= relative_url('/') %>">Home</a></li>
-    <li><a href="<%= relative_url('/about') %>">About</a></li>
-    <li><a href="<%= relative_url('/getting-help') %>">Getting Help</a></li>
-    <li><a href="<%= relative_url('/downloads') %>">Downloads</a></li>
-    <li><a href="<%= relative_url('/release-notes') %>">Release Notes</a></li>
-    <li><a href="<%= relative_url('/features/web') %>">Features - Web</a></li>
-    <li><a href="<%= relative_url('/api/where/') %>">REST API</a></li>
-    <li><a href="<%= relative_url('/posts') %>">Posts</a></li>
+    <%= render(NavigationSection.new(
+      "Home",
+      children: {
+        "Home" => relative_url('/'),
+        "About" => relative_url('/about'),
+        "Downloads" => relative_url('/downloads'),
+        "Getting Help" => relative_url('/getting-help'),
+        "Release Notes" => relative_url('/release-notes')
+      }
+    )) %>
+
+    <%= render(NavigationSection.new(
+      "Features",
+      children: {
+        "Web" => relative_url('/features/web'),
+        "REST API" => relative_url('/api/where'),
+        "Phone and SMS" => relative_url('/features/phone-and-sms'),
+        "Sign Mode" => relative_url('/features/sign-mode'),
+        "GTFS Realtime" => relative_url('/features/gtfs-realtime'),
+        "Search API" => relative_url('/api/where/search'),
+      }
+    )) %>
   </ul>
 </nav>
