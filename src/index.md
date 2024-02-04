@@ -3,8 +3,6 @@ title: OneBusAway Developer Documentation
 layout: default
 ---
 
-# OneBusAway Application Suite
-
 This is the primary documentation for all the application modules the make up the primary
 [OneBusAway](http://onebusaway.org) website and application framework.
 
