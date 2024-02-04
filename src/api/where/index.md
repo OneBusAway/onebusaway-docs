@@ -27,19 +27,19 @@ of ways.
 
 Supported output formats include JSON and XML.  The output format is determined by the request extension.  For example:
 
-    /some/api/call.xml
+`/some/api/call.xml`
 
 will return XML results, while
 
-    /some/api/call.json
+`/some/api/call.json`
 
 will return JSON.  The JSON method all supports a `callback` parameter, which is useful for cross-site scripting access:
 
-    /some/api/call.json?callback=some_function_name
+`/some/api/call.json?callback=some_function_name`
 
 will return:
 
-    some_function_name({"key":value,...})
+`some_function_name({"key":value,...})`
 
 ## Response Element
 
@@ -110,33 +110,33 @@ size.
 
 The current list of supported API methods.
 
-* [agencies-with-coverage](methods/agencies-with-coverage.html) - list all supported agencies along with the center of their coverage area
-* [agency](methods/agency.html) - get details for a specific agency
-* [arrival-and-departure-for-stop](methods/arrival-and-departure-for-stop.html) - details about a specific arrival/departure at a stop
-* [arrivals-and-departures-for-stop](methods/arrivals-and-departures-for-stop.html) - get current arrivals and departures for a stop
-* [block](methods/block.html) - get block configuration for a specific block
-* [cancel-alarm](methods/cancel-alarm.html) - cancel a registered alarm
-* [current-time](methods/current-time.html) - retrieve the current system time
-* [register-alarm-for-arrival-and-departure-at-stop](methods/register-alarm-for-arrival-and-departure-at-stop.html) - register an alarm for an arrival-departure event
-* [report-problem-with-stop](methods/report-problem-with-stop.html) - submit a user-generated problem for a stop
-* [report-problem-with-trip](methods/report-problem-with-trip.html) - submit a user-generated problem for a trip
-* [route-ids-for-agency](methods/route-ids-for-agency.html) - get a list of all route ids for an agency
-* [route](methods/route.html) - get details for a specific route
-* [routes-for-agency](methods/routes-for-agency.html) - get a list of all routes for an agency
-* [routes-for-location](methods/routes-for-location.html) - search for routes near a location, optionally by route name
-* [schedule-for-route](methods/schedule-for-route.html) - get the full schedule for a route on a particular day
-* [schedule-for-stop](methods/schedule-for-stop.html) - get the full schedule for a stop on a particular day
-* [shape](methods/shape.html) - get details for a specific shape (polyline drawn on a map)
-* [stop-ids-for-agency](methods/stop-ids-for-agency.html) - get a list of all stops for an agency
-* [stop](methods/stop.html) - get details for a specific stop
-* [stops-for-location](methods/stops-for-location.html) - search for stops near a location, optionally by stop code
-* [stops-for-route](methods/stops-for-route.html) - get the set of stops and paths of travel for a particular route
-* [trip-details](methods/trip-details.html) - get extended details for a specific trip
-* [trip-for-vehicle](methods/trip-for-vehicle.html) - get extended trip details for current trip of a specific transit vehicle
-* [trip](methods/trip.html) - get details for a specific trip
-* [trips-for-location](methods/trips-for-location.html) - get active trips near a location
-* [trips-for-route](methods/trips-for-route.html) - get active trips for a route
-* [vehicles-for-agency](methods/vehicles-for-agency.html) - get active vehicles for an agency
+* [agencies-with-coverage](/api/where/methods/agencies-with-coverage) - list all supported agencies along with the center of their coverage area
+* [agency](/api/where/methods/agency) - get details for a specific agency
+* [arrival-and-departure-for-stop](/api/where/methods/arrival-and-departure-for-stop) - details about a specific arrival/departure at a stop
+* [arrivals-and-departures-for-stop](/api/where/methods/arrivals-and-departures-for-stop) - get current arrivals and departures for a stop
+* [block](/api/where/methods/block) - get block configuration for a specific block
+* [cancel-alarm](/api/where/methods/cancel-alarm) - cancel a registered alarm
+* [current-time](/api/where/methods/current-time) - retrieve the current system time
+* [register-alarm-for-arrival-and-departure-at-stop](/api/where/methods/register-alarm-for-arrival-and-departure-at-stop) - register an alarm for an arrival-departure event
+* [report-problem-with-stop](/api/where/methods/report-problem-with-stop) - submit a user-generated problem for a stop
+* [report-problem-with-trip](/api/where/methods/report-problem-with-trip) - submit a user-generated problem for a trip
+* [route-ids-for-agency](/api/where/methods/route-ids-for-agency) - get a list of all route ids for an agency
+* [route](/api/where/methods/route) - get details for a specific route
+* [routes-for-agency](/api/where/methods/routes-for-agency) - get a list of all routes for an agency
+* [routes-for-location](/api/where/methods/routes-for-location) - search for routes near a location, optionally by route name
+* [schedule-for-route](/api/where/methods/schedule-for-route) - get the full schedule for a route on a particular day
+* [schedule-for-stop](/api/where/methods/schedule-for-stop) - get the full schedule for a stop on a particular day
+* [shape](/api/where/methods/shape) - get details for a specific shape (polyline drawn on a map)
+* [stop-ids-for-agency](/api/where/methods/stop-ids-for-agency) - get a list of all stops for an agency
+* [stop](/api/where/methods/stop) - get details for a specific stop
+* [stops-for-location](/api/where/methods/stops-for-location) - search for stops near a location, optionally by stop code
+* [stops-for-route](/api/where/methods/stops-for-route) - get the set of stops and paths of travel for a particular route
+* [trip-details](/api/where/methods/trip-details) - get extended details for a specific trip
+* [trip-for-vehicle](/api/where/methods/trip-for-vehicle) - get extended trip details for current trip of a specific transit vehicle
+* [trip](/api/where/methods/trip) - get details for a specific trip
+* [trips-for-location](/api/where/methods/trips-for-location) - get active trips near a location
+* [trips-for-route](/api/where/methods/trips-for-route) - get active trips for a route
+* [vehicles-for-agency](/api/where/methods/vehicles-for-agency) - get active vehicles for an agency
 
 (Trip planning is no longer supported, check out the [OpenTripPlanner](http://www.opentripplanner.org/) project instead)
 
@@ -144,18 +144,18 @@ The current list of supported API methods.
 
 See more discussion of Version 2 of the API and how element references have changed:
 
-* [agency](elements/agency.html)
-* [arrivalAndDeparture](elements/arrival-and-departure.html)
-* [blockConfiguration](elements/block-configuration.html)
-* [frequency](elements/frequency.html)
-* [list](elements/list-result.html)
-* [route](elements/route.html)
-* [situation](elements/situation.html)
-* [stop](elements/stop.html)
-* [tripDetails](elements/trip-details.html)
-* [tripStatus](elements/trip-status.html)
-* [trip](elements/trip.html)
-* [vehicleStatus](elements/vehicle-status.html)
+* [agency](/api/where/elements/agency)
+* [arrivalAndDeparture](/api/where/elements/arrival-and-departure)
+* [blockConfiguration](/api/where/elements/block-configuration)
+* [frequency](/api/where/elements/frequency)
+* [list](/api/where/elements/list-result)
+* [route](/api/where/elements/route)
+* [situation](/api/where/elements/situation)
+* [stop](/api/where/elements/stop)
+* [tripDetails](/api/where/elements/trip-details)
+* [tripStatus](/api/where/elements/trip-status)
+* [trip](/api/where/elements/trip)
+* [vehicleStatus](/api/where/elements/vehicle-status)
 
 ## Timestamps
 
