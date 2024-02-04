@@ -26,5 +26,20 @@
         "Search API" => relative_url('/api/where/search'),
       }
     )) %>
+
+    <%= render(NavigationSection.new(
+      "Guides",
+      children: {
+        "Quickstart" => relative_url('/guides/quickstart-guide'),
+        "Installation" => relative_url('/guides/installation-guide'),
+        "Transit Data Bundle" => relative_url('/guides/transit-data-bundle-guide'),
+        "Realtime Config" => relative_url('/guides/realtime-configuration-guide'),
+        "API Config" => relative_url('/guides/api-webapp-configuration-guide'),
+        "Phone (IVR) Config" => relative_url('/guides/phone-webapp-configuration-guide'),
+        "Web Config" => relative_url('/guides/webapp-configuration-guide'),
+        "Database Config" => relative_url('/guides/database-configuration-guide'),
+        "Troubleshooting" => relative_url('/guides/troubleshooting-guide')
+      }
+    )) %>
   </ul>
 </nav>

@@ -159,6 +159,8 @@ See more discussion of Version 2 of the API and how element references have chan
 
 ## Timestamps
 
+<a id="api-timestamp"></a>
+
 Many API methods return timestamps.  For the most part, a OneBusAway timestamp is a measure of the number of milliseconds
 since midnight, January 1, 1970 UTC.
 
