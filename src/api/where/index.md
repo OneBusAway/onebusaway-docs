@@ -1,9 +1,7 @@
 ---
 layout: page
-title: REST API
+title: OneBusAway RESTful API
 ---
-
-# The OneBusAway RESTful API
 
 OneBusAway provides a RESTful (REpresentational State Transfer) API that allows you access to the same information that
 powers the OneBusAway website and mobile tools.  You can use the api to write cool new apps of your own.
