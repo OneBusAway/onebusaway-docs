@@ -15,6 +15,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+    algolia (2.3.4)
+      faraday (>= 0.15, < 3)
+      faraday-net_http_persistent (>= 0.15, < 3)
+      multi_json (~> 1.0)
+      net-http-persistent
     amazing_print (1.5.0)
     base64 (0.2.0)
     bigdecimal (3.1.6)
@@ -53,6 +58,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     csv (3.2.8)
+    dotenv (2.8.1)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -62,6 +68,9 @@ GEM
       faraday (>= 1, < 3)
     faraday-net_http (3.1.0)
       net-http
+    faraday-net_http_persistent (2.1.0)
+      faraday (~> 2.5)
+      net-http-persistent (~> 4.0)
     ffi (1.16.3)
     hash_with_dot_access (1.2.0)
       activesupport (>= 5.0.0, < 8.0)
@@ -76,13 +85,19 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     minitest (5.21.2)
+    multi_json (1.15.0)
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
+    net-http-persistent (4.0.2)
+      connection_pool (~> 2.2)
     nio4r (2.7.0)
+    nokogiri (1.16.2-arm64-darwin)
+      racc (~> 1.4)
     public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
+    racc (1.7.3)
     rack (3.0.9)
     rake (13.1.0)
     rb-fsevent (0.11.2)
@@ -108,7 +123,10 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  algolia (~> 2)
   bridgetown (~> 1.3.2)
+  dotenv
+  nokogiri (~> 1.16)
   puma (< 7)
 
 BUNDLED WITH

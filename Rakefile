@@ -1,4 +1,6 @@
 require "bridgetown"
+require 'dotenv'
+require './lib/algolia_indexer'
 
 Bridgetown.load_tasks
 
@@ -11,6 +13,16 @@ task default: :deploy
 desc "Build the Bridgetown site for deployment"
 task :deploy => [:clean, "frontend:build"] do
   Bridgetown::Commands::Build.start
+
+  site = Bridgetown::Current.site
+
+  indexer = AlgoliaIndexer.new(
+    site: site,
+    id: ENV['ALGOLIA_APP_ID'],
+    secret: ENV['ALGOLIA_SECRET'],
+    index: ENV['ALGOLIA_INDEX']
+  )
+  indexer.run
 end
 
 desc "Build the site in a test environment"
@@ -43,9 +55,21 @@ end
 # Add your own Rake tasks here! You can use `environment` as a prerequisite
 # in order to write automations or other commands requiring a loaded site.
 #
-# task :my_task => :environment do
-#   puts site.root_dir
-#   automation do
-#     say_status :rake, "I'm a Rake tast =) #{site.config.url}"
-#   end
-# end
+task :reindex_site => [:environment, :clean, "frontend:build"] do
+  Bridgetown::Commands::Build.start
+  puts site.root_dir
+  automation do
+    say_status :rake, "#{site.collections['pages'].resources}"
+  end
+  # puts site.collections['pages']
+  # automation do
+  #   Dotenv.load
+  #   indexer = AlgoliaIndexer.new(
+  #     site: site,
+  #     id: ENV['ALGOLIA_APP_ID'],
+  #     secret: ENV['ALGOLIA_SECRET'],
+  #     index: ENV['ALGOLIA_INDEX']
+  #   )
+  #   indexer.run
+  # end
+end

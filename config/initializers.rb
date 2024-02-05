@@ -7,8 +7,7 @@ Bridgetown.configure do |config|
   #
   # You can also modify options on the configuration object directly, like so:
   #
-  # config.autoload_paths << "models"
-  #
+  config.autoload_paths << "lib"
 
   # You can configure the inflector used by Zeitwerk. In v2.0,
   # ActiveSupport::Inflector will become the default.
@@ -33,9 +32,9 @@ Bridgetown.configure do |config|
   # You can use `init` to initialize various Bridgetown features or plugin gems.
   # For example, you can use the Dotenv gem to load environment variables from
   # `.env`. Just `bundle add dotenv` and then uncomment this:
-  #
-  # init :dotenv
-  #
+
+  init :dotenv
+
 
   # Uncomment to use Bridgetown SSR (aka dynamic rendering of content via Roda):
   #
