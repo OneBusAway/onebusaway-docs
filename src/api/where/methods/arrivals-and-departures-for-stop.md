@@ -40,7 +40,7 @@ http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/
 * `minutesBefore=n` - include vehicles having arrived or departed in the previous n minutes (default=5)
 * `minutesAfter=n` - include vehicles arriving or departing in the next n minutes (default=35)
 * `time` - by default, the method returns the status of the system right now.  However, the system
-  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#Timestamps)
+  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#timestamps)
   for details on the format of the `time` parameter.
 
 

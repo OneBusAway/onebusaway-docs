@@ -39,7 +39,7 @@ http://api.pugetsound.onebusaway.org/api/where/trip-details/1_47805860.xml?key=T
 * includeSchedule - Can be true/false to determine whether full `<schedule/>` element is included in the `<tripDetails/>` section.  Defaults to true.
 * includeStatus - Can be true/false to determine whether the full `<status/>` element is include in the `<tripDetails/>` section.  Defaults to true.
 * time - by default, the method returns the status of the system right now.  However, the system
-  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#Timestamps)
+  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#timestamps)
   for details on the format of the `time` parameter.
 
 ## Response

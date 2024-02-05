@@ -1,0 +1,188 @@
+---
+layout: page
+title: OneBusAway RESTful API
+---
+
+<p>OneBusAway provides a RESTful (REpresentational State Transfer) API that allows you access to the same information
+  that
+  powers the OneBusAway website and mobile tools. You can use the api to write cool new apps of your own.</p>
+
+<h2>Release Notes</h2>
+
+<p>Check out the <a href="/release-notes">Release Notes</a> for details about what&#39;s changed with the API.</p>
+
+<h2 id="api-keys">API Keys</h2>
+<p>The following parameter must be included in all API requests:</p>
+
+<ul>
+  <li><code>key</code> - your assigned application key</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code>/some/api/<span class="hljs-keyword">call</span>.xml?<span class="hljs-built_in">key</span>=YOUR_KEY_HERE
+  </code></pre>
+
+<p>The assigned application key is used to track usage statistics across applications. API keys can be managed in a
+number
+of ways.</p>
+
+<h2 id="output-format">Output Format</h2>
+
+<p>
+  Supported output formats include JSON and XML. The output format is determined by the request extension. For example:
+</p>
+
+<p><code>/some/api/call.xml</code></p>
+
+<p>will return XML results, while</p>
+
+<p><code>/some/api/call.json</code></p>
+
+<p>will return JSON. The JSON method all supports a <code>callback</code> parameter, which is useful for cross-site
+  scripting access:
+</p>
+
+<p><code>/some/api/call.json?callback=some_function_name</code></p>
+
+<p>will return:</p>
+
+<p><code>some_function_name({&quot;key&quot;:value,...})</code></p>
+
+<h2 id="response-element">Response Element</h2>
+
+  <p>All responses are wrapped in a response element.</p>
+
+<pre><code>
+&lt;response&gt;
+  &lt;version&gt;2&lt;/version&gt;
+  &lt;code&gt;200&lt;/code&gt;
+  &lt;text&gt;OK&lt;/text&gt;
+  &lt;currentTime&gt;1270614730908&lt;/currentTime&gt;
+  &lt;data&gt;
+    &lt;references/&gt;
+    ...
+  &lt;/data&gt;
+&lt;/response&gt;
+</pre></code>
+
+<p>The response element carries the following fields:</p>
+
+<ul>
+  <li><code>version</code> - response version information</li>
+  <li>code - a machine-readable response code with the following semantics:
+    <ul>
+      <li><code>200</code> - Success</li>
+      <li><code>400</code> - The request could not be understood due to an invalid request parameter or some other error
+      </li>
+      <li><code>401</code> - The application key is either missing or invalid</li>
+      <li><code>404</code> - The specified resource was not found</li>
+      <li><code>500</code> - A service exception or error occurred while processing the request</li>
+    </ul>
+  </li>
+  <li><code>text</code> - a human-readable version of the response <code>code</code></li>
+  <li><code>currentTime</code> - current system time on the api server as milliseconds since the unix epoch</li>
+  <li><code>data</code> - the response payload
+    <ul>
+      <li><code>references</code> see the discussion of references below</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<p>
+  The <code>&lt;references/&gt;</code> element contains a dictionary of objects referenced by the main result payload.
+  For elements that are often repeated in the result payload, the elements are instead included in the
+  <code>&lt;references/&gt;</code> section and the payload will refer to elements by and object id that can be used to
+  lookup the object in the <code>&lt;references/&gt;</code> dictionary.
+</p>
+
+<p>
+  Right now, only a few types of objects will ever appear in the references section: agencies, routes, stops, trips,
+  and situations.
+</p>
+
+<pre><code>
+&lt;references&gt;
+  &lt;agencies&gt;
+    &lt;agency&gt;...&lt;/agency&gt;
+  &lt;/agencies&gt;
+  &lt;routes&gt;
+    &lt;route&gt;...&lt;/route&gt;
+  &lt;/routes&gt;
+  &lt;stops&gt;
+    &lt;stop&gt;...&lt;/stop&gt;
+  &lt;/stops&gt;
+  &lt;trips&gt;
+    &lt;trip&gt;...&lt;/trip&gt;
+  &lt;/trips&gt;
+  &lt;situations&gt;
+    &lt;situation&gt;...&lt;/situation&gt;
+  &lt;/situations&gt;
+&lt;/references&gt;
+</code></pre>
+
+<p>
+  They will always appear in that order, since stops and trips reference routes and routes reference agencies. If you
+  are processing the result stream in order, you should always be able to assume that an referenced entity would already
+  have been included in the references section.
+</p>
+
+<p>
+  Every API method supports an optional <code>includeReferences=true|false</code> parameter that determines if the
+  <code>&lt;references/&gt;</code> section is included in a response. If you don&#39;t need the contents of the
+  <code>&lt;references/&gt;</code> section, perhaps because you&#39;ve pre-cached all the elements, then setting
+  <code>includeReferences=false</code> can be a good way to reduce the response size.
+</p>
+
+<h2 id="methods">Methods</h2>
+
+<p>The current list of supported API methods.</p>
+
+<ul>
+  <% site.data.rest_api['methods'].each do |k,v| %>
+    <li><a href="/api/where/methods/<%= k %>"><%= k %></a> - <%= v['description'] %></li>
+  <% end %>
+</ul>
+
+<p>(Trip planning is no longer supported, check out the <a href="http://www.opentripplanner.org/">OpenTripPlanner</a>
+  project instead.)
+</p>
+
+<h2 id="common-elements">Common Elements</h2>
+
+<p>See more discussion of Version 2 of the API and how element references have changed:</p>
+
+<ul>
+  <% site.data.rest_api['elements'].each do |k,v| %>
+    <li>
+      <a href="/api/where/elements/<%= k %>">
+        <%= v['name'] || k %>
+      </a>
+      <% if v['description'] %>
+        - <%= v['description'] %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h2 id="timestamps">Timestamps</h2>
+
+<p>
+  Many API methods return timestamps. For the most part, a OneBusAway timestamp is a measure of the number of
+  milliseconds since midnight, January 1, 1970 UTC.
+</p>
+
+<p>
+  Many API methods also accept a &quot;time&quot; parameter that can be used to query the API at a specific point in
+  time (eg. list all active service alerts on a particular date). The semantics of how the time parameter is used by
+  the method is method-specific but the parameter is parsed in the same way. You can specify time in two possible forms:
+</p>
+
+<ul>
+  <li>Millisecond since the epoch: <code>time=1365259214945</code></li>
+  <li>&quot;Human-friendly&quot;: <code>time=yyyy-MM-dd_HH-mm-ss</code></li>
+</ul>
+
+<p>In human-friendly mode, the time will be parsed relative to the timezone where the OBA server is operating.</p>

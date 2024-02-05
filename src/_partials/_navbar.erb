@@ -16,18 +16,6 @@
     )) %>
 
     <%= render(NavigationSection.new(
-      "Features",
-      children: {
-        "Web" => relative_url('/features/web'),
-        "REST API" => relative_url('/api/where'),
-        "Phone and SMS" => relative_url('/features/phone-and-sms'),
-        "Sign Mode" => relative_url('/features/sign-mode'),
-        "GTFS Realtime" => relative_url('/features/gtfs-realtime'),
-        "Search API" => relative_url('/api/where/search'),
-      }
-    )) %>
-
-    <%= render(NavigationSection.new(
       "Guides",
       children: {
         "Quickstart" => relative_url('/guides/quickstart-guide'),
@@ -40,6 +28,27 @@
         "Database Config" => relative_url('/guides/database-configuration-guide'),
         "Troubleshooting" => relative_url('/guides/troubleshooting-guide')
       }
+    )) %>
+
+    <%= render(NavigationSection.new(
+      "Features",
+      children: {
+        "Web" => relative_url('/features/web'),
+        "Phone and SMS" => relative_url('/features/phone-and-sms'),
+        "Sign Mode" => relative_url('/features/sign-mode'),
+        "GTFS Realtime" => relative_url('/features/gtfs-realtime'),
+        "Search API" => relative_url('/api/where/search'),
+      }
+    )) %>
+
+    <%= render (NavigationSection.new(
+      "REST API Methods",
+      children: site.data.rest_api['methods'].reduce({}) {|acc, kv| k = kv.first; acc[k] = "/api/where/methods/#{k}"; acc }
+    )) %>
+
+    <%= render (NavigationSection.new(
+      "REST API Elements",
+      children: site.data.rest_api['elements'].reduce({}) {|acc, kv| k = kv.first; v = kv.last; acc[(v['name'] || k)] = "/api/where/elements/#{k}"; acc }
     )) %>
   </ul>
 </nav>

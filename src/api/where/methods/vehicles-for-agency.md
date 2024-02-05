@@ -36,7 +36,7 @@ http://api.onebusaway.org/api/where/vehicles-for-agency/1.xml?key=TEST
 * id - the id of the agency, encoded directly in the URL:
     * `http://api.onebusaway.org/api/where/vehicles-for-agency/[ID GOES HERE].xml`
 * time - by default, the method returns the status of the system right now.  However, the system
-  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#Timestamps)
+  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#timestamps)
   for details on the format of the `time` parameter.
 
 ## Response

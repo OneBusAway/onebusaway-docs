@@ -26,7 +26,7 @@ for a particular agency, as specified by the agency id encoded directly in the U
   the agency id and 456 is the entity id).  If the removeAgencyIds parameter is specified, the agency id prefixes
   will be stripped from ids in the resulting GTFS-realtime feed.
 * **time=...** - By default, the GTFS-realtime feeds represent the status of the system right now.  However, the system
-  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where#api-timestamp)
+  can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#timestamps)
   for details on the format of the `time` parameter.
 
 ## Output Format

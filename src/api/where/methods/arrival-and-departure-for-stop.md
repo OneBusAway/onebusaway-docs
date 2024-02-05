@@ -34,7 +34,7 @@ http://api.pugetsound.onebusaway.org/api/where/arrival-and-departure-for-stop/1_
 * `serviceDate` - the service date of the arriving transit vehicle
 * `vehicleId` - the vehicle id of the arriving transit vehicle (optional)
 * `stopSequence` - the stop sequence index of the stop in the transit vehicle's trip
-* `time` - by default, the method returns the status of the system right now.  However, the system can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#Timestamps) for details on the format of the `time` parameter.
+* `time` - by default, the method returns the status of the system right now.  However, the system can also be queried at a specific time.  This can be useful for testing.  See [timestamps](/api/where/#timestamps) for details on the format of the `time` parameter.
 
 The key here is uniquely identifying which arrival you are interested in.  Typically, you would first make a call to [arrivals-and-departures-for-stop](/api/where/methods/arrivals-and-departures-for-stop) to get a list of upcoming arrivals and departures at a particular stop.  You can then use information from those results to specify a particular arrival.  At minimum, you must specify the trip id and service date.  Additionally, you are also encouraged to specify the vehicle id if available to help disambiguate between multiple vehicles serving the same trip instance.  Finally, you are encouraged to specify the stop sequence.  This helps in the situation when a vehicle visits a stop multiple times during a trip (it happens) plus there is performance benefit on the back-end as well.
 
