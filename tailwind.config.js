@@ -7,7 +7,6 @@ module.exports = {
     './src/**/*.{html,md,liquid,erb,serb,rb}',
     './frontend/javascript/**/*.js',
   ],
-  darkMode: 'selector',
   theme: {
     fontSize: {
       '2xs': ['0.75rem', { lineHeight: '1.25rem' }],
