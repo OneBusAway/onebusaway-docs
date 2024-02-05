@@ -32,7 +32,7 @@ Next, check for agencies:
 
 [http://localhost:8080/where/standard/agencies.action](http://localhost:8080/where/standard/agencies.action)
 
-Assuming that you have properly built and loaded your [Transit Data Bundle](transit-data-bundle-guide.html), you should
+Assuming that you have properly built and loaded your [Transit Data Bundle](/guides/transit-data-bundle-guide), you should
 see your transit agencies listed there, along with the general service area highlighted on the map.  If you don't see
 any agencies listed, then it indicates a problem with your transit data bundle (improperly built?  improper path
 specified to the webapp?).
