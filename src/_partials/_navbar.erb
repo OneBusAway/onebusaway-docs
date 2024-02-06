@@ -1,9 +1,7 @@
-<nav class="hidden lg:mt-10 lg:block">
+<nav class="pl-5 pt-10 lg:p-0 lg:block max-h-[100svh] overflow-y-scroll" :class="{ 'hidden': !nav_open }">
+  <div class="lg:hidden oba-docs-search-container">
+  </div>
   <ul role="list">
-    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="/">API</a></li>
-    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="#">Documentation</a></li>
-    <li class="md:hidden"><a class="block py-1 text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="#">Support</a></li>
-
     <%= render(NavigationSection.new(
       "Home",
       children: {

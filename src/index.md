@@ -3,10 +3,11 @@ title: OneBusAway Developer Documentation
 layout: default
 ---
 
-This is the primary documentation for all the application modules the make up the primary
-[OneBusAway](http://onebusaway.org) website and application framework.
+This is the official documentation for all the application modules the make up the [OneBusAway](http://onebusaway.org) web application and API framework.
 
-**Current Version:** ${currentVersion}
+**Current Version:** <code><%= site.metadata['oba_version'] %></code>
+
+You can find download links to the prebuilt binaries on our [Downloads](/downloads) page.
 
 Details on all releases can be found in the [Release Notes](/release-notes).
 

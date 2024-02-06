@@ -4,7 +4,6 @@
   </h2>
 
   <div class="relative mt-3 pl-2">
-
     <ul role="list">
       <% @children.each do |k,v| %>
         <li class="relative border-l <% if equal_paths(v, @current_path) %>border-emerald-500<% else %>border-transparent<% end %>">

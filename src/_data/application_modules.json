@@ -1,6 +1,5 @@
 {
     "onebusaway-admin-webapp": {
-        "description": "Lorem ipsum dolor sit amet",
         "downloads": [
             "https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-admin-webapp/{{OBA_VERSION}}/onebusaway-admin-webapp-{{OBA_VERSION}}.war"
         ]

@@ -3,63 +3,27 @@
   <head>
     <%= render "head", locals: { metadata: site.metadata, title: data.title } %>
   </head>
-  <body class="flex min-h-full bg-white antialiased dark:bg-zinc-900">
+  <body class="flex min-h-full bg-white antialiased dark:bg-zinc-900" x-data="{nav_open: false}" :class="{'overflow-hidden': nav_open}">
     <div class="w-full">
       <div class="h-full lg:ml-72 xl:ml-80">
-        <header class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex">
+        <header
+          class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex"
+          >
           <div class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 lg:px-6 lg:pb-8 lg:pt-4 xl:w-80 lg:dark:border-white/10">
             <div class="hidden lg:flex">
-              <a aria-label="Home" href="/" class="flex gap-x-2">
-                <div class="flex-none">
-                  <img src="/images/oba-logo.png" alt="" class="h-16 rounded-lg">
-                </div>
-                <div class="flex-1 self-center text-xl font-semibold leading-tight dark:text-zinc-50">
-                  OneBusAway Developers
-                </div>
-              </a>
+              <%= render 'site_logo' %>
             </div>
-            <div class="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between gap-12 px-4 transition sm:px-6 lg:left-72 lg:z-30 lg:px-8 xl:left-80 backdrop-blur-sm lg:left-72 xl:left-80 dark:backdrop-blur bg-white/[var(--bg-opacity-light)] dark:bg-zinc-900/[var(--bg-opacity-dark)]" style="--bg-opacity-light:0.5;--bg-opacity-dark:0.2">
-              <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 dark:bg-white/7.5"></div>
 
-              <div class="hidden lg:block lg:max-w-md lg:flex-auto" id='oba-docs-search-container'>
-              </div>
-
-              <div class="flex items-center gap-5 lg:hidden">
-                <button type="button" class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5" aria-label="Toggle navigation">
-                  <svg viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" class="w-2.5 stroke-zinc-900 dark:stroke-white">
-                    <path d="M.5 1h9M.5 8h9M.5 4.5h9"></path>
-                  </svg>
-                </button>
-                <a aria-label="Home" href="/">
-                  <svg viewBox="0 0 99 24" aria-hidden="true" class="h-6">
-                    <path class="fill-emerald-400" d="M16 8a5 5 0 0 0-5-5H5a5 5 0 0 0-5 5v13.927a1 1 0 0 0 1.623.782l3.684-2.93a4 4 0 0 1 2.49-.87H11a5 5 0 0 0 5-5V8Z"></path>
-                    <path class="fill-zinc-900 dark:fill-white" d="M26.538 18h2.654v-3.999h2.576c2.672 0 4.456-1.723 4.456-4.333V9.65c0-2.61-1.784-4.333-4.456-4.333h-5.23V18Zm4.58-10.582c1.52 0 2.416.8 2.416 2.241v.018c0 1.441-.896 2.25-2.417 2.25h-1.925V7.418h1.925ZM38.051 18h2.566v-5.414c0-1.371.923-2.206 2.382-2.206.396 0 .791.061 1.178.15V8.287a3.843 3.843 0 0 0-.958-.123c-1.257 0-2.136.615-2.443 1.661h-.159V8.323h-2.566V18Zm11.55.202c2.979 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.773-5.036-2.953 0-4.772 1.916-4.772 5.036v.018c0 3.146 1.793 5.036 4.772 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.144-3.023 1.354 0 2.145 1.134 2.145 3.023v.018c0 1.907-.782 3.023-2.145 3.023Zm10.52 1.846c.492 0 .967-.053 1.283-.114v-1.907a6.057 6.057 0 0 1-.755.044c-.87 0-1.24-.387-1.24-1.257v-4.544h1.995V8.323H59.41V6.012h-2.592v2.311h-1.495v1.934h1.495v5.133c0 1.88.949 2.645 3.304 2.645Zm7.287.167c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.954 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.372 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023Zm10.767 2.013c2.522 0 4.034-1.353 4.297-3.463l.01-.053h-2.374l-.017.036c-.229.966-.853 1.467-1.908 1.467-1.37 0-2.135-1.08-2.135-3.04v-.018c0-1.934.755-3.006 2.135-3.006 1.099 0 1.74.615 1.908 1.556l.008.017h2.391v-.026c-.228-2.162-1.749-3.56-4.315-3.56-3.033 0-4.738 1.837-4.738 5.019v.017c0 3.217 1.714 5.054 4.738 5.054Zm10.257 0c2.98 0 4.772-1.88 4.772-5.036v-.018c0-3.128-1.82-5.036-4.772-5.036-2.953 0-4.773 1.916-4.773 5.036v.018c0 3.146 1.793 5.036 4.773 5.036Zm0-2.013c-1.371 0-2.145-1.116-2.145-3.023v-.018c0-1.89.782-3.023 2.145-3.023 1.353 0 2.144 1.134 2.144 3.023v.018c0 1.907-.782 3.023-2.144 3.023ZM95.025 18h2.566V4.623h-2.566V18Z"></path>
-                  </svg>
-                </a>
-              </div>
-              <div class="flex items-center gap-5">
-                <nav class="hidden md:block">
-                  <div role="list" class="flex items-center gap-8">
-                    <a class="group" href="https://www.github.com/onebusaway/onebusaway-docs" title="Edit this Page">
-                      <svg viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5 fill-zinc-700 dark:fill-zinc-200 transition group-hover:fill-zinc-900 dark:group-hover:fill-zinc-50">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.667c-4.605 0-8.334 3.823-8.334 8.544 0 3.78 2.385 6.974 5.698 8.106.417.075.573-.182.573-.406 0-.203-.011-.875-.011-1.592-2.093.397-2.635-.522-2.802-1.002-.094-.246-.5-1.005-.854-1.207-.291-.16-.708-.556-.01-.567.656-.01 1.124.62 1.281.876.75 1.292 1.948.93 2.427.705.073-.555.291-.93.531-1.143-1.854-.213-3.791-.95-3.791-4.218 0-.929.322-1.698.854-2.296-.083-.214-.375-1.09.083-2.265 0 0 .698-.224 2.292.876a7.576 7.576 0 0 1 2.083-.288c.709 0 1.417.096 2.084.288 1.593-1.11 2.291-.875 2.291-.875.459 1.174.167 2.05.084 2.263.53.599.854 1.357.854 2.297 0 3.278-1.948 4.005-3.802 4.219.302.266.563.78.563 1.58 0 1.143-.011 2.061-.011 2.35 0 .224.156.491.573.405a8.365 8.365 0 0 0 4.11-3.116 8.707 8.707 0 0 0 1.567-4.99c0-4.721-3.73-8.545-8.334-8.545Z"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
+            <%= render 'top_bar' %>
             <%= render 'navbar' %>
           </div>
         </header>
-        <div class="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8"><main class="flex-auto">
+
+        <div class="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
+          <main class="flex-auto">
             <article class="flex h-full flex-col pb-10 pt-16">
               <div class="flex-auto prose dark:prose-invert [html_:where(&>*)]:mx-auto [html_:where(&>*)]:max-w-2xl [html_:where(&>*)]:lg:mx-[calc(50%-min(50%,theme(maxWidth.lg)))] [html_:where(&>*)]:lg:max-w-3xl">
-                <div class="absolute inset-0 -z-10 mx-0 max-w-none overflow-hidden">
-                  <div class="absolute left-1/2 top-0 ml-[-38rem] h-[25rem] w-[81.25rem] dark:[mask-image:linear-gradient(white,transparent)]">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#36b49f] to-[#DBFF75] opacity-40 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-[#36b49f]/30 dark:to-[#DBFF75]/30 dark:opacity-100"><svg aria-hidden="true" class="absolute inset-x-0 inset-y-[-50%] h-[200%] w-full skew-y-[-18deg] fill-black/40 stroke-black/50 mix-blend-overlay dark:fill-white/2.5 dark:stroke-white/5"><defs><pattern id=":S1:" width="72" height="56" patternUnits="userSpaceOnUse" x="-12" y="4"><path d="M.5 56V.5H72" fill="none"></path></pattern></defs><rect width="100%" height="100%" stroke-width="0" fill="url(#:S1:)"></rect><svg x="-12" y="4" class="overflow-visible"><rect stroke-width="0" width="73" height="57" x="288" y="168"></rect><rect stroke-width="0" width="73" height="57" x="144" y="56"></rect><rect stroke-width="0" width="73" height="57" x="504" y="168"></rect><rect stroke-width="0" width="73" height="57" x="720" y="336"></rect></svg></svg></div>
-                    <svg viewBox="0 0 1113 440" aria-hidden="true" class="absolute left-1/2 top-0 ml-[-19rem] w-[69.5625rem] fill-white blur-[26px] dark:hidden"><path d="M.016 439.5s-9.5-300 434-300S882.516 20 882.516 20V0h230.004v439.5H.016Z"></path></svg></div>
-                </div>
+                <%= render "bg_checkerboard" %>
                 <h1><%= data.title %></h1>
                 <%= content %>
               </div>
@@ -70,9 +34,7 @@
       </div>
     </div>
     <script>
-      document.querySelectorAll('pre code').forEach((block) => {
-        block.textContent = block.textContent.trim();
-      });
+      document.querySelectorAll('pre code').forEach(block => block.textContent = block.textContent.trim());
       hljs.highlightAll();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
@@ -83,7 +45,7 @@
         apiKey: "c0fb830900a6cd24677d8f3d791ed567",
         indexName: "onebusaway-onrender",
         insights: true, // Optional, automatically send insights when user interacts with search results
-        container: '#oba-docs-search-container',
+        container: '.oba-docs-search-container',
         debug: false // Set debug to true if you want to inspect the modal
       });
     </script>

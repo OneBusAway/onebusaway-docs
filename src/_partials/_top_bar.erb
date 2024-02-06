@@ -1,0 +1,31 @@
+<div class="fixed inset-x-0 top-0 z-50 flex h-14 items-center justify-between gap-12 px-4 transition sm:px-6 lg:left-72 lg:z-30 lg:px-8 xl:left-80 backdrop-blur-sm lg:left-72 xl:left-80 dark:backdrop-blur bg-white/[var(--bg-opacity-light)] dark:bg-zinc-900/[var(--bg-opacity-dark)]" style="--bg-opacity-light:0.5;--bg-opacity-dark:0.2">
+  <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 dark:bg-white/7.5"></div>
+
+  <div class="hidden lg:block lg:max-w-md lg:flex-auto oba-docs-search-container">
+  </div>
+
+  <div class="flex items-center gap-5 lg:hidden">
+    <button
+      @click="nav_open = !nav_open"
+      type="button"
+      class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5"
+      aria-label="Toggle navigation">
+      <svg viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" class="w-2.5 stroke-zinc-900 dark:stroke-white">
+        <path d="M.5 1h9M.5 8h9M.5 4.5h9"></path>
+      </svg>
+    </button>
+    <%= render 'site_logo' %>
+  </div>
+
+  <div class="flex items-center gap-5">
+    <nav class="hidden md:block">
+      <div role="list" class="flex items-center gap-8">
+        <a class="group" href="https://www.github.com/onebusaway/onebusaway-docs" title="Edit this Page">
+          <svg viewBox="0 0 20 20" aria-hidden="true" class="h-5 w-5 fill-zinc-700 dark:fill-zinc-200 transition group-hover:fill-zinc-900 dark:group-hover:fill-zinc-50">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.667c-4.605 0-8.334 3.823-8.334 8.544 0 3.78 2.385 6.974 5.698 8.106.417.075.573-.182.573-.406 0-.203-.011-.875-.011-1.592-2.093.397-2.635-.522-2.802-1.002-.094-.246-.5-1.005-.854-1.207-.291-.16-.708-.556-.01-.567.656-.01 1.124.62 1.281.876.75 1.292 1.948.93 2.427.705.073-.555.291-.93.531-1.143-1.854-.213-3.791-.95-3.791-4.218 0-.929.322-1.698.854-2.296-.083-.214-.375-1.09.083-2.265 0 0 .698-.224 2.292.876a7.576 7.576 0 0 1 2.083-.288c.709 0 1.417.096 2.084.288 1.593-1.11 2.291-.875 2.291-.875.459 1.174.167 2.05.084 2.263.53.599.854 1.357.854 2.297 0 3.278-1.948 4.005-3.802 4.219.302.266.563.78.563 1.58 0 1.143-.011 2.061-.011 2.35 0 .224.156.491.573.405a8.365 8.365 0 0 0 4.11-3.116 8.707 8.707 0 0 0 1.567-4.99c0-4.721-3.73-8.545-8.334-8.545Z"></path>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
