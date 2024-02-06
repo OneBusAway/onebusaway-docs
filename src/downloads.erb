@@ -5,8 +5,11 @@ title: Downloading the Software
 
 <div class="space-y-4">
   <p>You can download pre-built binaries from Cambridge Systematics's Maven Repository.</p>
-
-  <p>The latest known version of the OBA server software is <code><%= site.metadata['oba_version'] %></code></p>
+  <p>
+    <strong>Current Version:</strong>
+    <code><%= site.metadata.oba_version %></code>
+    (Released <%= site.metadata.oba_version_release_date %>)
+  </p>
 
   <ul class='list-disc ml-4'>
     <% site.data.application_modules.each do |k,v| %>

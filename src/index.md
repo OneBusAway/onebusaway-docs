@@ -5,7 +5,7 @@ layout: default
 
 This is the official documentation for all the application modules the make up the [OneBusAway](http://onebusaway.org) web application and API framework.
 
-**Current Version:** <code><%= site.metadata['oba_version'] %></code>
+**Current Version:** <code><%= site.metadata.oba_version %></code> (Released <%= site.metadata.oba_version_release_date %>)
 
 You can find download links to the prebuilt binaries on our [Downloads](/downloads) page.
 
