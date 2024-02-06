@@ -49,4 +49,9 @@ button.DocSearch.DocSearch-Button {
   @apply font-sans m-0 p-0 w-auto inline-block;
 }
 
+pre.highlight {
+  background-color: transparent!important;
+  padding: 0!important;
+}
+
 @tailwind utilities;
