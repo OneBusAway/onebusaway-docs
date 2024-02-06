@@ -7,48 +7,53 @@
     <%= render(NavigationSection.new(
       "Home",
       children: {
-        "Home" => relative_url('/'),
-        "About" => relative_url('/about'),
-        "Downloads" => relative_url('/downloads'),
-        "Getting Help" => relative_url('/getting-help'),
-        "Release Notes" => relative_url('/release-notes')
-      }
+        "Home" => '/',
+        "About" => '/about',
+        "Downloads" => '/downloads',
+        "Getting Help" => '/getting-help',
+        "Release Notes" => '/release-notes'
+      },
+      current_path: resource.relative_url
     )) %>
 
     <%= render(NavigationSection.new(
       "Guides",
       children: {
-        "Quickstart" => relative_url('/guides/quickstart-guide'),
-        "Installation" => relative_url('/guides/installation-guide'),
-        "Transit Data Bundle" => relative_url('/guides/transit-data-bundle-guide'),
-        "Realtime Config" => relative_url('/guides/realtime-configuration-guide'),
-        "API Config" => relative_url('/guides/api-webapp-configuration-guide'),
-        "Phone (IVR) Config" => relative_url('/guides/phone-webapp-configuration-guide'),
-        "Web Config" => relative_url('/guides/webapp-configuration-guide'),
-        "Database Config" => relative_url('/guides/database-configuration-guide'),
-        "Troubleshooting" => relative_url('/guides/troubleshooting-guide')
-      }
+        "Quickstart" => '/guides/quickstart-guide',
+        "Installation" => '/guides/installation-guide',
+        "Transit Data Bundle" => '/guides/transit-data-bundle-guide',
+        "Realtime Config" => '/guides/realtime-configuration-guide',
+        "API Config" => '/guides/api-webapp-configuration-guide',
+        "Phone (IVR) Config" => '/guides/phone-webapp-configuration-guide',
+        "Web Config" => '/guides/webapp-configuration-guide',
+        "Database Config" => '/guides/database-configuration-guide',
+        "Troubleshooting" => '/guides/troubleshooting-guide'
+      },
+      current_path: resource.relative_url
     )) %>
 
     <%= render(NavigationSection.new(
       "Features",
       children: {
-        "Web" => relative_url('/features/web'),
-        "Phone and SMS" => relative_url('/features/phone-and-sms'),
-        "Sign Mode" => relative_url('/features/sign-mode'),
-        "GTFS Realtime" => relative_url('/features/gtfs-realtime'),
-        "Search API" => relative_url('/api/where/search'),
-      }
+        "Web" => '/features/web',
+        "Phone and SMS" => '/features/phone-and-sms',
+        "Sign Mode" => '/features/sign-mode',
+        "GTFS Realtime" => '/features/gtfs-realtime',
+        "Search API" => '/api/where/search',
+      },
+      current_path: resource.relative_url
     )) %>
 
     <%= render (NavigationSection.new(
       "REST API Methods",
-      children: site.data.rest_api['methods'].reduce({}) {|acc, kv| k = kv.first; acc[k] = "/api/where/methods/#{k}"; acc }
+      children: site.data.rest_api['methods'].reduce({}) {|acc, kv| k = kv.first; acc[k] = "/api/where/methods/#{k}"; acc },
+      current_path: resource.relative_url
     )) %>
 
     <%= render (NavigationSection.new(
       "REST API Elements",
-      children: site.data.rest_api['elements'].reduce({}) {|acc, kv| k = kv.first; v = kv.last; acc[(v['name'] || k)] = "/api/where/elements/#{k}"; acc }
+      children: site.data.rest_api['elements'].reduce({}) {|acc, kv| k = kv.first; v = kv.last; acc[(v['name'] || k)] = "/api/where/elements/#{k}"; acc },
+      current_path: resource.relative_url
     )) %>
   </ul>
 </nav>
