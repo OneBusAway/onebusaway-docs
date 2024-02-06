@@ -44,7 +44,7 @@ config file:
 
 The default Asterisk text-to-speech is not great.  I had better luck using a text-to-speech engine from Cepstral to
 generate the speech for the text in my IVR system.  Cepstral has products that can probably directly integrate into
-Asterisk, but they are a bit pricey when you budget is "as close to free as possible."  Instead, I opted for a license
+Asterisk, but they are a bit pricey when your budget is "as close to free as possible."  Instead, I opted for a license
 that only allows you to run one text-to-speech session at a time on the command-line and just cache all the results,
 since most of the text in the IVR system ends up being largely static over time.  To configure, I installed `swift`,
 the Cepstral text-to-speech application and configured my license.  I also installed `sox`, which will be used to
