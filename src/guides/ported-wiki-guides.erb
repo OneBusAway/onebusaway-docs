@@ -55,3 +55,51 @@ layout: page
     The application suite can be used to provide a high-level API from low level GTFS and
     GTFS-realtime data feeds, for example.
 <% end %>
+
+<%= render ArticleSummary.new(
+    "Enterprise Webapp Configuration",
+    '/guides/wiki/enterprise-webapp-configuration',
+    "December 2019"
+) do %>
+    This page documents how to do a minimal deploy of the onebusaway-enterprise-acta-webapp
+    module introduced by Pull 176 for v2.0 of OBA.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "Configuration and Deployment Guide for v1.x",
+    '/guides/wiki/oba-1x-config-deploy-guide',
+    "August 2018"
+) do %>
+    This guide is designed to provide a comprehensive deployment method for users who wish
+    to set up a simple OneBusAway application with minimal configurations. It is primarily
+    intended for use cases that would need to be more permanent than just using the quick
+    start version of OneBusAway. Unlike quick start, this solution boots with the server
+    automatically with no additional configuration required.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "Build and Compile Guide for v1.x",
+    '/guides/wiki/oba-1x-build-compile-guide',
+    "July 2018"
+) do %>
+    This guide is designed to provide a comprehensive path for users who wish to build a
+    OneBusAway binary from the version 1.x source files.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "GTFS Realtime Quickstart",
+    '/guides/wiki/gtfs-realtime-quickstart',
+    "September 2017"
+) do %>
+    Tutorial to get real time data flowing into OBA.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "Database Guide",
+    '/guides/wiki/database-guide',
+    "April 2017"
+) do %>
+    OneBusAway makes use of relational databases in a number of places to store transit
+    data and user account information. Here we attempt to describe how to setup and
+    configure data-sources as needed and list all the places databases get used.
+<% end %>
