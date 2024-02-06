@@ -10,6 +10,17 @@ This is the primary documentation for all the application modules the make up th
 
 Details on all releases can be found in the [Release Notes](/release-notes).
 
+## Help us improve our documentation!
+
+This is a living website that needs help from the entire OneBusAway community:
+
+* Notice a typo?
+* See some outdated or incorrect information?
+* Want to improve our web design?
+
+Help out! If you can edit a text file, you can improve this site. [Find the source
+code on GitHub](https://github.com/onebusAway/onebusaway-docs).
+
 ## Functionality
 
 The OneBusAway application suite's primary function is to share real-time public transit information with riders across
