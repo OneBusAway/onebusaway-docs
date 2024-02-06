@@ -1,0 +1,57 @@
+---
+title: Guides from our Wikis
+layout: page
+---
+
+<p>
+    Up until early 2024, the OneBusAway project had two primary sources of documentation:
+    our project wikis and this website. The wikis were much easier to update, but their
+    content has grown stale. Nevertheless, much of the information they contain is not
+    available anywhere else.
+</p>
+
+<p>
+    This page contains a list of every OneBusAway configuration guide that was previously
+    available on our project wikis. For each guide, you can find the name, original link,
+    date last updated, and some information about its purpose.
+</p>
+
+<%= render ArticleSummary.new(
+    "OBA 2.x Build and Run Guide (App Modules Wiki Home)",
+    '/guides/wiki/oba-2x-build-run-guide',
+    "April 2022"
+) do %>
+    Intended to explain how to build and run OBA 2.x.
+<% end %>
+
+
+<%= render ArticleSummary.new(
+    "Configuration and Deployment Guide for v2.x",
+    '/guides/wiki/oba-2x-config-deploy-guide',
+    "October 2021"
+) do %>
+    This guide is designed to provide a comprehensive deployment method for users who
+    wish to set up a simple OneBusAway application with minimal configurations. It is
+    primarily intended for use cases that would need to be more permanent than just
+    using the quick start version of OneBusAway. Unlike quick start, this solution
+    boots with the server automatically with no additional configuration required.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "v1.x Developer Guide",
+    '/guides/wiki/oba-1x-developer-guide',
+    "October 2021"
+) do %>
+    This guide is designed to get you up and running with the OneBusAway application
+    suite source code as quickly as possible.
+<% end %>
+
+<%= render ArticleSummary.new(
+    "GTFS Realtime Resources",
+    '/guides/wiki/gtfs-realtime-resources',
+    "January 2021"
+) do %>
+    The OneBusAway application suite has support for both GTFS-realtime import and export.
+    The application suite can be used to provide a high-level API from low level GTFS and
+    GTFS-realtime data feeds, for example.
+<% end %>
