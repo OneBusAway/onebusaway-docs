@@ -1,7 +1,8 @@
 <nav class="pl-5 pt-10 lg:p-0 lg:block max-h-[100svh] overflow-y-scroll" :class="{ 'hidden': !nav_open }">
-  <div class="lg:hidden oba-docs-search-container">
-  </div>
   <ul role="list">
+    <li class="relative mt-10 ml-0 mr-5 lg:hidden">
+      <div id="oba-docs-search-container--mobile"></div>
+    </li>
     <%= render(NavigationSection.new(
       "Home",
       children: {

@@ -30,6 +30,10 @@ button.DocSearch.DocSearch-Button {
 
 }
 
+#oba-docs-search-container--mobile button.DocSearch-Button {
+  margin: 0;
+}
+
 .DocSearch-Search-Icon {
   @apply !h-5 !w-5;
 }
