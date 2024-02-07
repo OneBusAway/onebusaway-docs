@@ -33,6 +33,7 @@ Using Debian 9, the following software must be installed:
 This is the open source version of the Java 8 JDK Runtime Environment. To install it run the following command:
 
 `apt-get install openjdk-8-jdk`
+
 ### Tomcat 8
 This software is used to serve the OneBusAway web application. To install it run the following command:
 
@@ -41,17 +42,12 @@ This software is used to serve the OneBusAway web application. To install it run
 ### MySQL Server
 The MySQL Server is used to store OneBusAway user data and API keys. Since Debian no longer has MySQL in its application repository as of Debian 9, it is a little more complicated to install. To install it, run the following commands:
 
-`cd ~`
-
-`wget https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb`
-
-`apt-get install gdebi-core`
-
-`gdebi mysql-apt-config_0.8.6-1_all.deb`
-
-`apt-get update`
-
-`apt-get install mysql-server`
+    cd ~
+    wget https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb
+    apt-get install gdebi-core
+    gdebi mysql-apt-config_0.8.6-1_all.deb
+    apt-get update
+    apt-get install mysql-server
 
 During the install process, you will be prompted to create a password for the root MySQL user. Make sure to take note of the password you set because it will be needed later.
 
@@ -80,35 +76,30 @@ You can download pre-compiled binaries for OneBusAway from: http://nexus.onebusa
 
 If you do not care about versions, go for the latest by downloading them with the following commands:
 
-`mkdir /oba`
-
-`cd /oba`
-
-`wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/2.0.0/onebusaway-transit-data-federation-builder-2.0.0-withAllDependencies.jar`
-
-`wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/2.0.0/onebusaway-transit-data-federation-webapp-2.0.0.war`
-
-`wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/2.0.0/onebusaway-api-webapp-2.0.0.war`
-
-`wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/2.0.0/onebusaway-enterprise-acta-webapp-2.0.0.war`
+    mkdir /oba
+    cd /oba
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/2.0.0/onebusaway-transit-data-federation-builder-2.0.0-withAllDependencies.jar
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/2.0.0/onebusaway-transit-data-federation-webapp-2.0.0.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/2.0.0/onebusaway-api-webapp-2.0.0.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/2.0.0/onebusaway-enterprise-acta-webapp-2.0.0.war
 
 ## Download the Transit GTFS Data From the Transit Agency
 Next we need to download the GTFS Data from the transit agency. With this data we can build the Transit Data Bundle that OneBusAway will use as a data source. To do this run the following commands in sequence:
 
-`mkdir /oba/gtfs`
-
-`cd /oba/gtfs`
-
-`wget http://transitagency.example.com/gtfs.zip`
+    mkdir /oba/gtfs
+    cd /oba/gtfs
+    wget http://transitagency.example.com/gtfs.zip
 
 In the proceeding command, replace **http://transitagency.example.com/gtfs.zip** with the full URL of the GTFS from your respective transit agency. Take note of the actual file name being downloaded, as it will be needed later.
 
 ## Build the Transit Data Bundle
 Now it is time to build the Transit Data Bundle that OneBusAway will use to display route and schedule information. To do this run the following command:
 
-`cd /oba/gtfs`
-
-`java -jar -Xss4m -Xmx1g /oba/onebusaway-transit-data-federation-builder-2.0.0-20180106.064533-47-withAllDependencies.jar /oba/gtfs/gtfs.zip /oba/gtfs`
+    cd /oba/gtfs
+    java -jar -Xss4m -Xmx1g \
+      /oba/onebusaway-transit-data-federation-builder-2.0.0-20180106.064533-47-withAllDependencies.jar \
+      /oba/gtfs/gtfs.zip \
+      /oba/gtfs
 
 In the above command, replace **gtfs.zip** with the name of the GTFS data file that was downloaded earlier. The extension of the file should end with **.zip**. This process will take a while to run. When it is complete you should see “Shutting down EHCache CacheManager” with no major errors before it.
 
@@ -117,22 +108,17 @@ When executing this particular script, you must run it from within the /oba/gtfs
 ## Download the MySQL Connector Java Library
 Next we need the MySQL Connector Java Library. This will allow OneBusAway to use the MySQL database. You can download the library from [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/). To do this, run the following commands in sequence:
 
-`cd /oba`
-
-`wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz`
-
-`tar -zxvf mysql-connector-java-5.1.46.tar.gz`
-
-`mv mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar .`
-
-`rm -rf mysql-connector-java-5.1.46.tar.gz`
-
-`rm -rf mysql-connector-java-5.1.46`
+    cd /oba
+    wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz
+    tar -zxvf mysql-connector-java-5.1.46.tar.gz
+    mv mysql-connector-java-5.1.46/mysql-connector-java-5.1.46-bin.jar .
+    rm -rf mysql-connector-java-5.1.46.tar.gz
+    rm -rf mysql-connector-java-5.1.46
 
 ## Create the MySQL Database
 Now we are going to create the database that OneBusAway will use to store user and API data. To do this run the following command:
 
-`mysql -p -e "CREATE DATABASE oba; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost' IDENTIFIED BY 'newPassword';"`
+    mysql -p -e "CREATE DATABASE oba; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost' IDENTIFIED BY 'newPassword';"
 
 In the above commands, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
 
@@ -144,12 +130,17 @@ To prepare for deployment, we need to stop the Tomcat 8 service. To do this run 
 ## Deploy and Configure the OneBusAway Transit Data Federation Webapp
 
 ### Copy The Files
-`mkdir /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp && cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp && mv /oba/onebusaway-transit-data-federation-webapp-2.0.0.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp && jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.0.0.war && rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.0.0.war`
+
+    mkdir /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
+    cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
+    mv /oba/onebusaway-transit-data-federation-webapp-2.0.0.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.0.0.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.0.0.war
 
 ### Copy the MySQL Driver
-`cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/lib`
 
-`cp /oba/mysql-connector-java-5.1.46-bin.jar .`
+    cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/lib
+    cp /oba/mysql-connector-java-5.1.46-bin.jar .
 
 ### Configure the OneBusAway Transit Data Federation Webapp
 
@@ -197,12 +188,17 @@ In the above XML code you will need to replace newPassword in the SQL settings w
 ## Deploy and Configure the OneBusAway API Webapp
 
 ### Copy The Files
-`mkdir /var/lib/tomcat8/webapps/onebusaway-api-webapp && cd /var/lib/tomcat8/webapps/onebusaway-api-webapp && mv /oba/onebusaway-api-webapp-2.0.0-20180106.064748-47.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/ && jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.0.0-20180106.064748-47.war && rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.0.0-20180106.064748-47.war`
+
+    mkdir /var/lib/tomcat8/webapps/onebusaway-api-webapp
+    cd /var/lib/tomcat8/webapps/onebusaway-api-webapp
+    mv /oba/onebusaway-api-webapp-2.0.0-20180106.064748-47.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.0.0-20180106.064748-47.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.0.0-20180106.064748-47.war
 
 ### Copy the MySQL Driver
-`cd /var/lib/tomcat8/webapps/onebusaway-api-webapp/WEB-INF/lib`
 
-`cp /oba/mysql-connector-java-5.1.46-bin.jar .`
+    cd /var/lib/tomcat8/webapps/onebusaway-api-webapp/WEB-INF/lib
+    cp /oba/mysql-connector-java-5.1.46-bin.jar .
 
 ### Configure the OneBusAway API Webapp
 
@@ -276,12 +272,17 @@ Also, in the above XML code you will need to replace newPassword in the SQL sett
 ## Deploy and Configure the OneBusAway Enterprise ACTA Webapp
 
 ### Copy The Files
-`rm -rf /var/lib/tomcat8/webapps/ROOT/* && cd /var/lib/tomcat8/webapps/ROOT && mv /oba/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war /var/lib/tomcat8/webapps/ROOT/ && jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war && rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war`
+
+    rm -rf /var/lib/tomcat8/webapps/ROOT/*
+    cd /var/lib/tomcat8/webapps/ROOT
+    mv /oba/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war /var/lib/tomcat8/webapps/ROOT/
+    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war
+    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.0.0-20180106.065008-42.war
 
 ### Copy the MySQL Driver
-`cd /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib`
 
-`cp /oba/mysql-connector-java-5.1.46-bin.jar .`
+    cd /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
+    cp /oba/mysql-connector-java-5.1.46-bin.jar .
 
 ### Configure the OneBusAway API Webapp
 
