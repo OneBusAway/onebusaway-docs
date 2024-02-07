@@ -1,50 +1,36 @@
-# Bridgetown Website README
+# OneBusAway Developer Documentation
 
-Welcome to your new Bridgetown website! You can update this README file to provide additional context and setup information for yourself or other contributors.
+Welcome to the GitHub project that powers the official [OneBusAway Developer Documentation](http://developer.onebusaway.org).
 
-## Table of Contents
+# Improve the Documentation
 
-- [Prerequisites](#prerequisites)
-- [Install](#install)
-- [Development](#development)
-- [Commands](#commands)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
+Want to help improve the documentation? Thank you! You can easily improve the official OneBusAway documentation by modifying the Markdown files that comprise it. We welcome any size of contribution, ranging from typos and corrected links, to brand-new tutorials.
+
+# Develop New Features/Fix Bugs
 
 ## Prerequisites
 
-- [GCC](https://gcc.gnu.org/install/)
-- [Make](https://www.gnu.org/software/make/)
-- [Ruby](https://www.ruby-lang.org/en/downloads/)
-  - `>= 2.7`
-- [Bridgetown Gem](https://rubygems.org/gems/bridgetown)
-  - `gem install bridgetown -N`
-- [Node](https://nodejs.org)
-  - `>= 12`
-- [Yarn](https://yarnpkg.com)
+* [Ruby](https://www.ruby-lang.org/en/downloads/) >= 2.7
+* [Node](https://nodejs.org) >= 12
+* [Yarn](https://yarnpkg.com)
 
 ## Install
 
 ```sh
-cd bridgetown-site-folder
+git clone https://github.com/OneBusAway/onebusaway-docs.git
+cd onebusaway-docs
 bundle install && yarn install
 ```
-> Learn more: [Bridgetown Getting Started Documentation](https://www.bridgetownrb.com/docs/).
 
 ## Development
 
 To start your site in development mode, run `bin/bridgetown start` and navigate to [localhost:4000](https://localhost:4000/)!
-
-Use a [theme](https://github.com/topics/bridgetown-theme) or add some [plugins](https://www.bridgetownrb.com/plugins/) to get started quickly.
 
 ### Commands
 
 ```sh
 # running locally
 bin/bridgetown start
-
-# build & deploy to production
-bin/bridgetown deploy
 
 # load the site up within a Ruby console (IRB)
 bin/bridgetown console
@@ -54,17 +40,4 @@ bin/bridgetown console
 
 ## Deployment
 
-You can deploy Bridgetown sites on hosts like Render or Vercel as well as traditional web servers by simply building and copying the output folder to your HTML root.
-
-> Read the [Bridgetown Deployment Documentation](https://www.bridgetownrb.com/docs/deployment) for more information.
-
-## Contributing
-
-If repo is on GitHub:
-
-1. Fork it
-2. Clone the fork using `git clone` to your local development machine.
-3. Create your feature branch (`git checkout -b my-new-feature`)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new Pull Request
+The website built from this project is deployed automatically to a static hosting service on [Render](https://www.render.com). Please contact the maintainers with any questions.
