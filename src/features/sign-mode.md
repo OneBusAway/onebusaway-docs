@@ -3,8 +3,7 @@ layout: page
 title: Sign Mode
 ---
 
-OneBusAway provides a mode optimized for showing real-time arrival information on large public screens, allowing
-quick and cheap information displays.
+OneBusAway provides a mode optimized for showing real-time arrival information on large public screens, allowing quick and cheap information displays.
 
 <a href="http://www.flickr.com/photos/atomictaco/6202909370/sizes/m/in/pool-624040@N24/"><img src="/images/features/sign-mode.jpg" class='max-w-[400px] rounded-md' /></a>
 
