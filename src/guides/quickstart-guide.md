@@ -24,7 +24,7 @@ You will need transit data to power your OneBusAway installation.  At minimum, y
 [GTFS](https://developers.google.com/transit/gtfs/) static schedule data feed for your target
 transit agency.  Optionally, but ideally, you will also need real-time data for your transit agency.  OneBusAway
 supports real-time data for delays, service alerts, and vehicle positions in the
-[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime) format or the [SIRI](http://siri.org.uk/) format.
+[GTFS-realtime](https://developers.google.com/transit/gtfs-realtime) format or the [SIRI](https://www.siri-cen.eu) format.
 
 ## Download a Quickstart Bundle
 

@@ -41,7 +41,7 @@ Without a `TripUpdates` feed OneBusAway will discard the vehicle positions.
 
 ## SIRI VM
 
-We support [SIRI](http://siri.org.uk/) out of the box, including support for vehicle monitoring (VM) and situation
+We support [SIRI](https://www.siri-cen.eu) out of the box, including support for vehicle monitoring (VM) and situation
 exchange (SX).  To add support, create a `SiriController`
 bean in your `data-sources.xml` file.  Then specify SIRI endpoint requests indicating
 your SIRI data-source.  Here is a full example:
@@ -88,7 +88,7 @@ bean in your `data-sources.xml` file.  Then specify the URL for your real-time d
 ## Custom Implementation
 
 Interested in adapting your own real-time system to OneBusAway?  The best option is to create an adapter between your system
-and an existing specification like [GTFS-realtime](http://code.google.com/transit/realtime/) or [SIRI](http://siri.org.uk/)
+and an existing specification like [GTFS-realtime](http://code.google.com/transit/realtime/) or [SIRI](https://www.siri-cen.eu)
 and then use OneBusAway's native support for those formats.
 
 However, if that's not going to cut it, you can create your own custom real-time data-source plugin to OneBusAway.  This
