@@ -25,8 +25,7 @@
 @tailwind components;
 
 .prose :where(p):not(:where([class~=not-prose], [class~=not-prose] *)) {
-    margin-bottom: 0.125rem;
-    margin-top: 0.125rem;
+    @apply my-1;
 }
 
 button.DocSearch.DocSearch-Button {
