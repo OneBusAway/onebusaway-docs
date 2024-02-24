@@ -35,7 +35,7 @@ $ mvn clean install
 $ sudo mkdir /var/lib/tomcat6/webapps/onebusaway-transit-data-federation-webapp && sudo unzip onebusaway-transit-data-federation-webapp/target/onebusaway-transit-data-federation-webapp.war -d /var/lib/tomcat6/webapps/onebusaway-transit-data-federation-webapp
 ```
 
-* Make sure you've added the `data-sources.xml` files to the webapps - see the [v1.x config guide](https://github.com/OneBusAway/onebusaway-application-modules/wiki/Developer-Guide#configuring-onebusaway-transit-data-federation-webapp) for the steps, and the data-sources.xml files in the [Docker repo](https://github.com/OneBusAway/onebusaway-docker/tree/master/config) for v2.0 examples.
+* Make sure you've added the `data-sources.xml` files to the webapps - see the [v1.x config guide](https://github.com/OneBusAway/onebusaway-application-modules/wiki/Developer-Guide#configuring-onebusaway-transit-data-federation-webapp) for the steps, and the data-sources.xml files in the [Docker repo](https://github.com/OneBusAway/onebusaway-docker/tree/main/oba/config) for v2.0 examples.
 * edit `data-sources.xml` in `onebusaway-enterprise-acta-webapp` to reflect your data sources
 
 ```

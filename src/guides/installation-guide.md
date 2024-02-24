@@ -85,7 +85,9 @@ Here, each `<prop/>` entry specifies a key and a value.  The key takes the form 
 `objectName` is a OneBusAway object and `propertyName` is a property of that object whose value you'd like to override.
 
 For the full list of documented configuration options, check out the
-[list of configuration parameters](../oba-configs/index.html) auto-generated from the OBA source code.
+[Realtime Config](./realtime-configuration-guide), [API Config](./api-webapp-configuration-guide), 
+[Phone (IVR) Config](./phone-webapp-configuration-guide), [Web Config](./webapp-configuration-guide) and
+[Database Config](./database-configuration-guide) pages which are auto-generated from the OBA source code.
 
 ### Tomcat and an external data-sources.xml
 
@@ -152,7 +154,6 @@ In addition, you might optionally consider [changing the default database](/guid
 For configuration details for each of user-interface components, see the specific configuration guides:
 
 * [API Config](/guides/api-webapp-configuration-guide)
-* [SMS Config](/guides/sms-webapp-configuration-guide)
 * [Phone Config](/guides/phone-webapp-configuration-guide)
 * [Web Config](/guides/webapp-configuration-guide)
 
