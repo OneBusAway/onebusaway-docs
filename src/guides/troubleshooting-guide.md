@@ -94,7 +94,7 @@ You should see a response like:
 If you don't see any entries, it probably means your transit data bundle wasn't configured properly.
 
 Next, for a specific agency, you can query the set of routes ([method documentation](/api/where/methods/routes-for-agency))
-and stops ([method documentation](../api/where/methods/stops.html)) for the agency.
+and stops ([method documentation](../api/where/methods/stop-ids-for-agency)) for the agency.
 
 For routes, use the following URL, replace `AGENCYID` with the agency id from the [<agency/> element](/api/where/elements/agency)
 in the agencies response.

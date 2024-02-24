@@ -50,7 +50,7 @@ We suggest you start simple by just deploying the transit data webapp, onebusawa
 
 A transit data bundle collects all the transit data that is needed to power OneBusAway, bundle into a series of files and optimized data structures.
 
-At a minimum, you need a GTFS feed of static schedule data for your target transit agency.  You can use [MBTA's GTFS data](http://www.mbta.com/rider_tools/developers/default.asp?id=21895) for this example deployment (MBTA also has a [MBTA GTFS-realtime](http://www.mbta.com/rider_tools/developers/default.asp?id=22393) feed that you can test with later - see the Real-time Data Configuration link at the bottom of this page under "What's Next?").
+At a minimum, you need a GTFS feed of static schedule data for your target transit agency.  You can use [MBTA's GTFS data](https://www.mbta.com/developers/gtfs) for this example deployment (MBTA also has a [MBTA GTFS-realtime](https://www.mbta.com/developers/gtfs-realtime) feed that you can test with later - see the Real-time Data Configuration link at the bottom of this page under "What's Next?").
 
 ### Command-line
 
@@ -89,7 +89,7 @@ If you do choose a different database, note:
 
   * Make sure the JDBC adapter jar for your database is on your classpath and that you've set the appropriate Hibernate dialect.
 
-See [Database Setup and Configuration Guide](Database-Guide) for more details.
+See [Database Setup and Configuration Guide](../wiki/Database-Guide) for more details.
 
 ## Setting up a Tomcat server in Eclipse
 
@@ -413,7 +413,7 @@ Check out the following additional developer resources for the API and webapp pr
 * [Webapp Configuration Guide](https://github.com/OneBusAway/onebusaway-application-modules/wiki/Webapp-Configuration-Guide) - More info on setting up the OneBusAway Webapp for the main website, including Google Web Toolkit (GWT) setup and debugging.
 * [Database Configuration Guide](https://github.com/OneBusAway/onebusaway-application-modules/wiki/Database-Guide) - Info on using different types of database management systems with OneBusAway.
 * [Wiki Configuration Guide](https://github.com/OneBusAway/onebusaway/wiki/Wiki-Integration) - Information on how to configure the OneBusAway integrated wiki.
-* [REST API Documentation](http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/index.html) - Info on all the API calls that are supported by the `onebusaway-api-webapp`.
+* [REST API Documentation](../../api/where) - Info on all the API calls that are supported by the `onebusaway-api-webapp`.
 * [GTFS Maintenance] (https://github.com/OneBusAway/onebusaway-application-modules/wiki/Maintenance) - Information on how to handle GTFS updates
 
 And check out the other ways to share OneBusAway info via SMS and Phone IVR webapps:

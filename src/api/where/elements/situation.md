@@ -7,7 +7,7 @@ Real-time arrival information for public transit vehicles is one of the key piec
 
 ## API Representation
 
-We introduce a new `<situation/>` element.  It's closely modeled on the PtSituation model from the [SIRI](http://user47094.vs.easily.co.uk/siri/) Situation Exchange schema.  Let's see an example:
+We introduce a new `<situation/>` element.  It's closely modeled on the PtSituation model from the [SIRI Situation Exchange](https://www.transmodel-cen.eu/siri-standard/) schema. Let's see an example:
 
     <situation>
       <id>1_1289972401385</id>

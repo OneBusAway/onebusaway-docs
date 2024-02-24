@@ -80,7 +80,7 @@ The REST API should now be up and running, so you can query the OBA REST API for
 
 ###  Stops for Location
 
-Retrieve the set of stops near a location using the [stops-for-location][8] method:
+Retrieve the set of stops near a location using the [stops-for-location](../../api/where/methods/stops-for-location) method:
 
 [http://localhost:8080/api/where/stops-for-location.xml?key=TEST&lat=37.785045&lon=-122.407049][9]
 
@@ -129,7 +129,7 @@ Retrieve the set of stops near a location using the [stops-for-location][8] meth
 
 ###  Arrivals and Departures for Stop
 
-Retrieve the set of real-time arrivals and departures at a particular stop using the [arrivals-and-departures-for-stop][10] method:
+Retrieve the set of real-time arrivals and departures at a particular stop using the [arrivals-and-departures-for-stop](../../api/where/methods/arrivals-and-departures-for-stop) method:
 
 
 
