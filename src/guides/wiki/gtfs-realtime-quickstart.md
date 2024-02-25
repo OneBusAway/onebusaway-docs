@@ -46,8 +46,6 @@ You can perform these two steps either using our simple GUI configuration tool o
 
 We provide a simple wizard to help you configure and run the OneBusAway quick-start application. Simply double-click the downloaded quick-start war file. Follow the steps and you'll be up and running in no time.
 
-![OneBusAway QuickStart wizard opening screenshot][6]
-
 **NOTE:** You may need to run the OneBusAway quick-start GUI from the command-line if you want to pass additional options to java, like specifying more memory or server optimization:
 
 
@@ -80,7 +78,7 @@ The REST API should now be up and running, so you can query the OBA REST API for
 
 ###  Stops for Location
 
-Retrieve the set of stops near a location using the [stops-for-location](../../api/where/methods/stops-for-location) method:
+Retrieve the set of stops near a location using the [stops-for-location][8] method:
 
 [http://localhost:8080/api/where/stops-for-location.xml?key=TEST&lat=37.785045&lon=-122.407049][9]
 
@@ -129,7 +127,7 @@ Retrieve the set of stops near a location using the [stops-for-location](../../a
 
 ###  Arrivals and Departures for Stop
 
-Retrieve the set of real-time arrivals and departures at a particular stop using the [arrivals-and-departures-for-stop](../../api/where/methods/arrivals-and-departures-for-stop) method:
+Retrieve the set of real-time arrivals and departures at a particular stop using the [arrivals-and-departures-for-stop][10] method:
 
 
 
@@ -203,10 +201,10 @@ Also, see how to configure OneBusAway to consume other [other real-time transit 
 [4]: http://www.bart.gov/schedules/developers/gtfs.aspx
 [5]: http://www.bart.gov/schedules/developers/gtfs-realtime.aspx
 [6]: https://camo.githubusercontent.com/75dc67e42c838144f7d5f6f2901461c0272888ab/687474703a2f2f646576656c6f7065722e6f6e65627573617761792e6f72672f6d6f64756c65732f6f6e65627573617761792d6170706c69636174696f6e2d6d6f64756c65732f63757272656e742f6775696465732f517569636b53746172744775692e706e67
-[7]: http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/index.html
-[8]: http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/stops-for-location.html
+[7]: http://developer.onebusaway.org/api/where
+[8]: http://developer.onebusaway.org/api/where/methods/stops-for-location
 [9]: http://localhost:8080/api/where/stops-for-location.xml?key=TEST&lat=37.785045&lon=-122.407049
-[10]: http://developer.onebusaway.org/modules/onebusaway-application-modules/current/api/where/methods/arrival-and-departure-for-stop.html
+[10]: http://developer.onebusaway.org/api/where/methods/arrivals-and-departures-for-stop
 [11]: https://github.com/OneBusAway/onebusaway-application-modules/wiki/OneBusAway-Web
 [12]: https://github.com/OneBusAway/onebusaway/wiki/Troubleshooting
 [13]: https://github.com/OneBusAway/onebusaway-application-modules/wiki/Developer-Guide
