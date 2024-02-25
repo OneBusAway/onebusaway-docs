@@ -89,7 +89,7 @@ If you do choose a different database, note:
 
   * Make sure the JDBC adapter jar for your database is on your classpath and that you've set the appropriate Hibernate dialect.
 
-See [Database Setup and Configuration Guide](../wiki/Database-Guide) for more details.
+See [Database Setup and Configuration Guide](../database-configuration-guide) for more details.
 
 ## Setting up a Tomcat server in Eclipse
 
