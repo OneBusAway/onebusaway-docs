@@ -8,9 +8,9 @@
   <div class="relative mt-3 pl-2">
     <ul role="list">
       <% @children.each do |k,v| %>
-        <li class="relative border-l <% if equal_paths(v, @current_path) %>border-emerald-500 <% else %>border-transparent<% end %>">
+        <li class="relative border-l-4 <% if equal_paths(v, @current_path) %>border-emerald-500 <% else %>border-transparent<% end %>">
           <a class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 
-          <% if equal_paths(v, @current_path) %>text-white font-semibold<% else %>text-zinc-600 dark:text-zinc-400 <% end %>
+          <% if equal_paths(v, @current_path) %>text-black dark:text-white font-semibold<% else %>text-zinc-600 dark:text-zinc-400 <% end %>
            hover:text-zinc-900 dark:hover:text-white" href="<%= v -%>">
             <span class="truncate"><%= k %></span>
           </a>
