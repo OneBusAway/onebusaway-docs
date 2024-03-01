@@ -5,16 +5,24 @@
   </div>
 
   <div class="flex items-center gap-5 lg:hidden">
+    <button 
+      @click="nav_open = !nav_open"
+      type="button"
+      class="flex  items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5" :class="{ 'hidden': nav_open }"
+      aria-label="Toggle navigation ">
+      <span class="material-symbols-outlined   text-zinc-900 dark:text-white">menu</span>
+    </button>
+
     <button
       @click="nav_open = !nav_open"
       type="button"
-      class="flex h-6 w-6 items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5"
+      class="flex items-center justify-center rounded-md transition hover:bg-zinc-900/5 dark:hover:bg-white/5":class="{ 'hidden': !nav_open }"
       aria-label="Toggle navigation">
-      <svg viewBox="0 0 10 9" fill="none" stroke-linecap="round" aria-hidden="true" class="w-2.5 stroke-zinc-900 dark:stroke-white">
-        <path d="M.5 1h9M.5 8h9M.5 4.5h9"></path>
-      </svg>
+      <span class="material-symbols-outlined  text-zinc-900 dark:text-white">close</span>
     </button>
-    <%= render 'site_logo' %>
+
+     <%= render 'site_logo' %>
+  
   </div>
 
   <div class="flex items-center gap-5">
