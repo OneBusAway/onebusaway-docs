@@ -1,13 +1,17 @@
+<!--leftsidebar navigation elements generating-->
+
 <li class="relative mt-6">
-  <h2 class="text-xs font-semibold text-zinc-900 dark:text-white">
+  <h2 class="text-md font-black text-zinc-900 dark:text-white uppercase">
     <%= @title %>
   </h2>
-
+  <div class=" flex w-full h-2 bg-green-500 bg-opacity-30"></div>
   <div class="relative mt-3 pl-2">
     <ul role="list">
       <% @children.each do |k,v| %>
-        <li class="relative border-l <% if equal_paths(v, @current_path) %>border-emerald-500<% else %>border-transparent<% end %>">
-          <a class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white" href="<%= v -%>">
+        <li class="relative border-l-4 <% if equal_paths(v, @current_path) %>border-emerald-500 <% else %>border-transparent<% end %>">
+          <a class="flex justify-between gap-2 py-1 pr-3 text-sm transition pl-4 
+          <% if equal_paths(v, @current_path) %>text-black dark:text-white font-semibold<% else %>text-zinc-600 dark:text-zinc-400 <% end %>
+           hover:text-zinc-900 dark:hover:text-white" href="<%= v -%>">
             <span class="truncate"><%= k %></span>
           </a>
         </li>
