@@ -1,3 +1,6 @@
-<nav class="fixed pl-5 pt-14 lg:p-0 lg:block max-h-[100svh] bg-zinc-900 overflow-y-scroll lg:hidden z-10" :class="{ 'hidden': !nav_open }">
+<nav id="mob-navbar" class="fixed p-6 pt-8 lg:p-0 max-h-full w-full bg-white dark:bg-zinc-900 overflow-y-scroll duration-300 lg:hidden z-10" :class="{ '-translate-x-full ease-out': !nav_open, 'translate-x-0 ease-in':nav_open }">
+  <li class="list-none pt-8 relative ml-0 mr-5 lg:hidden">
+    <div id="oba-docs-search-container--mobile"></div>
+  </li>
   <%= render 'nav_content' %>
 </nav>
