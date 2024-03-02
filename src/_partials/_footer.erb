@@ -10,4 +10,27 @@
       </a>
     </div>
   </div>
+  <button id="scrollToTopBtn" class="fixed bottom-4 lg:bottom-8 right-4 lg:right-8 z-50 bg-green-500 text-black outline-none cursor-pointer px-4 py-2 rounded-lg text-lg hidden" style="background-color: #34d399;">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <path fill="none" d="M0 0h24v24H0z"/>
+  <path d="M12 2L2 12h4v8h12v-8h4z"/>
+</svg>
+</button>
 </footer>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.classList.remove('hidden');
+    } else {
+      scrollToTopBtn.classList.add('hidden');
+    }
+  });
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+</script>
