@@ -7,7 +7,9 @@ Returns a list of all transit agencies currently supported by OneBusAway along w
 
 ## Sample Request
 
+~~~
 http://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage.xml?key=TEST
+~~~
 
 ## Sample Response
 

@@ -7,7 +7,9 @@ Retrieve info for a specific stop by id
 
 ## Sample Request
 
+~~~
 http://api.pugetsound.onebusaway.org/api/where/stop/1_75403.xml?key=TEST
+~~~
 
 ## Sample Response
 

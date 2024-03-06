@@ -7,7 +7,9 @@ Search for active vehicles for a particular agency by id.
 
 ## Sample Request
 
+~~~
 http://api.onebusaway.org/api/where/vehicles-for-agency/1.xml?key=TEST
+~~~
 
 ## Sample Response
 
