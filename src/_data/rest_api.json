@@ -8,6 +8,10 @@
             "description": "get details for a specific agency"
         },
 
+        "config": {
+            "description": "get details about the server's OBA deployment, including version number"
+        },
+
         "arrival-and-departure-for-stop": {
             "description": "details about a specific arrival/departure at a stop"
         },
