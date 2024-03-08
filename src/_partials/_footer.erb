@@ -1,3 +1,9 @@
+<div class="flex justify-between mx-auto w-full max-w-2xl">
+  <button id="prevBtn" title="Previous Page" class="shadow-md bg-green-500 dark:bg-green-500/70 text-white px-4 py-2 rounded-lg mr-auto cursor-pointer"> &laquo; Previous</button>
+  <button id="nextBtn" title="Next Page" class="shadow-md bg-green-500 dark:bg-green-500/70 text-white px-4 py-2 rounded-lg ml-auto cursor-pointer">Next &raquo;</button>
+</div>
+
+<div class="mt-4"><div/>
 <footer class="mx-auto w-full max-w-2xl space-y-10 pb-12 lg:pb-24 lg:max-w-5xl">
   <div class="flex flex-col items-center justify-between gap-5 border-t border-zinc-900/5 pt-8 sm:flex-row dark:border-white/5">
     <p class="text-xs text-zinc-600 dark:text-zinc-400">&copy; Open Transit Software Foundation.</p>
@@ -37,9 +43,31 @@
       </a>
     </div>
   </div>
+  
+<script>
+  const allPaggesLinks = ["https://developer.onebusaway.org/","https://developer.onebusaway.org/about","https://developer.onebusaway.org/downloads","https://developer.onebusaway.org/getting-help","https://developer.onebusaway.org/release-notes","https://developer.onebusaway.org/guides/ported-wiki-guides","https://developer.onebusaway.org/guides/quickstart-guide","https://developer.onebusaway.org/guides/installation-guide","https://developer.onebusaway.org/guides/transit-data-bundle-guide","https://developer.onebusaway.org/guides/realtime-configuration-guide","https://developer.onebusaway.org/guides/api-webapp-configuration-guide","https://developer.onebusaway.org/guides/phone-webapp-configuration-guide","https://developer.onebusaway.org/guides/webapp-configuration-guide","https://developer.onebusaway.org/guides/database-configuration-guide","https://developer.onebusaway.org/guides/troubleshooting-guide","https://developer.onebusaway.org/features/web","https://developer.onebusaway.org/features/phone-and-sms","https://developer.onebusaway.org/features/sign-mode","https://developer.onebusaway.org/features/gtfs-realtime","https://developer.onebusaway.org/api/where","https://developer.onebusaway.org/api/where/search","https://developer.onebusaway.org/api/where/methods/agencies-with-coverage","https://developer.onebusaway.org/api/where/methods/agency","https://developer.onebusaway.org/api/where/methods/config","https://developer.onebusaway.org/api/where/methods/arrival-and-departure-for-stop","https://developer.onebusaway.org/api/where/methods/arrivals-and-departures-for-stop","https://developer.onebusaway.org/api/where/methods/block","https://developer.onebusaway.org/api/where/methods/cancel-alarm","https://developer.onebusaway.org/api/where/methods/current-time","https://developer.onebusaway.org/api/where/methods/register-alarm-for-arrival-and-departure-at-stop","https://developer.onebusaway.org/api/where/methods/report-problem-with-stop","https://developer.onebusaway.org/api/where/methods/report-problem-with-trip","https://developer.onebusaway.org/api/where/methods/route-ids-for-agency","https://developer.onebusaway.org/api/where/methods/route","https://developer.onebusaway.org/api/where/methods/routes-for-agency","https://developer.onebusaway.org/api/where/methods/routes-for-location","https://developer.onebusaway.org/api/where/methods/schedule-for-route","https://developer.onebusaway.org/api/where/methods/schedule-for-stop","https://developer.onebusaway.org/api/where/methods/shape","https://developer.onebusaway.org/api/where/methods/stop-ids-for-agency","https://developer.onebusaway.org/api/where/methods/stop","https://developer.onebusaway.org/api/where/methods/stops-for-location","https://developer.onebusaway.org/api/where/methods/stops-for-route","https://developer.onebusaway.org/api/where/methods/trip-details","https://developer.onebusaway.org/api/where/methods/trip-for-vehicle","https://developer.onebusaway.org/api/where/methods/trip","https://developer.onebusaway.org/api/where/methods/trips-for-location","https://developer.onebusaway.org/api/where/methods/trips-for-route","https://developer.onebusaway.org/api/where/methods/vehicles-for-agency","https://developer.onebusaway.org/api/where/elements/agency","https://developer.onebusaway.org/api/where/elements/arrival-and-departure","https://developer.onebusaway.org/api/where/elements/block-configuration","https://developer.onebusaway.org/api/where/elements/frequency","https://developer.onebusaway.org/api/where/elements/list-result","https://developer.onebusaway.org/api/where/elements/route","https://developer.onebusaway.org/api/where/elements/situation","https://developer.onebusaway.org/api/where/elements/stop","https://developer.onebusaway.org/api/where/elements/trip-details","https://developer.onebusaway.org/api/where/elements/trip-status","https://developer.onebusaway.org/api/where/elements/trip","https://developer.onebusaway.org/api/where/elements/vehicle-status"];
+  const currentPage = window.location.href;
+  const currentPageIndex = allPaggesLinks.indexOf(currentPage);
+  if (currentPageIndex === 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  }
+  if (currentPageIndex === allPaggesLinks.length - 1) {
+    document.getElementById("nextBtn").style.display = "none";
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", function() {
+    window.history.back();
+  });
+  document.getElementById("nextBtn").addEventListener("click", function() {
+    window.location.href = allPaggesLinks[currentPageIndex + 1];
+  });
+</script>
+
   <button id="scrollToTopBtn" title="Scroll to Top" class="fixed bottom-4 lg:bottom-8 right-4 lg:right-8 z-50 shadow-md bg-green-500 dark:bg-green-500/70 text-white cursor-pointer px-4 py-2 rounded-lg text-lg hidden">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
       <path stroke-linecap="round" stroke-linejoin="round" d="m15 11.25-3-3m0 0-3 3m3-3v7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
     </svg>
   </button>
+
 </footer>
+
