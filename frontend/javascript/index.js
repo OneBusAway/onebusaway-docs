@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     </svg>`
     copyButton.innerHTML = svgIcon;
     copyButton.classList.add('copy-button');
+    copyButton.setAttribute('title', 'Copy Code Snippet');
     pre.appendChild(copyButton);
     pre.style.position = 'relative';  
       copyButton.style.position = 'absolute';
