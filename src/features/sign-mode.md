@@ -14,15 +14,15 @@ should have form like:
 
 http://your.host-name.com/where/standard/stop.action?id=X_Y
 
-To enable sign mode, simply replace the `standard` part of the URL with `sign`:
+To enable sign mode, simply replace the **`standard`** part of the URL with **`sign`**:
 
 http://your.host-name.com/where/sign/stop.action?id=X_Y
 
 There are a number of parameters you can add to the URL to tweak the behavior of the sign:
 
-* `title=...` - By default, the sign uses the current stop name as a title.  This option allows you to override the title.
-* `showTitle=false` - Alternatively, you can hide the title completely.
-* `route=X_Y` - Specify a route id to indicate that only this route should be show.  Can be repeated.
-* `minutesBefore=N` - Excludes vehicles that departed more than N minutes ago.
-* `minutesAfter=N` - Exclude vehicles arriving more than N minutes from now.
-* `refresh=N` - Automatically refresh the page every N seconds.
+* **`title=...`** - By default, the sign uses the current stop name as a title.  This option allows you to override the title.
+* **`showTitle=false`** - Alternatively, you can hide the title completely.
+* **`route=X_Y`** - Specify a route id to indicate that only this route should be show.  Can be repeated.
+* **`minutesBefore=N`** - Excludes vehicles that departed more than N minutes ago.
+* **`minutesAfter=N`** - Exclude vehicles arriving more than N minutes from now.
+* **`refresh=N`** - Automatically refresh the page every N seconds.

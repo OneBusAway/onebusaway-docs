@@ -3,7 +3,7 @@ layout: page
 title: Frequency Element
 ---
 
-The `<frequency/>` element captures information about a trip that uses frequency-based scheduling.  Frequency-based scheduling is where a trip doesn't have specifically scheduled stop times, but instead just a headway specifying the frequency of service (ex. service every 10 minutes).  The `<frequency/>` element can be a sub-element of a number of other elements:
+The **`<frequency/>`** element captures information about a trip that uses frequency-based scheduling.  Frequency-based scheduling is where a trip doesn't have specifically scheduled stop times, but instead just a headway specifying the frequency of service (ex. service every 10 minutes).  The **`<frequency/>`** element can be a sub-element of a number of other elements:
 
 * [arrivalAndDeparture](/api/where/elements/arrival-and-departure)
 * [tripStatus](/api/where/elements/trip-status)
@@ -20,6 +20,6 @@ The `<frequency/>` element captures information about a trip that uses frequency
 
 We include three fields:
 
-* `startTime` - the start time (unix timestamp) when the frequency block starts
-* `endTime` - the end time (unix timestamp) when the frequency block ends
-* `headway` - the frequency of service, in seconds
+* **`startTime`** - the start time (unix timestamp) when the frequency block starts
+* **`endTime`** - the end time (unix timestamp) when the frequency block ends
+* **`headway`** - the frequency of service, in seconds

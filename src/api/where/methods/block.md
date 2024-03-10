@@ -31,9 +31,9 @@ http://api.pugetsound.onebusaway.org/api/where/block/1_5678585.xml?key=TEST
 
 ## Request Parameters
 
-* id - the id of the block, encoded directly in the url:
-    * `http://api.pugetsound.onebusaway.org/api/where/block/[ID GOES HERE].xml`
+* **`id`** - the id of the block, encoded directly in the url:
+    * **`http://api.pugetsound.onebusaway.org/api/where/block/[ID GOES HERE].xml`**
 
 ## Response
 
-See details about the various properties of the [`<blockConfiguration/>` element](/api/where/elements/block-configuration).
+See details about the various properties of the [**`<blockConfiguration/>`**](/api/where/elements/block-configuration) element.

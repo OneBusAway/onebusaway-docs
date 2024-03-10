@@ -10,18 +10,18 @@ Here we attempt to describe how to setup and configure data-sources as needed an
 
 To configure your database, you'll need to do the following:
 
-* Edit your `data-sources.xml` file to specify your JDBC data-source configuration
+* Edit your **`data-sources.xml`** file to specify your JDBC data-source configuration
 * Copy the JAR for your JDBC provider into your webapp classpath
 
 Read on for more details.
 
 ## Common Config Examples
 
-The one piece of configuration you'll typically always need to supply is a `dataSource` definition.  This provides
+The one piece of configuration you'll typically always need to supply is a **`dataSource`** definition.  This provides
 information about the JDBC data-source and how to authenticate to it.  Since we typically don't want database
 configuration information, including usernames and passwords to reside in the public source code, we often define a
-`data-sources.xml` Spring configuration file that is imported by each application but that doesn't get included in SVN.
-In `data-sources.xml`, we define our data-source:
+**`data-sources.xml`** Spring configuration file that is imported by each application but that doesn't get included in SVN.
+In **`data-sources.xml`**, we define our data-source:
 
 ~~~
 <!-- Database Connection Configuration -->
@@ -39,7 +39,7 @@ Notes:
 * **DO**: Do make sure you've already created the database where appropriate and that the credentials you've supplied work correctly
 * **DON'T**: Don't worry about creating the initial tables in the database.  Hibernate should automatically take care of that the first time the application is run.
 
-Below we include some comon `dataSource` configuration examples.
+Below we include some comon **`dataSource`** configuration examples.
 
 ### hsqldb
 
@@ -84,7 +84,7 @@ An example of using a stand-alone hsqldb instance running as a process:
 
 ## Additional Configuration
 
-Typically, specifying your database `dataSource` is enough configuration for simple uses.  However, you may wish to
+Typically, specifying your database **`dataSource`** is enough configuration for simple uses.  However, you may wish to
 perform more complex configuration, including tweaking the database configuration or adding new classes for persistence.
 Read on for more advanced details.
 
@@ -98,14 +98,14 @@ implementation classes requiring database access.
 To understand how Hibernate and Spring work together, let's start with some common Spring bean definitions shared
 between all !OneBusAway modules that wish to access a database.
 
-The `onebusaway-container` module has a resource:
+The **`onebusaway-container`** module has a resource:
 
    src/main/resources/org/onebusaway/container/application-context-hibernate.xml
 
 that does the bulk of the Hibernate configuration, but that also provides extension points so you can configure your
 application as appropriate.
 
-If you take a look at `application-context-hibernate.xml`, you'll see sections like:
+If you take a look at **`application-context-hibernate.xml`**, you'll see sections like:
 
     <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="properties">
@@ -129,7 +129,7 @@ SessionFactory bean:
         <property name="mappingLocations" ref="hibernateMappingLocations" />
     </bean>
 
-The only thing that isn't defined with a default is the `dataSource` reference, which you'll always need to provide.
+The only thing that isn't defined with a default is the **`dataSource`** reference, which you'll always need to provide.
 Details on the pieces you configure are described below.
 
 ## Adding additional Hibernate entity classes
@@ -139,10 +139,10 @@ This typically only needs to be done when you are working inside one of the !One
 extend the set of classes that can be serialized to a database or manage the set of stored queries that can operate on
 those entity classes.
 
-The first is to configure them in a `hibernate.cfg.xml` file or by annotated the entity classes with @Entity and other
+The first is to configure them in a **`hibernate.cfg.xml`** file or by annotated the entity classes with @Entity and other
 annotations and telling Hibernate to scan the classes directly.
 
-Both approaches are used by the `onebusaway-transit-data-federation` module, as can be seen in the resource:
+Both approaches are used by the **`onebusaway-transit-data-federation`** module, as can be seen in the resource:
 
     onebusaway-transit-data-federation/src/main/resources/org/onebusaway/transit_data_federation/application-context-common.xml
 
@@ -167,7 +167,7 @@ Specifically, we specify two overrides:
         </property>
     </bean>
 
-The first override add the `RouteCollection` class to the set of annotated classes that will be scanned by the
+The first override add the **`RouteCollection`** class to the set of annotated classes that will be scanned by the
 SessionFactory for management by Hibernate.  The second add a couple of Hibernate xml mapping files that will included
 in the SessionFactory as well.
 
@@ -177,20 +177,20 @@ The bulk of database operations happen in one of two modules:
 
 ### onebusaway-users
 
-The `onebusaway-users` module uses a database to manage user account information.  This module is included by three of
+The **`onebusaway-users`** module uses a database to manage user account information.  This module is included by three of
 the major UI modules:
 
 * onebusaway-sms-webapp
 * onebusaway-phone-webapp
 * onebusaway-webapp
 
-As such, each of the three application modules typically need a `data-sources.xml` resource with the appropriate
-`dataSource` definition pointing to your user database.
+As such, each of the three application modules typically need a **`data-sources.xml`** resource with the appropriate
+**`dataSource`** definition pointing to your user database.
 
 ### onebusaway-transit-data-federation
 
-The `onebusaway-transit-data-federation` archives transit data in a back-end database as well.
+The **`onebusaway-transit-data-federation`** archives transit data in a back-end database as well.
 
-The main transit data federation application container, `onebusaway-transit-data-federation-webapp` needs a
-`data-sources.xml` resource with the appropriate `dataSource` definition pointing to your transit data database. This is
+The main transit data federation application container, **`onebusaway-transit-data-federation-webapp`** needs a
+**`data-sources.xml`** resource with the appropriate **`dataSource`** definition pointing to your transit data database. This is
 typically the same data source you specified when [creating your transit data bundle](/guides/transit-data-bundle-guide).

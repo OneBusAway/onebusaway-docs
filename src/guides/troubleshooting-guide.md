@@ -42,7 +42,7 @@ Next, check the main map view:
 [http://localhost:8080/where/standard/](http://localhost:8080/where/standard/)
 
 This should bring up a browseable map.  If you get an error about your Google Maps API key, you need to specify your
-own API key.  Check out the `defaultWebappConfigurationSource.googleMapsApiKey` parameter in the
+own API key.  Check out the **`defaultWebappConfigurationSource.googleMapsApiKey`** parameter in the
 parameter config documentation.
 
 You should be able to search for routes by name and zoom in to find transit stops on the map.  If you can't find any
@@ -96,7 +96,7 @@ If you don't see any entries, it probably means your transit data bundle wasn't 
 Next, for a specific agency, you can query the set of routes ([method documentation](/api/where/methods/routes-for-agency))
 and stops ([method documentation](../api/where/methods/stop-ids-for-agency)) for the agency.
 
-For routes, use the following URL, replace `AGENCYID` with the agency id from the [<agency/> element](/api/where/elements/agency)
+For routes, use the following URL, replace **`AGENCYID`** with the agency id from the [<agency/> element](/api/where/elements/agency)
 in the agencies response.
 
 [http://localhost:8080/api/where/routes-for-agency/AGENCYID.xml?key=TEST](http://localhost:8080/api/where/routes-for-agency/AGENCYID.xml?key=TEST)
@@ -124,7 +124,7 @@ You should see a number of [<route/> elements](/api/where/elements/route) for th
 
 If you don't see any elements, it could indicate a problem with your transit data bundle.
 
-For stops, use the following URL, again updating `AGENCYID` appropriately:
+For stops, use the following URL, again updating **`AGENCYID`** appropriately:
 
 [http://localhost:8080/api/where/stop-ids-for-agency/AGENCYID.xml?key=TEST](http://localhost:8080/api/where/stop-ids-for-agency/AGENCYID.xml?key=TEST)
 

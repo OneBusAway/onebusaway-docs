@@ -15,7 +15,7 @@ title: OneBusAway RESTful API
 <p>The following parameter must be included in all API requests:</p>
 
 <ul>
-  <li><code>key</code> - your assigned application key</li>
+  <li><code><strong>key</strong></code> - your assigned application key</li>
 </ul>
 
 <p>Example:</p>
@@ -33,21 +33,21 @@ of ways.</p>
   Supported output formats include JSON and XML. The output format is determined by the request extension. For example:
 </p>
 
-<p><code>/some/api/call.xml</code></p>
+<p><strong><code>/some/api/call.xml</code></strong></p>
 
 <p>will return XML results, while</p>
 
-<p><code>/some/api/call.json</code></p>
+<p><strong><code>/some/api/call.json</code></strong></p>
 
-<p>will return JSON. The JSON method all supports a <code>callback</code> parameter, which is useful for cross-site
+<p>will return JSON. The JSON method all supports a <code><strong>callback</strong></code> parameter, which is useful for cross-site
   scripting access:
 </p>
 
-<p><code>/some/api/call.json?callback=some_function_name</code></p>
+<p><strong><code>/some/api/call.json?callback=some_function_name</code></strong></p>
 
 <p>will return:</p>
 
-<p><code>some_function_name({&quot;key&quot;:value,...})</code></p>
+<p><strong><code>some_function_name({&quot;key&quot;:value,...})</code></strong></p>
 
 <h2 id="response-element">Response Element</h2>
 
@@ -69,22 +69,22 @@ of ways.</p>
 <p>The response element carries the following fields:</p>
 
 <ul>
-  <li><code>version</code> - response version information</li>
+  <li><strong><code>version</strong></code> - response version information</li>
   <li>code - a machine-readable response code with the following semantics:
     <ul>
-      <li><code>200</code> - Success</li>
-      <li><code>400</code> - The request could not be understood due to an invalid request parameter or some other error
+      <li><strong><code>200</strong></code> - Success</li>
+      <li><strong><code>400</strong></code> - The request could not be understood due to an invalid request parameter or some other error
       </li>
-      <li><code>401</code> - The application key is either missing or invalid</li>
-      <li><code>404</code> - The specified resource was not found</li>
-      <li><code>500</code> - A service exception or error occurred while processing the request</li>
+      <li><strong><code>401</strong></code> - The application key is either missing or invalid</li>
+      <li><strong><code>404</strong></code> - The specified resource was not found</li>
+      <li><strong><code>500</strong></code> - A service exception or error occurred while processing the request</li>
     </ul>
   </li>
-  <li><code>text</code> - a human-readable version of the response <code>code</code></li>
-  <li><code>currentTime</code> - current system time on the api server as milliseconds since the unix epoch</li>
-  <li><code>data</code> - the response payload
+  <li><strong><code>text</strong></code> - a human-readable version of the response <code><strong>code</strong></code></li>
+  <li><strong><code>currentTime</strong></code> - current system time on the api server as milliseconds since the unix epoch</li>
+  <li><strong><code>data</strong></code> - the response payload
     <ul>
-      <li><code>references</code> see the discussion of references below</li>
+      <li><strong><code>references</strong></code> see the discussion of references below</li>
     </ul>
   </li>
 </ul>
@@ -92,10 +92,10 @@ of ways.</p>
 <h2 id="references">References</h2>
 
 <p>
-  The <code>&lt;references/&gt;</code> element contains a dictionary of objects referenced by the main result payload.
+  The <code><strong>&lt;references/&gt;</strong></code> element contains a dictionary of objects referenced by the main result payload.
   For elements that are often repeated in the result payload, the elements are instead included in the
-  <code>&lt;references/&gt;</code> section and the payload will refer to elements by and object id that can be used to
-  lookup the object in the <code>&lt;references/&gt;</code> dictionary.
+  <code><strong>&lt;references/&gt;</strong></code> section and the payload will refer to elements by and object id that can be used to
+  lookup the object in the <code><strong>&lt;references/&gt;</strong></code> dictionary.
 </p>
 
 <p>
@@ -130,10 +130,10 @@ of ways.</p>
 </p>
 
 <p>
-  Every API method supports an optional <code>includeReferences=true|false</code> parameter that determines if the
-  <code>&lt;references/&gt;</code> section is included in a response. If you don&#39;t need the contents of the
-  <code>&lt;references/&gt;</code> section, perhaps because you&#39;ve pre-cached all the elements, then setting
-  <code>includeReferences=false</code> can be a good way to reduce the response size.
+  Every API method supports an optional <code><strong>includeReferences=true|false</strong></code> parameter that determines if the
+  <code><strong>&lt;references/&gt;</strong></code> section is included in a response. If you don&#39;t need the contents of the
+  <code><strong>&lt;references/&gt;</strong></code> section, perhaps because you&#39;ve pre-cached all the elements, then setting
+  <code><strong>includeReferences=false</strong></code> can be a good way to reduce the response size.
 </p>
 
 <h2 id="methods">Methods</h2>
@@ -181,8 +181,8 @@ of ways.</p>
 </p>
 
 <ul>
-  <li>Millisecond since the epoch: <code>time=1365259214945</code></li>
-  <li>&quot;Human-friendly&quot;: <code>time=yyyy-MM-dd_HH-mm-ss</code></li>
+  <li>Millisecond since the epoch: <code><strong>time=1365259214945</strong></code></li>
+  <li>&quot;Human-friendly&quot;: <code><strong>time=yyyy-MM-dd_HH-mm-ss</strong></code></li>
 </ul>
 
 <p>In human-friendly mode, the time will be parsed relative to the timezone where the OBA server is operating.</p>

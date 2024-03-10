@@ -32,9 +32,9 @@ http://api.pugetsound.onebusaway.org/api/where/agency/1.xml?key=TEST
 
 ## Request Parameters
 
-* `id` - the id of the agency, encoded directly in the URL:
-    * `http://api.pugetsound.onebusaway.org/api/where/agency/[ID GOES HERE].xml`
+* **`id`** - the id of the agency, encoded directly in the URL:
+    * **`http://api.pugetsound.onebusaway.org/api/where/agency/[ID GOES HERE].xml`**
 
 ### Response
 
-For more details on the fields returned for an agency, see the documentation for the [`<agency/>` element](/api/where/elements/agency).
+For more details on the fields returned for an agency, see the documentation for the [**`<agency/>`**](/api/where/elements/agency) element.

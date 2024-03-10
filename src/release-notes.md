@@ -128,7 +128,7 @@ title: Release Notes
     * Add @ConfigurationParameter annotation for marking
       important OneBusAway bean configuration parameters.  Also add support for automatically generating
       documentation for these parameters.
-    * Make the Google Maps API key a configurable parameter: `defaultWebappConfigurationSource.googleMapsApiKey`
+    * Make the Google Maps API key a configurable parameter: **`defaultWebappConfigurationSource.googleMapsApiKey`**
     * Allow such bean properties to be overriden from the command-line for the webapp quickstart with the same
       -PbeanName.propertyName=value syntax used in the bundle builder command-line app.
     * Add more content to the trip problem report page to make it easier to diagnose problems.
@@ -139,7 +139,7 @@ title: Release Notes
       trip that is no longer loaded in the transit bundle.
     * Upgrade to struts 2.2.3.1, which hides those annoying GWT class exceptions on webapp startup.
     * ConfigurationService config cache was not properly reset on application startup.
-    * In the VehicleLocationRecords API Action, the `vehicleId`, `fromTime`, and `toTime` parameters were not being
+    * In the VehicleLocationRecords API Action, the **`vehicleId`**, **`fromTime`**, and **`toTime`** parameters were not being
       properly set for the action.
       [commit](https://github.com/OneBusAway/onebusaway-application-modules/commit/826b4bba2a67ec28f682b6431bd5965cd34fbe10)
     * Make sure vehicleId is properly set when creating a TripProblemReportBean from a DB record.
@@ -170,8 +170,8 @@ title: Release Notes
 
 ## 1.0.2
 
-* Make `onebusaway-quickstart` part of the main `onebusaway-application-modules` module set.
-* Add a ui-only webapp artifact to `onebusaway-combined-webapp`.
+* Make **`onebusaway-quickstart`** part of the main **`onebusaway-application-modules`** module set.
+* Add a ui-only webapp artifact to **`onebusaway-combined-webapp`**.
 * Tweak support for GTFS-realtime, including support for new OBA-specific delay field.
 * Initial support for fixed-schedule trips with a headway-in-name-only frequency label, as indicated by frequencies.txt
   label_only feature proposal.

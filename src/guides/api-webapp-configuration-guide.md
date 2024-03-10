@@ -3,13 +3,13 @@ title: API Webapp Configuration Guide
 layout: page
 ---
 
-This guide will instruct you on how to configure an instance of `onebusaway-api-webapp`.  These are specific
+This guide will instruct you on how to configure an instance of **`onebusaway-api-webapp`**.  These are specific
 configuration instructions, part of your larger OneBusAway installation. The
-`onebusaway-api-webapp` powers the [OneBusAway REST API](/api/where).
+**`onebusaway-api-webapp`** powers the [OneBusAway REST API](/api/where).
 
 ## API Keys
 
-The API service typically expects an API key with each request, as identified by the `key` parameter.  The API key
+The API service typically expects an API key with each request, as identified by the **`key`** parameter.  The API key
 is a loose form of authentication that can be used for simple access control and logging purposes.  It also supports
 basic connection throttling to prevent a single client from abusing the API service.
 
@@ -25,7 +25,7 @@ delete API keys, along with determining how much traffic is allowed from the spe
 
 ### Creating an API Key in data-sources.xml
 
-It's possible to create an API key directly in your `data-sources.xml` configuration file.  Simply add a section like:
+It's possible to create an API key directly in your **`data-sources.xml`** configuration file.  Simply add a section like:
 
 ~~~
 <bean class="org.onebusaway.users.impl.CreateApiKeyAction">

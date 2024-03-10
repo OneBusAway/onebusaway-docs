@@ -3,7 +3,7 @@ layout: page
 title: vehicleStatus Element
 ---
 
-The `<vehicleStatus/>` element captures extended information about an active
+The **`<vehicleStatus/>`** element captures extended information about an active
 vehicle.
 
 ## Example
@@ -24,11 +24,11 @@ vehicle.
 
 ## Details
 
-* vehicledId - the id of the vehicle
-* lastUpdateTime - the last known real-time update from the transit vehicle
-* lastLocationUpdateTime - the last known real-time update from the transit vehicle containing a location update
-* location - the last known location of the vehicle
-* tripId - the id of the vehicle's current trip, which can be used to look up the referenced [`<trip/>` element](/api/where/elements/trip) in the `<references/>` section.
-* tripStatus - [`<tripStatus/>` element](/api/where/elements/trip-status), providing additional status information for the vehicle's trip.
+* **`vehicledId`** - the id of the vehicle
+* **`lastUpdateTime`** - the last known real-time update from the transit vehicle
+* **`lastLocationUpdateTime`** - the last known real-time update from the transit vehicle containing a location update
+* **`location`** - the last known location of the vehicle
+* **`tripId`** - the id of the vehicle's current trip, which can be used to look up the referenced [**`<trip/>`**](/api/where/elements/trip) element in the **`<references/>`** section.
+* **`tripStatus`** - [**`<tripStatus/>`**](/api/where/elements/trip-status) element, providing additional status information for the vehicle's trip.
 
 A vehicle may not have an actively assigned trip.

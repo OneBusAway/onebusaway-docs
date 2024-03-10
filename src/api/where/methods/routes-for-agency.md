@@ -35,9 +35,9 @@ http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.xml?key=TEST
 
 ## Request Parameters
 
-* id - the id of the agency, encoded directly in the URL:
-    * `http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/[ID GOES HERE].xml`
+* **`id`** - the id of the agency, encoded directly in the URL:
+    * **`http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/[ID GOES HERE].xml`**
 
 ## Response
 
-Returns a list of all route ids for routes served by the specified agency.  See the full description for the [`<route/>` element](/api/where/elements/route).
+Returns a list of all route ids for routes served by the specified agency.  See the full description for the [**`<route/>`**](/api/where/elements/route) element.

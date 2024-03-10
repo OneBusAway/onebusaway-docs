@@ -29,14 +29,14 @@ http://api.pugetsound.onebusaway.org/api/where/stops-for-location.xml?key=TEST&a
 
 ## Request Parameters
 
-* lat - The latitude coordinate of the search center
-* lon - The longitude coordinate of the search center
-* radius - The search radius in meters (optional)
-* latSpan/lonSpan - An alternative to `radius` to set the search bounding box (optional)
-* query	- A specific stop code to search for (optional)
+* **`lat`** - The latitude coordinate of the search center
+* **`lon`** - The longitude coordinate of the search center
+* **`radius`** - The search radius in meters (optional)
+* **`latSpan/lonSpan`** - An alternative to **`radius`** to set the search bounding box (optional)
+* **`query`**	- A specific stop code to search for (optional)
 
-If you just specify a lat,lon search location, the `stops-for-location` method will just return nearby stops.  If you specify an optional `query` parameter, we'll search for nearby stops with the specified code.  This is the primary method from going from a user-facing stop code like "75403" to the actual underlying stop id unique to a stop for a particular transit agency.
+If you just specify a lat,lon search location, the **`stops-for-location`** method will just return nearby stops.  If you specify an optional **`query`** parameter, we'll search for nearby stops with the specified code.  This is the primary method from going from a user-facing stop code like "75403" to the actual underlying stop id unique to a stop for a particular transit agency.
 
 ## Response
 
-The `stops-for-location` method returns a [list result](../elements/list-result), so see additional documentation on controlling the number of elements returned and interpreting the results.  The list contents are `<stop/>` elements, so see details about the various properties of the [`<stop/>` element](../elements/stop).
+The **`stops-for-location`** method returns a [**`list result`**](../elements/list-result), so see additional documentation on controlling the number of elements returned and interpreting the results.  The list contents are **`<stop/>`** elements, so see details about the various properties of the [**`<stop/>`** ](../elements/stop) element.

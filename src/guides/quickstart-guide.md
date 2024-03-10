@@ -30,8 +30,8 @@ supports real-time data for delays, service alerts, and vehicle positions in the
 
 You need to download one of the quickstart bundles.  Pick a bundle based on what features you are interested in:
 
-* The full webapp: `onebusaway-quickstart-assembly-webapp.war` - Includes the [REST API](/api/where) and [the web interfaces](/features/web).
-* The API-only webapp: `onebusaway-quickstart-assembly-api-webapp.war` - Includes just the [REST API](/api/where).
+* The full webapp: **`onebusaway-quickstart-assembly-webapp.war`** - Includes the [REST API](/api/where) and [the web interfaces](/features/web).
+* The API-only webapp: **`onebusaway-quickstart-assembly-api-webapp.war`** - Includes just the [REST API](/api/where).
 
 Find links to both of these WAR files on our [Downloads page](/downloads).
 
@@ -50,7 +50,7 @@ We provide a simple wizard to help you configure and run the OneBusAway quick-st
 the downloaded quick-start war file.  Follow the steps and you'll be up and running in no time.
 
 **NOTE:** You may need to run the OneBusAway quick-start GUI from the command-line if you want to pass additional
-options to `java`, like specifying more memory or server optimization:
+options to **`java`**, like specifying more memory or server optimization:
 
 ~~~
 java -Xmx1G -server -jar onebusaway-quickstart-assembly.war
@@ -73,7 +73,7 @@ java -Xmx1G -server -jar onebusaway-quickstart-assembly.war -webapp path/to/crea
 Once the webapp has finished startup, browse to [http://localhost:8080/](http://localhost:8080/).
 
 To see more options for configuring the build and the webapp, including adding real-time information, specify the
-`-help` option to get full usage instructions:
+**`-help`** option to get full usage instructions:
 
 ~~~
 java -jar onebusaway-quickstart-assembly.war -help

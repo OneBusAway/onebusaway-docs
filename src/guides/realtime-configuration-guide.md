@@ -10,7 +10,7 @@ information.
 
 We support [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime) out of the box, including support for trip updates,
 vehicle positions, and alerts.  To add support, create a
-`GtfsRealtimeSource` bean in your `data-sources.xml` file.  Then specify URLs for the three different types of GTFS-realtime data as
+**`GtfsRealtimeSource`** bean in your **`data-sources.xml`** file.  Then specify URLs for the three different types of GTFS-realtime data as
 properties of the bean.  Here is a full example:
 
 ~~~
@@ -31,19 +31,19 @@ properties of the bean.  Here is a full example:
 </bean>
 ~~~
 
-You can additionally specify a `refreshInterval` that controls how often we query the URLs, in seconds.  If you
-are deploying a multi-agency instance of OneBusAway, you may also need to specify the `agencyId` or `agencyIds`
+You can additionally specify a **`refreshInterval`** that controls how often we query the URLs, in seconds.  If you
+are deploying a multi-agency instance of OneBusAway, you may also need to specify the **`agencyId`** or **`agencyIds`**
 of the transit agency to associate the incoming GTFS-realtime data with.  This allows you to define multiple incoming
 GTFS-realtime data-sources from different agencies in the same system.
 
-You must provide both a `TripUpdates` feed and a `VehiclePositions` feed in order for OneBusAway to report vehicle positions.
-Without a `TripUpdates` feed OneBusAway will discard the vehicle positions.
+You must provide both a **`TripUpdates`** feed and a **`VehiclePositions`** feed in order for OneBusAway to report vehicle positions.
+Without a **`TripUpdates`** feed OneBusAway will discard the vehicle positions.
 
 ## SIRI VM
 
 We support [SIRI](https://www.siri-cen.eu) out of the box, including support for vehicle monitoring (VM) and situation
-exchange (SX).  To add support, create a `SiriController`
-bean in your `data-sources.xml` file.  Then specify SIRI endpoint requests indicating
+exchange (SX).  To add support, create a **`SiriController`**
+bean in your **`data-sources.xml`** file.  Then specify SIRI endpoint requests indicating
 your SIRI data-source.  Here is a full example:
 
 ~~~
@@ -70,8 +70,8 @@ your SIRI data-source.  Here is a full example:
 A number of agencies have Orbital/ACS/Xerox OrbCAD AVL systems.  Some agencies have configured the data-export option of
 these systems to spit out a CSV file of vehicle locations and schedule deviations for all the vehicles in their fleet,
 which is then shared through a webserver.  OneBusAway supports data of this form.  To add support, create a
-`OrbcadRecordHttpSource`
-bean in your `data-sources.xml` file.  Then specify the URL for your real-time data file.  Here is a full example:
+**`OrbcadRecordHttpSource`**
+bean in your **`data-sources.xml`** file.  Then specify the URL for your real-time data file.  Here is a full example:
 
 ~~~
 <bean class="org.onebusaway.transit_data_federation.impl.realtime.orbcad.OrbcadRecordHttpSource">
@@ -99,8 +99,8 @@ Creating a custom implementation typically involves the following steps:
 
 * Create a Java class that implements your real-time data-source.
 * Add your class to the OneBusAway application server class path.
-* Create an instance of your class in your `data-source.xml` file.
-* Have your implementation periodically notify OneBusAway of new real-time data using the `VehicleLocationListener` interface.
+* Create an instance of your class in your **`data-source.xml`** file.
+* Have your implementation periodically notify OneBusAway of new real-time data using the **`VehicleLocationListener`** interface.
 
 Here is a quick example to get you started:
 

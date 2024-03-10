@@ -43,9 +43,9 @@ http://api.pugetsound.onebusaway.org/api/where/route/1_100224.xml?key=TEST
 
 ## Request Parameters
 
-* `id` - the id of the route, encoded directly in the URL:
-    * `http://api.pugetsound.onebusaway.org/api/where/route/[ID GOES HERE].xml`
+* **`id`** - the id of the route, encoded directly in the URL:
+    * **`http://api.pugetsound.onebusaway.org/api/where/route/[ID GOES HERE].xml`**
 
 ## Response
 
-See details about the various properties of the [`<route/>` element](/api/where/elements/route).
+See details about the various properties of the [**`<route/>`**](/api/where/elements/route) element.

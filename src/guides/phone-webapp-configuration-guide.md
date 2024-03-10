@@ -3,7 +3,7 @@ title: Phone (IVR) Webapp Configuration Guide
 layout: page
 ---
 
-This guide will instruct you on how to configure an instance of the `onebusaway-phone-webapp` interactive-voice-response
+This guide will instruct you on how to configure an instance of the **`onebusaway-phone-webapp`** interactive-voice-response
 (IVR) phone interface, as described in the [phone service feature guide](/features/phone-and-sms).
 
 ## IVR Providers
@@ -26,8 +26,8 @@ exten => 200,2,Agi(agi://localhost:8001/index.agi,60,r)
 exten => 200,3,Hangup
 ~~~
 
-Here, `localhost` is the hostname where you are running your server and `8001` is the default AGI port used by
-the phone application.  You can change the default port by adding the following snippet to your `data-sources.xml`
+Here, **`localhost`** is the hostname where you are running your server and **`8001`** is the default AGI port used by
+the phone application.  You can change the default port by adding the following snippet to your **`data-sources.xml`**
 config file:
 
 ~~~
@@ -46,11 +46,11 @@ The default Asterisk text-to-speech is not great.  I had better luck using a tex
 generate the speech for the text in my IVR system.  Cepstral has products that can probably directly integrate into
 Asterisk, but they are a bit pricey when your budget is "as close to free as possible."  Instead, I opted for a license
 that only allows you to run one text-to-speech session at a time on the command-line and just cache all the results,
-since most of the text in the IVR system ends up being largely static over time.  To configure, I installed `swift`,
-the Cepstral text-to-speech application and configured my license.  I also installed `sox`, which will be used to
-convert the files produced by `swift` into a form more usable by Asterisk.
+since most of the text in the IVR system ends up being largely static over time.  To configure, I installed **`swift`**,
+the Cepstral text-to-speech application and configured my license.  I also installed **`sox`**, which will be used to
+convert the files produced by **`swift`** into a form more usable by Asterisk.
 
-Next, I override the default text-to-speech factory by adding the following to my `data-sources.xml` file:
+Next, I override the default text-to-speech factory by adding the following to my **`data-sources.xml`** file:
 
 ~~~
 <bean id="textToSpeechFactory" class="org.onebusaway.phone.impl.SwiftAndSoxTextToSpeechFactoryImpl"/>
@@ -80,7 +80,7 @@ First, create an xml file with the following syntax that defines translations fo
 <text-modifications>
 ~~~
 
-Then add the following configuration to your `data-sources.xml` file:
+Then add the following configuration to your **`data-sources.xml`** file:
 
 ~~~
 <bean id="pronunciationFactory" class="org.onebusaway.presentation.impl.text.XmlTextModificationsFactory">
@@ -92,12 +92,12 @@ Then add the following configuration to your `data-sources.xml` file:
 ~~~
 
 All told, you can tweak pronunciation in four different ways by creating beans that implement the
-`TextModification` interface and tagging
-them with a `<qualifier value="KEY" />` tag.  The four supported qualifiers are:
+**`TextModification`** interface and tagging
+them with a **`<qualifier value="KEY" />`** tag.  The four supported qualifiers are:
 
-* `destinationPronunciation`: Used to pronounce trip destinations.
-* `routeNumberPronunciation`: Used to pronounce route numbers.
-* `directionPronunciation`: Used to pronounce directions (eg. "north" vs "sount")
-* `locationPronunciation`: Used to pronounce location names.
+* **`destinationPronunciation`**: Used to pronounce trip destinations.
+* **`routeNumberPronunciation`**: Used to pronounce route numbers.
+* **`directionPronunciation`**: Used to pronounce directions (eg. "north" vs "sount")
+* **`locationPronunciation`**: Used to pronounce location names.
 
 You can specify multiple qualifiers for a single bean if it can be used to support multiple pronunciations.

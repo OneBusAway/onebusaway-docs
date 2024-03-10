@@ -27,5 +27,5 @@ http://api.pugetsound.onebusaway.org/api/where/current-time.xml?key=TEST
 
 ## Response
 
-* `time` - current system time as milliseconds since the Unix epoch
-* `readableTime` - current system time in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format
+* **`time`** - current system time as milliseconds since the Unix epoch
+* **`readableTime`** - current system time in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format

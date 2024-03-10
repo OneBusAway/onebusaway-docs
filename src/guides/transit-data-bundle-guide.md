@@ -9,7 +9,7 @@ are typically created from external data such as GTFS feeds for transit data.  T
 
 ## Creating the Bundle
 
-To create the bundle, you'll need to download the `onebusaway-transit-data-federation` application.  Go to the
+To create the bundle, you'll need to download the **`onebusaway-transit-data-federation`** application.  Go to the
 [Downloads page](/downloads) to download the application.
 
 The jar file is automatically configured to run the main class for building transit data bundles:
@@ -25,15 +25,15 @@ java -jar onebusaway-transit-data-federation-builder.jar ...
 ~~~
 
 **Note:** Depending on the size of your transit network, you may need to increase the amount of memory available to the
-Java VM with an argument like `java -Xmx1G -jar ...`.  If your Java VM supports it, you might also consider adding the
-`-server` argument, as it often makes Java run much faster.
+Java VM with an argument like **`java -Xmx1G -jar ...`**.  If your Java VM supports it, you might also consider adding the
+**`-server`** argument, as it often makes Java run much faster.
 
 ## Quick Configuration
 
 By default, the builder accepts two command line options:
 
-* `path/to/your/gtfs.zip` - path to your GTFS feed
-* `bundle_output_path` - the output directory where bundle artifacts will be written
+* **`path/to/your/gtfs.zip`** - path to your GTFS feed
+* **`bundle_output_path`** - the output directory where bundle artifacts will be written
 
 This quick start mode can be used to quickly build a transit data bundle for a single transit agency, but without out
 much configuration flexibility.  If you need more flexibility, see Advanced Config below.
@@ -42,10 +42,10 @@ much configuration flexibility.  If you need more flexibility, see Advanced Conf
 
 The bundle also accepts an xml file command line argument for more advanced configuration options:
 
-* `bundle.xml` - path to your bundle config xml file
-* `bundle_output_path` - the output directory where bundle artifacts will be written
+* **`bundle.xml`** - path to your bundle config xml file
+* **`bundle_output_path`** - the output directory where bundle artifacts will be written
 
-The configuration details for the bundle are captured in an xml file.  The `bundle.xml` xml config file gives you a lot
+The configuration details for the bundle are captured in an xml file.  The **`bundle.xml`** xml config file gives you a lot
 of control of how your bundle is built:
 
 * combine multiple GTFS feeds
@@ -121,7 +121,7 @@ is often necessary to pick ids of your own.  Consider the example:
 </bean>
 ~~~
 
-In this example, we define a GTFS bundle which points to a GTFS file through the `path` property.  This GTFS is from
+In this example, we define a GTFS bundle which points to a GTFS file through the **`path`** property.  This GTFS is from
 King County Metro and includes data for King County Metro, Sound Transit, and City of Seattle.  For http://onebusaway.org
 we use the convention of mapping agencies to their APTA assigned id.  In this case, that's "1" for King County Metro,
 "23" for City of Seattle, and "40" for Sound Transit.  We map the agency ids in a two ways.  First, we specify a default
@@ -150,7 +150,7 @@ two GTFS entities are actually the same.  This is most often used for stops in p
 <bean id="entityReplacementStrategy" factory-bean="entityReplacementStrategyFactory" factory-method="create"/>
 ~~~
 
-Here we configure an `EntityReplacementStrategyFactory` with a specific mapping for GTFS stops.  The mapping refers
+Here we configure an **`EntityReplacementStrategyFactory`** with a specific mapping for GTFS stops.  The mapping refers
 to a mapping file path.  The mapping file has the following format:
 
 ~~~
@@ -166,15 +166,15 @@ ids indicate stops to merge into the first stop.
 The bundle builder accepts a number of command-line options that can control the build process, allowing you to control
 which phases of the build are run.
 
-* `-skip phase_name` - skips the specified build phase.  Can be repeated.
-* `-only phase_name` - only runs the specified build phase.  Can be repeated.
-* `-skipTo phase_name` - jump ahead to the specified build phase.  Only specify once.
-* `-include phase_name` - include the specified build phase, useful when the phase is not enabled by default.  Can be repeated.
+* **`-skip phase_name`** - skips the specified build phase.  Can be repeated.
+* **`-only phase_name`** - only runs the specified build phase.  Can be repeated.
+* **`-skipTo phase_name`** - jump ahead to the specified build phase.  Only specify once.
+* **`-include phase_name`**- include the specified build phase, useful when the phase is not enabled by default.  Can be repeated.
 
 ### Adding a Custom Build Phase
 
 You can add your own custom build phases into the build process.  To do so, you specify a task definition in your
-`bundle.xml` config:
+**`bundle.xml`** config:
 
 ~~~
 <bean class="org.onebusaway.transit_data_federation.bundle.model.TaskDefinition">
@@ -194,7 +194,7 @@ You can add your own custom build phases into the build process.  To do so, you 
 ~~~
 
 As you can see, the TaskDefinition bean allows you to define custom tasks and optionally control where they appear
-in the build order.  The only requirement is that your task instance implement `Runnable`.
+in the build order.  The only requirement is that your task instance implement **`Runnable`**.
 
-In addition to adding your task definition to your `bundle.xml`, you'll also need to add the jar or class files with
+In addition to adding your task definition to your **`bundle.xml`**, you'll also need to add the jar or class files with
 your task implementation to the classpath when you run the build process.

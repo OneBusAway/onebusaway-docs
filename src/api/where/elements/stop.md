@@ -3,7 +3,7 @@ layout: page
 title: Stop Element
 ---
 
-The `<stop/>` element models stops in OneBusAway.  Stops are directly mapped from entries in the [GTFS stops.txt](http://code.google.com/transit/spec/transit_feed_specification.html#stops_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
+The **`<stop/>`** element models stops in OneBusAway.  Stops are directly mapped from entries in the [GTFS stops.txt](http://code.google.com/transit/spec/transit_feed_specification.html#stops_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
 
 ## Example
 
@@ -34,7 +34,7 @@ The following fields are optional:
 * code
 * wheelchairBoarding
 
-The following values are supported for the `<wheelchairBoarding/>` element:
+The following values are supported for the **`<wheelchairBoarding/>`** element:
 
 * ACCESSIBLE
 * NOT_ACCESSIBLE

@@ -30,9 +30,9 @@ http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/40.xml?key=TE
 
 ## Request Parameters
 
-* id - the id of the agency, encoded directly in the URL:
-    * `http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/[ID GOES HERE].xml`
+* **`id`** - the id of the agency, encoded directly in the URL:
+    * **`http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/[ID GOES HERE].xml`**
 
 ## Response
 
-Returns a list of all stop ids for stops served by the specified agency.  Note that `<stop/>` elements for the referenced stops will NOT be included in the `<references/>` section, since there are potentially a large number of stops for an agency.
+Returns a list of all stop ids for stops served by the specified agency.  Note that **`<stop/>`** elements for the referenced stops will NOT be included in the **`<references/>`** section, since there are potentially a large number of stops for an agency.

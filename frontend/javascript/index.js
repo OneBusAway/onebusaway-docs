@@ -31,6 +31,8 @@ function enableDocSearch() {
   });
 }
 
+
+
 function enableScrollToTop() {
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
   window.addEventListener('scroll', () => {
@@ -48,6 +50,8 @@ function enableScrollToTop() {
     });
   });
 }
+
+
 
 document.addEventListener("DOMContentLoaded", function(event) {
   enableCodeHighlighting();

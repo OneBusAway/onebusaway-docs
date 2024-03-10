@@ -7,15 +7,15 @@ Many API methods return a list of elements as their response.  There are a coupl
 
 ## Request
 
-Many list response methods accept a `maxCount` parameter that controls the maximum number of elements returned in a response.  Each method has a default value for `maxCount`, which you can override to get more or less results.  Note that most methods also have an upper limit on the number of results they will return, no matter how large you set `maxCount`.
+Many list response methods accept a **`maxCount`** parameter that controls the maximum number of elements returned in a response.  Each method has a default value for **`maxCount`**, which you can override to get more or less results.  Note that most methods also have an upper limit on the number of results they will return, no matter how large you set **`maxCount`**.
 
 ## Response
 
-The response is composed of two elements.  The first, `<list/>`, is the actual list of elements returned by the method.  The type of element for individual list entries is determined by the method.
+The response is composed of two elements.  The first, **`<list/>`**, is the actual list of elements returned by the method.  The type of element for individual list entries is determined by the method.
 
-Additionally, the list response will have a `<limitExceeded/>` element, which a single true or false value.  This value will be true if the number of elements that could have been potentially returned exceeded the limit sent by `maxCount`, either explicitly or the default value.
+Additionally, the list response will have a **`<limitExceeded/>`** element, which a single true or false value.  This value will be true if the number of elements that could have been potentially returned exceeded the limit sent by **`maxCount`**, either explicitly or the default value.
 
-Finally, some responses will also include an `<outOfRange/>` element, which will indicate if the search request was made outside the current areas of service for OneBusAway (see [agencies-with-coverage](/api/where/methods/agencies-with-coverage)).  The following geographic query methods currently include the `<outOfRange/>` element:
+Finally, some responses will also include an **`<outOfRange/>`** element, which will indicate if the search request was made outside the current areas of service for OneBusAway (see [agencies-with-coverage](/api/where/methods/agencies-with-coverage)).  The following geographic query methods currently include the **`<outOfRange/>`** element:
 
 * [routes-for-location](/api/where/methods/routes-for-location)
 * [stops-for-location](/api/where/methods/stops-for-location)
