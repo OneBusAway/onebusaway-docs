@@ -7,7 +7,7 @@ Retrieve the current system time
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/current-time.xml?key=TEST
+[Link](http://api.pugetsound.onebusaway.org/api/where/current-time.json?key=TEST)
 
 ## Sample Response
 

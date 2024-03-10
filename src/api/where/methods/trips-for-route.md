@@ -7,7 +7,7 @@ Search for active trips for a specific route.
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/trips-for-route/1_100224.json?key=TEST
+[Link](http://api.pugetsound.onebusaway.org/api/where/trips-for-route/1_100224.json?key=TEST)
 
 ## Sample Response
 

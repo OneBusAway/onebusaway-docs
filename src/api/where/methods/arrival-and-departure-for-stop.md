@@ -7,9 +7,9 @@ Get info about a single arrival and departure for a stop
 
 ## Sample Requests
 
-http://api.pugetsound.onebusaway.org/api/where/arrival-and-departure-for-stop/1_75403.json?key=TEST&amp;tripId=1_15551341&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopSequence=42
+[Link](http://api.pugetsound.onebusaway.org/api/where/arrival-and-departure-for-stop/1_75403.json?key=TEST&amp;tripId=1_15551341&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopSequence=42)
 
-http://api.pugetsound.onebusaway.org/api/where/arrival-and-departure-for-stop/1_75403.json?key=TEST&tripId=1_47634632&serviceDate=1590476400000
+[Link](http://api.pugetsound.onebusaway.org/api/where/arrival-and-departure-for-stop/1_75403.json?key=TEST&tripId=1_47634632&serviceDate=1590476400000)
 
 ## Sample Response
 

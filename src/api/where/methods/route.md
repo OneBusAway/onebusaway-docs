@@ -7,7 +7,7 @@ Retrieve info for a specific route by id.
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/route/1_100224.json?key=TEST
+[Link](http://api.pugetsound.onebusaway.org/api/where/route/1_100224.json?key=TEST)
 
 ## Sample Response
 

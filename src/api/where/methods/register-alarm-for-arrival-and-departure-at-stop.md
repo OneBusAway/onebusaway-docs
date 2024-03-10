@@ -6,8 +6,7 @@ title: register-alarm-for-arrival-and-departure-at-stop Method
 Register an alarm for a single arrival and departure at a stop, with a callback URL to be requested when the alarm is fired.
 
 ## Sample Request
-
-<a href="https://api.pugetsound.onebusaway.org/api/where/register-alarm-for-arrival-and-departure-at-stop/1_75403.json?key=TEST&amp;tripId=1_15551341&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopSequence=42&amp;alarmTimeOffset=120&amp;url=http://host/callback_url">https://api.pugetsound.onebusaway.org/api/where/register-alarm-for-arrival-and-departure-at-stop/1_75403.json?key=TEST&amp;tripId=1_15551341&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopSequence=42&amp;alarmTimeOffset=120&amp;url=http://host/callback_url</a>
+[Link](https://api.pugetsound.onebusaway.org/api/where/register-alarm-for-arrival-and-departure-at-stop/1_75403.json?key=TEST&amp;tripId=1_15551341&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopSequence=42&amp;alarmTimeOffset=120&amp;url=http://host/callback_url)
 
 ## Sample Response
 

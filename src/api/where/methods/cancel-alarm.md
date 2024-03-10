@@ -7,7 +7,7 @@ Cancel a registered alarm.
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/cancel_alarm/1_00859082-9b9d-4f72-a89f-c4be0e2cf01a.json
+[Link](http://api.pugetsound.onebusaway.org/api/where/cancel_alarm/1_00859082-9b9d-4f72-a89f-c4be0e2cf01a.json)
 
 ## Sample Response
 
