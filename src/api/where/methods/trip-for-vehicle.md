@@ -8,7 +8,7 @@ Get extended trip details for a specific transit vehicle.  That is, given a vehi
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/trip-for-vehicle/1_4210.xml?key=TEST
+http://api.pugetsound.onebusaway.org/api/where/trip-for-vehicle/1_4210.json?key=TEST
 
 ## Sample Response
 

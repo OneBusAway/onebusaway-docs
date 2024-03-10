@@ -7,7 +7,7 @@ Get current arrivals and departures for a stop identified by id
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_75403.xml?key=TEST
+http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_75403.json?key=TEST
 
 ## Sample Response
 

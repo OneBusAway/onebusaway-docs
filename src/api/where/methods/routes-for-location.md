@@ -7,7 +7,7 @@ Search for routes near a specific location, optionally by name
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/routes-for-location.xml?key=TEST&amp;lat=47.653435&amp;lon=-122.305641
+http://api.pugetsound.onebusaway.org/api/where/routes-for-location.json?key=TEST&amp;lat=47.653435&amp;lon=-122.305641
 
 ## Sample Response
 

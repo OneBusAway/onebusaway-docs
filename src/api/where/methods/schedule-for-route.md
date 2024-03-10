@@ -7,7 +7,7 @@ Retrieve the full schedule for a route on a particular day
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/schedule-for-route/97_9.xml?key=TEST
+http://api.pugetsound.onebusaway.org/api/where/schedule-for-route/97_9.json?key=TEST
 
 
 ## Sample Response
