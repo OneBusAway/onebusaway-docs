@@ -11,7 +11,7 @@ Check out the [OpenTripPlanner](http://www.opentripplanner.org/) open-source pro
 
 ## Sample Request
 
-[Link](http://soak-api.pugetsound.onebusaway.org/api/where/plan-trip.json?key=TEST&amp;latFrom=47.669940&amp;lonFrom=-122.387958&amp;latTo=47.598941&amp;lonTo=-122.331138&amp;time=2011-01-31_12-48-00)
+[http://soak-api.pugetsound.onebusaway.org/api/where/plan-trip.json?key=TEST&amp;latFrom=47.669940&amp;lonFrom=-122.387958&amp;latTo=47.598941&amp;lonTo=-122.331138&amp;time=2011-01-31_12-48-00](http://soak-api.pugetsound.onebusaway.org/api/where/plan-trip.json?key=TEST&amp;latFrom=47.669940&amp;lonFrom=-122.387958&amp;latTo=47.598941&amp;lonTo=-122.331138&amp;time=2011-01-31_12-48-00)
 
 ## Sample Response
 

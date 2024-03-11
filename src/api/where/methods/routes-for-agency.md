@@ -7,7 +7,7 @@ Retrieve the list of all routes for a particular agency by id
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.json?key=TEST)
 
 ## Sample Response
 

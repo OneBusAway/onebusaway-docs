@@ -9,7 +9,7 @@ Retrieve the full schedule for a stop on a particular day
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST)
 
 ## Sample Response
 

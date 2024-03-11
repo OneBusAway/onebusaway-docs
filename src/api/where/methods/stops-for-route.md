@@ -7,7 +7,7 @@ Retrieve the set of stops serving a particular route, including groups by direct
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/stops-for-route/1_100224.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/stops-for-route/1_100224.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/stops-for-route/1_100224.json?key=TEST)
 
 ## Sample Response
 

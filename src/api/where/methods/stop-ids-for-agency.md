@@ -7,7 +7,7 @@ Retrieve the list of all stops for a particular agency by id
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/40.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/40.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/stop-ids-for-agency/40.json?key=TEST)
 
 ## Sample Response
 
