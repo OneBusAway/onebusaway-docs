@@ -7,7 +7,7 @@ Retrieve info for a specific transit agency identified by id
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/agency/1.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/agency/1.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/agency/1.json?key=TEST)
 
 ## Sample Response
 

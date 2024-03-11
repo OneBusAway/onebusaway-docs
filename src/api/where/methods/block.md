@@ -7,7 +7,7 @@ Get details of a specific block by id
 
 ## Sample Request
 
-[Link](http://api.pugetsound.onebusaway.org/api/where/block/1_5678585.json?key=TEST)
+[http://api.pugetsound.onebusaway.org/api/where/block/1_5678585.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/block/1_5678585.json?key=TEST)
 
 ## Sample Response
 

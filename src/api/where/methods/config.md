@@ -7,7 +7,7 @@ Access to configuration information.
 
 ## Sample Request
 
-[Link](https://api.pugetsound.onebusaway.org/api/where/config.json?&key=TEST)
+[https://api.pugetsound.onebusaway.org/api/where/config.json?&key=TEST](https://api.pugetsound.onebusaway.org/api/where/config.json?&key=TEST)
 
 
 ## Sample Response
