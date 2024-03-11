@@ -93,8 +93,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 });
 
+function contextSave() {
+  var scrollPosition = localStorage.getItem('scrollPosition');
+  if (scrollPosition !== undefined) {
+    document.querySelector('#context-save').scrollTop = parseInt(scrollPosition);
+  }
+  document.querySelector('#context-save').addEventListener('click', function() {
+    var scrollPosition = document.querySelector('#context-save').scrollTop;
+    localStorage.setItem('scrollPosition', scrollPosition);
+  });
+};
+
 document.addEventListener("DOMContentLoaded", function(event) {
   enableCodeHighlighting();
   enableDocSearch();
   enableScrollToTop();
+  contextSave();
 });
