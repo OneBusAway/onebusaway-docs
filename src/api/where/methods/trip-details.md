@@ -7,7 +7,7 @@ Get extended details for a specific trip
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/trip-details/1_47805860.xml?key=TEST
+[Link](http://api.pugetsound.onebusaway.org/api/where/trip-details/1_47805860.json?key=TEST)
 
 ## Sample Response
 

@@ -8,7 +8,7 @@ Get details of a specific trip by id
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/trip/1_12540399.xml?key=TEST
+[Link](http://api.pugetsound.onebusaway.org/api/where/trip/1_12540399.json?key=TEST)
 
 ## Sample Response
 
