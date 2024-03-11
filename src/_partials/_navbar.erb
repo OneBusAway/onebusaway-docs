@@ -1,5 +1,7 @@
-<nav class="p-6 pt-8 lg:pt-0 lg:block" :class="{ 'hidden': !nav_open }">
-  <ul role="list" class='max-h-[90svh] overflow-y-scroll lg:max-h-fit lg:overflow-auto'>
+<nav class="lg:p-6  pt-8 lg:pt-0 lg:w-auto lg:block fixed lg:static top-0 z-10 bg-white dark:bg-zinc-900 transition-all duration-500 max-w-[600px]"
+     :class="{ 'w-full  p-6 pr-0 ': nav_open, 'w-0 p-0 overflow-hidden': !nav_open }">
+
+  <ul role="list" class='max-h-[100svh] pb-12 lg:pb-0 overflow-y-scroll lg:max-h-fit lg:overflow-auto'>
     <li class="relative mt-10 ml-0 mr-5 lg:hidden">
       <div id="oba-docs-search-container--mobile"></div>
     </li>
