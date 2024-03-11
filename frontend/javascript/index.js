@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     pre.appendChild(copyButton);
     pre.style.position = 'relative';  
       copyButton.style.position = 'absolute';
-      copyButton.style.right = '0';
-      copyButton.style.bottom = '0';
+      copyButton.style.right = '5px';
+      copyButton.style.top = '5px';
       copyButton.style.zIndex = '1';
       copyButton.style.border = 'none';
       copyButton.style.padding = '5px';
