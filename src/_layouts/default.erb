@@ -6,8 +6,10 @@
   <body class="flex min-h-full bg-white antialiased dark:bg-zinc-900" x-data="{nav_open: false}" :class="{'overflow-hidden': nav_open}">
     <div class="w-full">
       <div class="h-full lg:ml-72 xl:ml-80">
-        <header class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex">
-          <div class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 xl:w-80 lg:dark:border-white/10">
+        <header
+          class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex"
+          >
+          <div id="navigation-sidebar"class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 xl:w-80 lg:dark:border-white/10">
             <div class="hidden lg:flex sticky top-0 z-20 py-2 px-6 backdrop-blur-sm dark:backdrop-blur bg-white/[var(--bg-opacity-light)] dark:bg-zinc-900/[var(--bg-opacity-dark)]" style="--bg-opacity-light:0.5;--bg-opacity-dark:0.2">
               <%= render 'site_logo' %>
               <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 dark:bg-white/7.5"></div>
