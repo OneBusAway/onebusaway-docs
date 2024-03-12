@@ -49,9 +49,9 @@ function enableScrollToTop() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
   const codeBlocks = document.querySelectorAll('pre code');
-  codeBlocks.forEach(function(block) {
+  codeBlocks.forEach(function (block) {
     const pre = block.parentNode;
     const copyButton = document.createElement('button');
     const svgIcon = `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,18 +62,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     copyButton.classList.add('copy-button');
     copyButton.setAttribute('title', 'Copy Code Snippet');
     pre.appendChild(copyButton);
-    pre.style.position = 'relative';  
-      copyButton.style.position = 'absolute';
-      copyButton.style.right = '5px';
-      copyButton.style.top = '5px';
-      copyButton.style.zIndex = '1';
-      copyButton.style.border = 'none';
-      copyButton.style.padding = '5px';
-      copyButton.style.cursor = 'pointer';
-      copyButton.style.fontSize = '14px';
+    pre.style.position = 'relative';
+    copyButton.style.position = 'absolute';
+    copyButton.style.right = '0';
+    copyButton.style.bottom = '0';
+    copyButton.style.zIndex = '1';
+    copyButton.style.border = 'none';
+    copyButton.style.padding = '5px';
+    copyButton.style.cursor = 'pointer';
+    copyButton.style.fontSize = '14px';
 
-     
-    copyButton.addEventListener('click', function() {
+    copyButton.addEventListener('click', function () {
       const contentToCopy = block.innerText;
       const tempTextarea = document.createElement('textarea');
       tempTextarea.value = contentToCopy;
@@ -85,15 +84,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
       <path d="M5.5 12.5L10.167 17L19.5 8" stroke="#B4B4B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
        fill="#B4B4B8"/>
       </svg>`;
-       copyButton.innerHTML = copiedIcon;
-      setTimeout(function() {
+      copyButton.innerHTML = copiedIcon;
+      setTimeout(function () {
         copyButton.innerHTML = svgIcon;
       }, 2000);
     });
   });
 });
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
   enableCodeHighlighting();
   enableDocSearch();
   enableScrollToTop();
