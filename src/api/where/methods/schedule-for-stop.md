@@ -3,13 +3,11 @@ layout: page
 title: schedule-for-stop Method
 ---
 
-# Method: schedule-for-stop
-
 Retrieve the full schedule for a stop on a particular day
 
 ## Sample Request
 
-http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.xml?key=TEST
+[http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST)
 
 ## Sample Response
 

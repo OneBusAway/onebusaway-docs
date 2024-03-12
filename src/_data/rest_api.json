@@ -8,10 +8,6 @@
             "description": "get details for a specific agency"
         },
 
-        "config": {
-            "description": "get details about the server's OBA deployment, including version number"
-        },
-
         "arrival-and-departure-for-stop": {
             "description": "details about a specific arrival/departure at a stop"
         },
@@ -24,16 +20,12 @@
             "description": "get block configuration for a specific block"
         },
 
-        "cancel-alarm": {
-            "description": "cancel a registered alarm"
+        "config": {
+            "description": "get details about the server's OBA deployment, including version number"
         },
 
         "current-time": {
             "description": "retrieve the current system time"
-        },
-
-        "register-alarm-for-arrival-and-departure-at-stop": {
-            "description": "register an alarm for an arrival-departure event"
         },
 
         "report-problem-with-stop": {

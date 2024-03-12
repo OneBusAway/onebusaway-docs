@@ -7,7 +7,7 @@ Search for active vehicles for a particular agency by id.
 
 ## Sample Request
 
-http://api.onebusaway.org/api/where/vehicles-for-agency/1.xml?key=TEST
+[http://api.pugetsound.onebusaway.org/api/where/vehicles-for-agency/1.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/vehicles-for-agency/1.json?key=TEST)
 
 ## Sample Response
 

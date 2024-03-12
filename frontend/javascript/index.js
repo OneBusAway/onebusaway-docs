@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     copyButton.style.cursor = 'pointer';
     copyButton.style.fontSize = '14px';
 
-
     copyButton.addEventListener('click', function () {
       const contentToCopy = block.innerText;
       const tempTextarea = document.createElement('textarea');
