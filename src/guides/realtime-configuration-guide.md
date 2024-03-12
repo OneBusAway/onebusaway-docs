@@ -22,7 +22,7 @@ properties of the bean.  Here is a full example:
   <property name="refreshInterval" value="30"/>
   <!-- Optionally configure the agency id we use to match incoming data -->
   <property name="agencyId" value="SomeAgencyId" />
-  <property name="agencyIds>
+  <property name="agencyIds">
     <list>
       <value>SomeAgencyIdA</value>
       <value>SomeAgencyIdB</value>
