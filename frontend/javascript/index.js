@@ -93,8 +93,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 });
 
+function saveAndRestoreNavigationPosition() {
+  var scrollPosition = sessionStorage.getItem('scrollPosition');
+  if (scrollPosition !== undefined) {
+    document.querySelector('#navigation-sidebar').scrollTop = parseInt(scrollPosition);
+  }
+  document.querySelector('#navigation-sidebar').addEventListener('click', function() {
+    var scrollPosition = document.querySelector('#navigation-sidebar').scrollTop;
+    sessionStorage.setItem('scrollPosition', scrollPosition);
+    console.log('clicked')
+  });
+};
+
 document.addEventListener("DOMContentLoaded", function(event) {
   enableCodeHighlighting();
   enableDocSearch();
   enableScrollToTop();
+  saveAndRestoreNavigationPosition();
 });
