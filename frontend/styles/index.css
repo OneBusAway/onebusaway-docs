@@ -58,4 +58,20 @@ pre.highlight {
   padding: 0!important;
 }
 
+::-webkit-scrollbar {
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #686868; /* Set the background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #848484;
+}
+
 @tailwind utilities;
