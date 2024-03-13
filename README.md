@@ -6,6 +6,16 @@ Welcome to the GitHub project that powers the official [OneBusAway Developer Doc
 
 Want to help improve the documentation? Thank you! You can easily improve the official OneBusAway documentation by modifying the Markdown files that comprise it. We welcome any size of contribution, ranging from typos and corrected links, to brand-new tutorials.
 
+
+## Installation
+There are several ways to run your own instance of OneBusAway Developer Documentation:
+
+| Method | Operating System | Documentation |
+| --- | --- | --- |
+| Docker Development Environment | Windows | [Click Here](Docker.md#windows) |
+| Docker Development Environment | Linux | [Click Here](Docker.md#linux) |
+| Docker Development Environment | Mac | [Click Here](Docker.md#macos) |
+
 ## Develop New Features/Fix Bugs
 
 ### Prerequisites
@@ -118,7 +128,4 @@ This project exists because of all the people who have contributed.
 ## The bottom line
 
 We are all humans trying to work together to improve the community. Let's always be kind and appreciate the importance of making compromises. ❤️
-
-
-
 
