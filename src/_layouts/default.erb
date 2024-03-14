@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="<%= site.locale %>" class='h-full'>
+<!DOCTYPE html>
+<html lang="<%= site.locale %>"  x-data="{ themeMode: window.localStorage.getItem('mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') }" :class="{'dark':themeMode=='dark','hidden':!themeMode}" class='hidden h-full' >
   <head>
     <%= render "head", locals: { metadata: site.metadata, title: data.title } %>
   </head>

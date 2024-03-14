@@ -35,7 +35,7 @@ button.DocSearch.DocSearch-Button {
 }
 
 .DocSearch-Search-Icon {
-  @apply !h-5 !w-5;
+  @apply !h-5 !w-5 !text-zinc-400 dark:text-zinc-500;
 }
 
 .DocSearch-Button-Placeholder {
