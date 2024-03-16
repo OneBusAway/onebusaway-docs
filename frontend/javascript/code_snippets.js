@@ -3,9 +3,39 @@ export function enableCodeHighlighting() {
   hljs.highlightAll();
 }
 
+export function copyHeadingDirectLinks() {
+  const headings = document.querySelectorAll('article h2, article h3, article h4, article h5, article h6, main h2, main h3, main h4, main h5, main h6');
+
+  headings.forEach(function (heading) {
+    const linkIcon = document.createElement('span');
+    linkIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 22 22" id="direct-heading-link"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#34D399" stroke-width="2" transform="translate(-981 -1753)"><g transform="translate(982 1754)"><path d="M8 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.75 3.18"></path><path d="M12 9a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></g></g></g></svg>';
+    linkIcon.style.cursor = 'pointer';
+    linkIcon.style.position = 'relative';
+    linkIcon.style.left = '10px';
+    linkIcon.style.display = 'none';
+
+    heading.appendChild(linkIcon);
+
+    linkIcon.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const id = heading.getAttribute('id');
+      const url = window.location.href.split('#')[0] + '#' + id;
+      navigator.clipboard.writeText(url);
+    });
+
+    heading.addEventListener('mouseover', function () {
+      linkIcon.style.display = 'inline-block'; // Show the link icon on hover
+    });
+
+    heading.addEventListener('mouseout', function () {
+      linkIcon.style.display = 'none'; // Hide the link icon when not hovering
+    });
+  });
+}
+
 export function insertCodeSnippetCopyButtons() {
   const codeBlocks = document.querySelectorAll('pre code');
-  codeBlocks.forEach(function(block) {
+  codeBlocks.forEach(function (block) {
     const pre = block.parentNode;
     const copyButton = document.createElement('button');
     const svgIcon = `<svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +57,7 @@ export function insertCodeSnippetCopyButtons() {
     copyButton.style.cursor = 'pointer';
     copyButton.style.fontSize = '14px';
 
-    copyButton.addEventListener('click', function() {
+    copyButton.addEventListener('click', function () {
       const contentToCopy = block.innerText;
       const tempTextarea = document.createElement('textarea');
       tempTextarea.value = contentToCopy;
@@ -39,8 +69,8 @@ export function insertCodeSnippetCopyButtons() {
       <path d="M5.5 12.5L10.167 17L19.5 8" stroke="#B4B4B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
        fill="#B4B4B8"/>
       </svg>`;
-       copyButton.innerHTML = copiedIcon;
-      setTimeout(function() {
+      copyButton.innerHTML = copiedIcon;
+      setTimeout(function () {
         copyButton.innerHTML = svgIcon;
       }, 2000);
     });
