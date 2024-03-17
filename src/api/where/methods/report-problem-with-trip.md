@@ -14,15 +14,15 @@ problem reporting admin interface.
 
 ## Sample Response
 
-~~~~
-<response>
-  <version>2</version>
-  <code>200</code>
-  <currentTime>1318879898047</currentTime>
-  <text>OK</text>
-  <data/>
-</response>
-~~~~
+```
+{
+"code": 200,
+"currentTime": 1710420125879,
+"data": {},
+"text": "OK",
+"version": 2
+}
+```
 
 ## Request Parameters
 

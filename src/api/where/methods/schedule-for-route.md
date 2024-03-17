@@ -12,51 +12,14 @@ Retrieve the full schedule for a route on a particular day
 
 ## Sample Response
 
-    <response>
-    	<version>2</version>
-    	<code>200</code>
-    	<currentTime>1611851550617</currentTime>
-    	<text>OK</text>
-    	<data class="entryWithReferences">
-    		<references>...</references>
-    		<entry class="routeSchedule">
-    			<routeId>97_9</routeId>
-    			<serviceIds>
-    				<serviceId>1_1</serviceId>
-    				<!-- More serviceId entries... -->
-    			</serviceIds>
-    			<scheduleDate>1611810000000</scheduleDate>
-    			<stopTripGroupings>
-    				<stopTripGrouping>
-    					<directionId>0</directionId>
-    					<tripHeadsign>E to Boeing - W to Mukilteo</tripHeadsign>
-    					<stopIds>
-    						<stopId>1_33299999</stopId>
-    						<!-- More stopId entries... -->
-    					</stopIds>
-    					<tripIds>
-    						<tripId>97_556</tripId>
-    						<!-- More tripId entries... -->
-    					</tripIds>
-    					<tripsWithStopTimes>
-                            <tripWithStopTimes>
-                                <TripId>97_556</TripId>
-                                <scheduledStopTimes>
-                                    <arrivalEnabled>true</arrivalEnabled>
-                                    <arrivalTime>52260</arrivalTime>
-                                    <departureEnabled>true</departureEnabled>
-                                    <departureTime>52260</departureTime>
-                                    <tripId>97_556</tripId>
-                                </scheduleStopTime>
-                            </tripWithStopTimes>
-                            <!-- More tripWithStopTimes entries... -->
-                        </tripsWithStopTimes>
-    				</stopTripGrouping>
-    				<!-- More StopTripGrouping entries... -->
-    			</stopTripGroupings>
-    		</entry>
-    	</data>
-    </response>
+   ```
+   {
+"code": 429,
+"currentTime": 1710421096148,
+"text": "rate limit exceeded",
+"version": 1
+}
+   ```
 
 
 ## Request Parameters

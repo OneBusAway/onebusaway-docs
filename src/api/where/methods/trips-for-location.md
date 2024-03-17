@@ -12,23 +12,74 @@ Search for active trips near a specific location.
 
 ## Sample Response
 
-~~~
-<response>
-  <version>2</version>
-  <code>200</code>
-  <text>OK</text>
-  <currentTime>1270614730908</currentTime>
-  <data class="listWithReferences">
-    <references>...</references>
-    <list>
-      <tripDetails>...</tripDetails>
-      <tripDetails>...</tripDetails>
-      ...
-    </list>
-    <limitExceeded>false</limitExceeded>
-  </data>
-</response>
-~~~
+```
+{
+"code": 200,
+"currentTime": 1710424623553,
+"data": {
+"limitExceeded": false,
+"list": [
+{
+"frequency": null,
+"serviceDate": 1710399600000,
+"situationIds": [],
+"tripId": "1_635875995"
+}
+],
+"outOfRange": false,
+"references": {
+"agencies": [
+{
+"disclaimer": "",
+"email": "",
+"fareUrl": "https://kingcounty.gov/en/dept/metro/fares-and-payment/prices",
+"id": "1",
+"lang": "EN",
+"name": "Metro Transit",
+"phone": "206-553-3000",
+"privateService": false,
+"timezone": "America/Los_Angeles",
+"url": "https://kingcounty.gov/en/dept/metro"
+}
+],
+"routes": [
+{
+"agencyId": "1",
+"color": "",
+"description": "Totem Lake TC-Kirkand TC-UW Link Sta-Univ Dist",
+"id": "1_100146",
+"longName": "",
+"nullSafeShortName": "255",
+"shortName": "255",
+"textColor": "",
+"type": 3,
+"url": "https://kingcounty.gov/en/dept/metro/routes-and-service/schedules-and-maps/255.html"
+},
+],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": [
+{
+"blockId": "1_7087169",
+"directionId": "0",
+"id": "1_561354885",
+"peakOffpeak": 0,
+"routeId": "1_100225",
+"routeShortName": "",
+"serviceId": "1_45626",
+"shapeId": "1_31045010",
+"timeZone": "",
+"tripHeadsign": "Loyal Heights Greenwood",
+"tripShortName": ""
+}
+]
+}
+},
+"text": "OK",
+"version": 2
+}
+```
 
 ## Request Parameters
 

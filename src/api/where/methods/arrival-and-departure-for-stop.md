@@ -13,18 +13,14 @@ Get info about a single arrival and departure for a stop
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references>...</references>
-        <entry class="arrivalAndDeparture">
-          <!-- See documentation for the arrivalAndDeparture element, linked below -->
-        </entry>
-      </data>
-    </response>
+   ```
+   {
+"code": 429,
+"currentTime": 1710417466890,
+"text": "rate limit exceeded",
+"version": 1
+}
+   ```
 
 ## Request Parameters
 

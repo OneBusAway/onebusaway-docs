@@ -11,19 +11,28 @@ Retrieve the current system time
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="time">
-        <references/>
-        <time>
-          <time>1270614730908</time>
-          <readableTime>2010-04-06T21:32:10-07:00</readableTime>
-        </time>
-      </data>
-    </response>
+```
+    {
+"code": 200,
+"currentTime": 1710419936655,
+"data": {
+"entry": {
+"readableTime": "2024-03-14T05:38:56-07:00",
+"time": 1710419936655
+},
+"references": {
+"agencies": [],
+"routes": [],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": []
+}
+},
+"text": "OK",
+"version": 2
+}
+```
 
 ## Response
 

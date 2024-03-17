@@ -11,45 +11,30 @@ Retrieve the set of stops serving a particular route, including groups by direct
 
 ## Sample Response
 
-    <response>
-        <version>2</version>
-        <code>200</code>
-        <currentTime>1461443625722</currentTime>
-        <text>OK</text>
-        <data class="entryWithReferences">
-             <references></references>
-             <entry class="stopsForRoute">
-                  <routeId>1_100224</routeId>
-                  <stopIds>
-                       <string>1_10911</string>
-                       <string>...</string>
-                  </stopIds>
-                  <stopGroupings>
-                      <stopGrouping>
-                           <type>direction</type>
-                           <ordered>true</ordered>
-                           <stopGroups>
-                               <stopGroup>
-                                    <id>0</id>
-                                    <name>
-                                        <type>destination</type>
-                                        <names>
-                                            <string>BALLARD WALLINGFORD</string>
-                                        </names>
-                                    </name>
-                                    <stopIds>
-                                        <string>1_25240</string>
-                                        <string>...</string>
-                                    </stopIds>
-                                    <polylines>...</polylines>
-                               </stopGroup>
-                           </stopGroups>
-                      </stopGrouping>
-                  </stopGroupings>
-                  <polylines>...</polylines>
-             </entry>
-        </data>
-    </response>
+ ```
+ {
+"code": 200,
+"currentTime": 1710685582525,
+"data": {
+"entry": {
+"polylines": [],
+"routeId": "1_100224",
+"stopGroupings": [],
+"stopIds": []
+},
+"references": {
+"agencies": [],
+"routes": [],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": []
+}
+},
+"text": "OK",
+"version": 2
+}
+ ```
 
 ## Request Parameters
 

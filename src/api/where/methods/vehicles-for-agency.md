@@ -11,25 +11,20 @@ Search for active vehicles for a particular agency by id.
 
 ## Sample Response
 
-~~~
-<response>
-  <version>2</version>
-  <code>200</code>
-  <text>OK</text>
-  <currentTime>1270614730908</currentTime>
-  <data class="listWithRangeAndReferences">
-    <references>...</references>
-    <list>
-      <vehicleStatus>...</vehicleStatus>
-      <vehicleStatus>...</vehicleStatus>
-      <vehicleStatus>...</vehicleStatus>
-      ...
-    </list>
-    <limitExceeded>false</limitExceeded>
-    <outOfRange>false</outOfRange>
-  </data>
-</response>
-~~~
+```
+{
+"code": 200,
+"currentTime": 1710683312951,
+"data": {
+"limitExceeded": false,
+"list": [],
+"outOfRange": false,
+"references": {}
+},
+"text": "OK",
+"version": 2
+}
+```
 
 ## Request Parameters
 

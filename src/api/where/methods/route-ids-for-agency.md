@@ -11,22 +11,29 @@ Retrieve the list of all route ids for a particular agency.
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references/>
-        <list>
-          <string>40_510</string>
-          <string>40_511</string>
-          <string>40_513</string>
-          <string>...</string>
-        </list>
-        <limitExceeded>false</limitExceeded>
-      </data>
-    </response>
+  ```
+  {
+"code": 200,
+"currentTime": 1710420207277,
+"data": {
+"limitExceeded": false,
+"list": [
+"40_100511",
+"40_513"
+],
+"references": {
+"agencies": [],
+"routes": [],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": []
+}
+},
+"text": "OK",
+"version": 2
+}
+  ```
 
 ## Request Parameters
 

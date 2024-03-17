@@ -11,24 +11,36 @@ Retrieve info for a specific transit agency identified by id
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references/>
-        <entry class="agency">
-          <id>1</id>
-          <name>Metro Transit</name>
-          <url>America/Los_Angeles</url>
-          <timezone>America/Los_Angeles</timezone>
-          <lang>en</lang>
-          <phone>206-553-3000</phone>
-          <disclaimer>Transit scheduling, geographic, and real-time data provided by permission of King County</disclaimer>
-        </entry>
-      </data>
-    </response>
+ ```
+   {
+"code": 200,
+"currentTime": 1710417390914,
+"data": {
+"entry": {
+"disclaimer": "",
+"email": "",
+"fareUrl": "https://kingcounty.gov/en/dept/metro/fares-and-payment/prices",
+"id": "1",
+"lang": "EN",
+"name": "Metro Transit",
+"phone": "206-553-3000",
+"privateService": false,
+"timezone": "America/Los_Angeles",
+"url": "https://kingcounty.gov/en/dept/metro"
+},
+"references": {
+"agencies": [],
+"routes": [],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": []
+}
+},
+"text": "OK",
+"version": 2
+}
+ ```
 
 ## Request Parameters
 

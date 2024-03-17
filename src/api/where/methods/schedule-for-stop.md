@@ -11,48 +11,22 @@ Retrieve the full schedule for a stop on a particular day
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references>...</references>
-        <entry class="stopSchedule">
-          <date>1270623339481</date>
-          <stopId>1_75403</stopId>
-          <stopRouteSchedules>
-            <stopRouteSchedule>
-              <routeId>1_31</routeId>
-              <stopRouteDirectionSchedules>
-                <stopRouteDirectionSchedule>
-                  <tripHeadsign>Central Magnolia</tripHeadsign>
-                  <scheduleStopTimes>
-                    <scheduleStopTime>
-                      <arrivalTime>1270559769000</arrivalTime>
-                      <departureTime>1270559769000</departureTime>
-                      <serviceId>1_114-WEEK</serviceId>
-                      <tripId>1_11893408</tripId>
-                    </scheduleStopTime>
-                    <!-- More schduleStopTime entries... -->
-                  </scheduleStopTimes>
-                </stopRouteDirectionSchedule>
-              </stopRouteDirectionSchedules>
-              <!-- More stopRouteDirectionSchedule entries -->
-            </stopRouteSchedule>
-            <!-- More stopRouteSchedule entries -->
-          </stopRouteSchedules>
-          <timeZone>America/Los_Angeles</timeZone>
-          <stopCalendarDays>
-            <stopCalendarDay>
-              <date>1276239600000</date>
-              <group>1</group>
-              </stopCalendarDay>
-            <!-- More stopCalendarDay entries -->
-          </stopCalendarDays>
-        </entry>
-      </data>
-    </response>
+   ```
+   {
+"code": 200,
+"currentTime": 1710685203697,
+"data": {
+"entry": {
+"date": 1710685203692,
+"stopId": "1_75403",
+"stopRouteSchedules": []
+},
+"references": {}
+},
+"text": "OK",
+"version": 2
+}
+   ```
 
 ## Request Parameters
 

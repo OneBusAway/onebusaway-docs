@@ -11,23 +11,14 @@ Get details of a specific block by id
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1391465493476</currentTime>
-      <data class="entryWithReferences">
-        <references />
-        <entry class="block">
-          <id>MTA NYCT_GH_A4-Sunday_D_GH_21000_BX12-15</id>
-          <configurations>
-            <blockConfiguration>
-              <!-- See documentation for the blockConfiguration element, linked below -->
-            </blockConfiguration>
-          </configurations>
-        </entry>
-      </data>
-    </response>
+```
+    {
+"code": 429,
+"currentTime": 1710684609908,
+"text": "rate limit exceeded",
+"version": 1
+}
+```
 
 ## Request Parameters
 

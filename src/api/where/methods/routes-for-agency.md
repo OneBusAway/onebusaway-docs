@@ -11,27 +11,39 @@ Retrieve the list of all routes for a particular agency by id
 
 ## Sample Response
 
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references/>
-        <list>
-          <route>
-            <id>1_1</id>
-            <shortName>1</shortName>
-            <description>kinnear</description>
-            <type>3</type>
-            <url>http://metro.kingcounty.gov/tops/bus/schedules/s001_0_.html</url>
-            <agencyId>1</agencyId>
-          </route>
-          ...
-        </list>
-        <limitExceeded>false</limitExceeded>
-      </data>
-    </response>
+   ```
+   {
+"code": 200,
+"currentTime": 1710684835418,
+"data": {
+"limitExceeded": false,
+"list": [],
+"references": {
+"agencies": [
+{
+"disclaimer": "",
+"email": "",
+"fareUrl": "https://kingcounty.gov/en/dept/metro/fares-and-payment/prices",
+"id": "1",
+"lang": "EN",
+"name": "Metro Transit",
+"phone": "206-553-3000",
+"privateService": false,
+"timezone": "America/Los_Angeles",
+"url": "https://kingcounty.gov/en/dept/metro"
+}
+],
+"routes": [],
+"situations": [],
+"stopTimes": [],
+"stops": [],
+"trips": []
+}
+},
+"text": "OK",
+"version": 2
+}
+   ```
 
 ## Request Parameters
 
