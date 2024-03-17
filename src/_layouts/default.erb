@@ -14,13 +14,13 @@
               <%= render 'site_logo' %>
               <div class="absolute inset-x-0 top-full h-px transition bg-zinc-900/7.5 dark:bg-white/7.5"></div>
             </div>
-
             <%= render 'top_bar' %>
             <%= render 'navbar' %>
           </div>
         </header>
-
+        
         <div class="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
+          <div class = "flex h-full flex-row">
           <main class="flex-auto">
             <article class="flex h-full flex-col pb-10 pt-16">
               <div class="flex-auto prose dark:prose-invert break-words [html_:where(&>*)]:mx-auto [html_:where(&>*)]:max-w-2xl [html_:where(&>*)]:lg:mx-[calc(50%-min(50%,theme(maxWidth.lg)))] [html_:where(&>*)]:lg:max-w-3xl">
@@ -30,6 +30,9 @@
               </div>
             </article>
           </main>
+          <div class = "hidden sidebar text-xs p-4 2xl:flex flex-col">
+           </div>
+        </div>
           <%= render "footer", locals: { metadata: site.metadata } %>
         </div>
       </div>
