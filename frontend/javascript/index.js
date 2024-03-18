@@ -4,7 +4,9 @@ import "$styles/syntax-highlighting.css"
 import {
   enableCodeHighlighting,
   insertCodeSnippetCopyButtons,
-  copyHeadingDirectLinks
+  copyHeadingDirectLinks,
+  setupSidebar,
+  setupSidebarItemEventListeners
 } from "./code_snippets";
 
 import {
@@ -27,4 +29,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   enableDocSearch('#oba-docs-search-container--mobile');
   enableScrollToTop();
   saveAndRestoreNavigationPosition();
+  setupSidebar();
+  setupSidebarItemEventListeners();
 });
