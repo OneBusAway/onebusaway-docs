@@ -5,13 +5,13 @@ import {
   enableCodeHighlighting,
   insertCodeSnippetCopyButtons,
   copyHeadingDirectLinks,
-  setupSidebar,
   setupSidebarItemEventListeners
 } from "./code_snippets";
 
 import {
   enableScrollToTop,
-  saveAndRestoreNavigationPosition
+  saveAndRestoreNavigationPosition,
+  setupSidebar
 } from "./page_navigation";
 
 import { enableDocSearch } from "./search";
