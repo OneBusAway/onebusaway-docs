@@ -33,32 +33,6 @@ export function copyHeadingDirectLinks() {
   });
 }
 
-export function setupSidebarItemEventListeners() {
-  const sidebarItems = document.querySelectorAll('.sidebar-item-h2');
-
-  sidebarItems.forEach(function(item) {
-    item.addEventListener('mouseenter', function() {
-      item.style.color = '#34d399';
-    });
-    item.addEventListener('mouseleave', function() {
-      item.style.color = 'gray';
-    });
-    item.addEventListener('click', function() {
-      const currentVersion = item.textContent;
-      const headings = document.querySelectorAll('h2');
-      let targetElement = null;
-      headings.forEach(function(heading) {
-        if (heading.textContent.trim() === currentVersion.trim()) {
-          targetElement = heading;
-        }
-      });
-      if (targetElement) {
-        window.scrollTo(0, targetElement.offsetTop - 100);
-      }
-    });
-  });
-}
-
 export function insertCodeSnippetCopyButtons() {
   const codeBlocks = document.querySelectorAll('pre code');
   codeBlocks.forEach(function (block) {

@@ -4,14 +4,14 @@ import "$styles/syntax-highlighting.css"
 import {
   enableCodeHighlighting,
   insertCodeSnippetCopyButtons,
-  copyHeadingDirectLinks,
-  setupSidebarItemEventListeners
+  copyHeadingDirectLinks
 } from "./code_snippets";
 
 import {
   enableScrollToTop,
   saveAndRestoreNavigationPosition,
-  setupSidebar
+  setupSidebar,
+  setupSidebarItemEventListeners
 } from "./page_navigation";
 
 import { enableDocSearch } from "./search";
