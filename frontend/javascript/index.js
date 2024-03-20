@@ -10,8 +10,7 @@ import {
 import {
   enableScrollToTop,
   saveAndRestoreNavigationPosition,
-  setupSidebar,
-  setupSidebarItemEventListeners
+  setupSidebar
 } from "./page_navigation";
 
 import { enableDocSearch } from "./search";
@@ -30,5 +29,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
   enableScrollToTop();
   saveAndRestoreNavigationPosition();
   setupSidebar();
-  setupSidebarItemEventListeners();
 });
