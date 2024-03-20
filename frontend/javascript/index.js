@@ -1,10 +1,12 @@
-import "$styles/index.css"
-import "$styles/syntax-highlighting.css"
+import "$styles/index.css";
+import "$styles/syntax-highlighting.css";
+import "jsoneditor/dist/jsoneditor.min.css";
 
 import {
   enableCodeHighlighting,
   insertCodeSnippetCopyButtons,
-  copyHeadingDirectLinks
+  copyHeadingDirectLinks,
+  initializeJSONEditor,
 } from "./code_snippets";
 
 import {
@@ -24,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   copyHeadingDirectLinks();
   enableCodeHighlighting();
   insertCodeSnippetCopyButtons();
+  initializeJSONEditor();
   enableDocSearch('#oba-docs-search-container--desktop');
   enableDocSearch('#oba-docs-search-container--mobile');
   enableScrollToTop();

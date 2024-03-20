@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="prose dark:prose-invert break-words">
+  <h1><%= data.title %></h1>
+  <p><%= data.description %></p>
+  <h2>Example Request</h2>
+  <p>
+    <a href="<%= data.sample_request_url %>">
+      <%= data.sample_request_url %>
+    </a>
+  </p>
+
+  <% if data.example_response_file %>
+    <h2>Example Response</h2>
+    <div id="json-data" class='hidden'><%= File.open(File.join(site.root_dir, "src/api/example_responses/", data.example_response_file)).read %></div>
+    <div class='not-prose'>
+      <div id="json-editor" style="height:500px"></div>
+    </div>
+  <% end %>
+  <%= content %>
+</div>

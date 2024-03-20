@@ -1,36 +1,10 @@
 ---
-layout: page
+layout: rest_api
 title: agency-with-coverage Method
+description: Returns a list of all transit agencies currently supported by OneBusAway along with the center of their coverage area.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage.json?key=TEST
+example_response_file: agencies-with-coverage.json
 ---
-
-Returns a list of all transit agencies currently supported by OneBusAway along with the center of their coverage area.
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/agencies-with-coverage.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references>...</references>
-        <list>
-          <agencyWithCoverage>
-            <agencyId>3</agencyId>
-            <lat>47.21278384769539</lat>
-            <lon>-122.45624875362905</lon>
-            <latSpan>0.3559410000000014</latSpan>
-            <lonSpan>0.9080050000000028</lonSpan>
-          </agencyWithCoverage>
-          <agencyWithCoverage>...</agencyWithCoverage>
-       </list>
-        <limitExceeded>false</limitExceeded>
-      </data>
-    </response>
 
 ## Response
 

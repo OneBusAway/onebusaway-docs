@@ -1,37 +1,10 @@
 ---
-layout: page
+layout: rest_api
 title: arrivals-and-departures-for-stop Method
+description: Get current arrivals and departures for a stop identified by id
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_75403.json?key=TEST
+example_response_file: arrivals-and-departures-for-stop-1_75403.json
 ---
-
-Get current arrivals and departures for a stop identified by id
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/arrivals-and-departures-for-stop/1_75403.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references>...</references>
-        <entry class="stopWithArrivalsAndDepartures">
-          <stopId>1_75403</stopId>
-          <arrivalsAndDepartures>
-            <arrivalAndDeparture>...</arrivalAndDeparture>
-            <arrivalAndDeparture>...</arrivalAndDeparture>
-            <arrivalAndDeparture>...</arrivalAndDeparture>
-          </arrivalsAndDepartures>
-          <nearbyStopIds>
-            <string>1_75414</string>
-            <string>...</string>
-          </nearbyStopIds>
-        </entry>
-      </data>
-    </response>
 
 ## Request Parameters
 
