@@ -9,7 +9,9 @@ import {
 
 import {
   enableScrollToTop,
-  saveAndRestoreNavigationPosition
+  saveAndRestoreNavigationPosition,
+  setupSidebar,
+  setupSidebarItemEventListeners
 } from "./page_navigation";
 
 import { enableDocSearch } from "./search";
@@ -27,4 +29,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   enableDocSearch('#oba-docs-search-container--mobile');
   enableScrollToTop();
   saveAndRestoreNavigationPosition();
+  setupSidebar();
+  setupSidebarItemEventListeners();
 });
