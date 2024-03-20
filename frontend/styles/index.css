@@ -58,4 +58,13 @@ pre.highlight {
   padding: 0!important;
 }
 
+.jsoneditor {
+  @apply !border-zinc-300;
+}
+
+.jsoneditor-menu {
+  @apply bg-gradient-to-br;
+  @apply from-green-600 to-green-700;
+}
+
 @tailwind utilities;

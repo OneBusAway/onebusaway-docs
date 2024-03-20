@@ -1,0 +1,210 @@
+{
+  "code": 200,
+  "currentTime": 1710953797130,
+  "data": {
+    "limitExceeded": false,
+    "list": [
+      {
+        "agencyId": "1",
+        "lat": 47.53009,
+        "latSpan": 0.6819459999999964,
+        "lon": -122.1462285,
+        "lonSpan": 0.7207869999999872
+      },
+      {
+        "agencyId": "23",
+        "lat": 47.613395499999996,
+        "latSpan": 0.02854099999999704,
+        "lon": -122.3263055,
+        "lonSpan": 0.024529000000001133
+      },
+      {
+        "agencyId": "3",
+        "lat": 47.230847499999996,
+        "latSpan": 0.31803900000000596,
+        "lon": -122.4183365,
+        "lonSpan": 0.4140730000000019
+      },
+      {
+        "agencyId": "29",
+        "lat": 47.9386755,
+        "latSpan": 0.6797269999999997,
+        "lon": -121.99285549999999,
+        "lonSpan": 0.7837090000000018
+      },
+      {
+        "agencyId": "19",
+        "lat": 47.0469795,
+        "latSpan": 0.2278790000000015,
+        "lon": -122.730118,
+        "lonSpan": 0.49401799999999696
+      },
+      {
+        "agencyId": "95",
+        "lat": 47.951749,
+        "latSpan": 1.2923619999999971,
+        "lon": -122.6595315,
+        "lonSpan": 0.7104370000000131
+      },
+      {
+        "agencyId": "40",
+        "lat": 47.5346645,
+        "latSpan": 0.8893070000000023,
+        "lon": -122.32945649999999,
+        "lonSpan": 0.6211330000000004
+      },
+      {
+        "agencyId": "96",
+        "lat": 47.616654499999996,
+        "latSpan": 0.009216999999999587,
+        "lon": -122.3434575,
+        "lonSpan": 0.012994999999989432
+      },
+      {
+        "agencyId": "97",
+        "lat": 47.9448935,
+        "latSpan": 0.12988500000000158,
+        "lon": -122.24544,
+        "lonSpan": 0.12188199999999938
+      },
+      {
+        "agencyId": "20",
+        "lat": 47.640299999999996,
+        "latSpan": 0.3441580000000002,
+        "lon": -122.524309,
+        "lonSpan": 0.3730040000000088
+      }
+    ],
+    "references": {
+      "agencies": [
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "https://kingcounty.gov/en/dept/metro/fares-and-payment/prices",
+          "id": "1",
+          "lang": "EN",
+          "name": "Metro Transit",
+          "phone": "206-553-3000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://kingcounty.gov/en/dept/metro"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "https://www.seattle.gov/transportation/getting-around/transit/streetcar/fares-and-orca-card",
+          "id": "23",
+          "lang": "EN",
+          "name": "City of Seattle",
+          "phone": "206-684-7623",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.seattle.gov/transportation/getting-around/transit/streetcar"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "https://www.piercetransit.org/PT-fares/",
+          "id": "3",
+          "lang": "en",
+          "name": "Pierce Transit",
+          "phone": "1-253-581-8000",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.piercetransit.org"
+        },
+        {
+          "disclaimer": "",
+          "email": "riders@commtrans.org",
+          "fareUrl": "https://www.communitytransit.org/fares-and-passes",
+          "id": "29",
+          "lang": "en",
+          "name": "Community Transit",
+          "phone": "(800) 562-1375",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.communitytransit.org/"
+        },
+        {
+          "disclaimer": "",
+          "email": "customerservice@intercitytransit.com",
+          "fareUrl": "https://www.intercitytransit.com/zerofare-faqs",
+          "id": "19",
+          "lang": "en",
+          "name": "Intercity Transit",
+          "phone": "360-786-1881",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.intercitytransit.com/"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "https://wave2go.wsdot.com/webstore/landingPage?cg=21&c=76",
+          "id": "95",
+          "lang": "en",
+          "name": "Washington State Ferries",
+          "phone": "1 (888) 808-7977",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.wsdot.wa.gov/ferries/"
+        },
+        {
+          "disclaimer": "",
+          "email": "main@soundtransit.org",
+          "fareUrl": "https://www.soundtransit.org/ride-with-us/how-to-pay/fares",
+          "id": "40",
+          "lang": "en",
+          "name": "Sound Transit",
+          "phone": "1-888-889-6368",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "https://www.soundtransit.org"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "",
+          "id": "96",
+          "lang": "en",
+          "name": "Seattle Center Monorail",
+          "phone": "2069052620",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.seattlemonorail.com"
+        },
+        {
+          "disclaimer": "",
+          "email": "",
+          "fareUrl": "http://www.everetttransit.org/",
+          "id": "97",
+          "lang": "en",
+          "name": "Everett Transit",
+          "phone": "",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.everetttransit.org/"
+        },
+        {
+          "disclaimer": "",
+          "email": "kitsapride@kitsaptransit.com",
+          "fareUrl": "http://www.kitsaptransit.com/fares/fares",
+          "id": "20",
+          "lang": "en",
+          "name": "Kitsap Transit",
+          "phone": "(800) 501-7433",
+          "privateService": false,
+          "timezone": "America/Los_Angeles",
+          "url": "http://www.kitsaptransit.com"
+        }
+      ],
+      "routes": [],
+      "situations": [],
+      "stopTimes": [],
+      "stops": [],
+      "trips": []
+    }
+  },
+  "text": "OK",
+  "version": 2
+}

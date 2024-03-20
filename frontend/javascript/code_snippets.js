@@ -1,3 +1,5 @@
+import JSONEditor from "jsoneditor";
+
 export function enableCodeHighlighting() {
   document.querySelectorAll('pre code').forEach(block => block.textContent = block.textContent.trim());
   hljs.highlightAll();
@@ -79,4 +81,26 @@ export function insertCodeSnippetCopyButtons() {
     });
   });
 }
- 
+
+export function initializeJSONEditor() {
+  // Does the page have JSON data?
+  const jsonTextElt = document.getElementById("json-data");
+  if (!jsonTextElt) {
+    return;
+  }
+
+  // Can we turn it into a JS object?
+  const jsonData = JSON.parse(jsonTextElt.innerText);
+  if (!jsonData) {
+    return;
+  }
+
+  // create the editor
+  const container = document.getElementById("json-editor");
+  const options = {
+    mode: 'code',
+    modes: ['code', 'view'], // allowed modes
+  }
+  const editor = new JSONEditor(container, options);
+  editor.set(jsonData);
+}

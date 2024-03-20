@@ -1,6 +1,6 @@
 ---
 title: OneBusAway Developer Documentation
-layout: default
+layout: page
 ---
 
 This is the official documentation for all the application modules the make up the [OneBusAway](http://onebusaway.org) web application and API framework.
