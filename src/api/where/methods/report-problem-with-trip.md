@@ -1,28 +1,14 @@
 ---
-layout: page
+layout: rest_api
 title: report-problem-with-trip Method
+description: |
+  Submit a user-generated problem report for a particular trip.  The reporting mechanism provides lots of fields that can
+  be specified to give more context about the details of the problem (which trip, stop, vehicle, etc was involved),
+  making it easier for a developer or transit agency staff to diagnose the problem.  These reports feed into the
+  problem reporting admin interface.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/report-problem-with-trip/1_79430293.json?key=TEST&serviceDate=1291536000000&vehicleId=1_3521&stopId=1_75403&code=vehicle_never_came
+example_response_file: report-problem-with-trip-1_79430293.json
 ---
-
-Submit a user-generated problem report for a particular trip.  The reporting mechanism provides lots of fields that can
-be specified to give more context about the details of the problem (which trip, stop, vehicle, etc was involved),
-making it easier for a developer or transit agency staff to diagnose the problem.  These reports feed into the
-problem reporting admin interface.
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/report-problem-with-trip/1_79430293.json?key=TEST&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopId=1_75403&amp;code=vehicle_never_came](http://api.pugetsound.onebusaway.org/api/where/report-problem-with-trip/1_79430293.json?key=TEST&amp;serviceDate=1291536000000&amp;vehicleId=1_3521&amp;stopId=1_75403&amp;code=vehicle_never_came)
-
-## Sample Response
-
-~~~~
-<response>
-  <version>2</version>
-  <code>200</code>
-  <currentTime>1318879898047</currentTime>
-  <text>OK</text>
-  <data/>
-</response>
-~~~~
 
 ## Request Parameters
 
