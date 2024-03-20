@@ -1,28 +1,14 @@
 ---
-layout: page
+layout: rest_api
 title: report-problem-with-stop Method
+description: |
+  Submit a user-generated problem report for a particular stop.  The reporting mechanism provides lots of fields that can
+  be specified to give more context about the details of the problem (which trip, stop, vehicle, etc was involved),
+  making it easier for a developer or transit agency staff to diagnose the problem.  These reports feed into the
+  problem reporting admin interface.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/report-problem-with-stop/1_75403.json?key=TEST&code=stop_name_wrong
+example_response_file: report-problem-with-stop-1_75403.json
 ---
-
-Submit a user-generated problem report for a particular stop.  The reporting mechanism provides lots of fields that can
-be specified to give more context about the details of the problem (which trip, stop, vehicle, etc was involved),
-making it easier for a developer or transit agency staff to diagnose the problem.  These reports feed into the
-problem reporting admin interface.
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/report-problem-with-stop/1_75403.json?key=TEST&amp;code=stop_name_wrong](http://api.pugetsound.onebusaway.org/api/where/report-problem-with-stop/1_75403.json?key=TEST&amp;code=stop_name_wrong)
-
-## Sample Response
-
-~~~~
-<response>
-  <version>2</version>
-  <code>200</code>
-  <currentTime>1318879898047</currentTime>
-  <text>OK</text>
-  <data/>
-</response>
-~~~~
 
 ## Request Parameters
 
