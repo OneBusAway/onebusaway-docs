@@ -1,37 +1,10 @@
 ---
-layout: page
+layout: rest_api
 title: routes-for-agency Method
+description: Retrieve the list of all routes for a particular agency by id.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/routes-for-agency/40.json?key=TEST
+example_response_file: routes-for-agency-40.json
 ---
-
-Retrieve the list of all routes for a particular agency by id
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/routes-for-agency/1.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references/>
-        <list>
-          <route>
-            <id>1_1</id>
-            <shortName>1</shortName>
-            <description>kinnear</description>
-            <type>3</type>
-            <url>http://metro.kingcounty.gov/tops/bus/schedules/s001_0_.html</url>
-            <agencyId>1</agencyId>
-          </route>
-          ...
-        </list>
-        <limitExceeded>false</limitExceeded>
-      </data>
-    </response>
 
 ## Request Parameters
 
