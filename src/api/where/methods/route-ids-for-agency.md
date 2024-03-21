@@ -8,7 +8,7 @@ example_response_file: route-ids-for-agency-40.json
 
 ## Request Parameters
 
-* id - the id of the agency, encoded directly in the URL:
+* `id` - the id of the agency, encoded directly in the URL:
     * `http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/[ID GOES HERE].xml?key=TEST`
 
 ## Response
