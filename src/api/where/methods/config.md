@@ -8,7 +8,7 @@ example_response_file: config.json
 
 ## Request Parameters
 
-* key - API key for authentication.
+* `key` - API key for authentication.
     * `https://api.pugetsound.onebusaway.org/api/where/config.json?&key=[API KEY GOES HERE]`
 
 
