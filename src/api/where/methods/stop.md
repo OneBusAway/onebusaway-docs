@@ -1,38 +1,10 @@
 ---
-layout: page
+layout: rest_api
 title: stop Method
+description: Retrieve info for a specific stop by id.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/stop/1_75403.json?key=TEST
+example_response_file: stop-1_75403.json
 ---
-
-Retrieve info for a specific stop by id
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/stop/1_75403.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references>...</references>
-        <entry class="stop">
-          <id>1_75403</id>
-          <lat>47.6543655</lat>
-          <lon>-122.305206</lon>
-          <direction>S</direction>
-          <name>Stevens Way &amp; BENTON LANE</name>
-          <code>75403</code>
-          <locationType>0</locationType>
-          <routeIds>
-            <string>1_31</string>
-            <string>...</string>
-          </routeIds>
-        </entry>
-      </data>
-    </response>
 
 ## Request Parameters
 

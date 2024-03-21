@@ -1,64 +1,16 @@
 ---
-layout: page
+layout: rest_api
 title: schedule-for-stop Method
+description: Retrieve the full schedule for a stop on a particular day
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST
+example_response_file: schedule-for-stop-1_75403.json
 ---
-
-Retrieve the full schedule for a stop on a particular day
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references>...</references>
-        <entry class="stopSchedule">
-          <date>1270623339481</date>
-          <stopId>1_75403</stopId>
-          <stopRouteSchedules>
-            <stopRouteSchedule>
-              <routeId>1_31</routeId>
-              <stopRouteDirectionSchedules>
-                <stopRouteDirectionSchedule>
-                  <tripHeadsign>Central Magnolia</tripHeadsign>
-                  <scheduleStopTimes>
-                    <scheduleStopTime>
-                      <arrivalTime>1270559769000</arrivalTime>
-                      <departureTime>1270559769000</departureTime>
-                      <serviceId>1_114-WEEK</serviceId>
-                      <tripId>1_11893408</tripId>
-                    </scheduleStopTime>
-                    <!-- More schduleStopTime entries... -->
-                  </scheduleStopTimes>
-                </stopRouteDirectionSchedule>
-              </stopRouteDirectionSchedules>
-              <!-- More stopRouteDirectionSchedule entries -->
-            </stopRouteSchedule>
-            <!-- More stopRouteSchedule entries -->
-          </stopRouteSchedules>
-          <timeZone>America/Los_Angeles</timeZone>
-          <stopCalendarDays>
-            <stopCalendarDay>
-              <date>1276239600000</date>
-              <group>1</group>
-              </stopCalendarDay>
-            <!-- More stopCalendarDay entries -->
-          </stopCalendarDays>
-        </entry>
-      </data>
-    </response>
 
 ## Request Parameters
 
-* id - the stop id to request the schedule for, encoded directly in the URL:
+* `id` - the stop id to request the schedule for, encoded directly in the URL:
 	* `http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/[ID GOES HERE].xml`
-* date - The date for which you want to request a schedule of the format YYYY-MM-DD (optional, defaults to current date)
+* `date` - The date for which you want to request a schedule of the format YYYY-MM-DD (optional, defaults to current date)
 
 ## Response
 
