@@ -10,7 +10,7 @@ export function copyHeadingDirectLinks() {
 
   headings.forEach(function (heading) {
     const linkIcon = document.createElement('span');
-    linkIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 22 22" id="direct-heading-link"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#34D399" stroke-width="2" transform="translate(-981 -1753)"><g transform="translate(982 1754)"><path d="M8 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.75 3.18"></path><path d="M12 9a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></g></g></g></svg>';
+    linkIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 22 22" id="direct-heading-link"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#34D399" stroke-width="2" transform="translate(-981 -1753)"><g transform="translate(982 1754)"><path d="M8 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.75 3.18"></path><path d="M12 9a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></g></g></g></svg>`
     linkIcon.style.cursor = 'pointer';
     linkIcon.style.position = 'relative';
     linkIcon.style.left = '10px';
@@ -23,6 +23,15 @@ export function copyHeadingDirectLinks() {
       const id = heading.getAttribute('id');
       const url = window.location.href.split('#')[0] + '#' + id;
       navigator.clipboard.writeText(url);
+
+      // Replace the link icon with a checkmark icon
+      linkIcon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.5 12.5L10.150 17L19.5 8" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`
+
+      // Automatically revert the checkmark to the link icon after 2 seconds
+      setTimeout(function () {
+        linkIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 22 22" id="direct-heading-link"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g stroke="#34D399" stroke-width="2" transform="translate(-981 -1753)"><g transform="translate(982 1754)"><path d="M8 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.75 3.18"></path><path d="M12 9a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></g></g></g></svg>`
+      }, 2000);
     });
 
     heading.addEventListener('mouseover', function () {
