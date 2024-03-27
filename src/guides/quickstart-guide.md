@@ -3,6 +3,19 @@ title: Quickstart Guide
 layout: page
 ---
 
+**NOTE**: this guide is out of date and should not be relied upon as a good example of how to set up a new OBA server. Instead, we recommend using our official Docker image to launch an OBA server quickly and easily. You can find [the code repository for our Docker image on GitHub](https://github.com/onebusAway/onebusaway-docker) and the latest built images on [Docker Hub](https://hub.docker.com/r/opentransitsoftwarefoundation/onebusaway-api-webapp).
+
+Also, to simplify testing your new server on our mobile apps we are adding support for custom URL schemes on our iOS and Android apps that will add your custom region to the app. Make sure the tasks are complete and that you're using an up-to-date app version to ensure this feature works.
+
+* [Android task](https://github.com/OneBusAway/onebusaway-android/issues/1179)
+* [iOS task](https://github.com/OneBusAway/onebusaway-ios/issues/719)
+
+Example URL for a Davis, CA (Unitrans) server:
+
+<a href="onebusaway://add-region?name=Unitrans&oba-url=https%3A%2F%2Fonebusaway-api-server-7mb1.onrender.com%2Fonebusaway-api-webapp">onebusaway://add-region?name=Unitrans&oba-url=https%3A%2F%2Fonebusaway-api-server-7mb1.onrender.com%2Fonebusaway-api-webapp</a>
+
+------------
+
 We have a quick-start distribution designed to get you quickly up and running with the OneBusAway application suite.
 This can be a good way to evaluate OneBusAway without getting bogged down in more complex deployment scenarios.
 
