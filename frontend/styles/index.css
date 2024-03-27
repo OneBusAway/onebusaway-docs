@@ -63,38 +63,38 @@ pre.highlight {
 }
 
 ::-webkit-scrollbar-track {
-  background-color : #686868; 
+  background-color : #686868;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #424242; 
+  background: #424242;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #848484; 
+  background: #848484;
 }
 
 @media (prefers-color-scheme: light) {
-  
-  ::-webkit-scrollbar-track {
-    background-color: #f3f3f3;
+    ::-webkit-scrollbar-track {
+      background-color: #f3f3f3;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #848484;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333;
+    }
+
+  .jsoneditor {
+    @apply !border-zinc-300;
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: #848484; 
+  .jsoneditor-menu {
+    @apply bg-gradient-to-br;
+    @apply from-green-600 to-green-700;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #333;
-  }
-
-.jsoneditor {
-  @apply !border-zinc-300;
-}
-
-.jsoneditor-menu {
-  @apply bg-gradient-to-br;
-  @apply from-green-600 to-green-700;
 }
 
 @tailwind utilities;
