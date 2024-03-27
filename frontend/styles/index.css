@@ -58,6 +58,36 @@ pre.highlight {
   padding: 0!important;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color : #686868; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #848484; 
+}
+
+@media (prefers-color-scheme: light) {
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f3f3f3;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #848484; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333;
+  }
+
 .jsoneditor {
   @apply !border-zinc-300;
 }
