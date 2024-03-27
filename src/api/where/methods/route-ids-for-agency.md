@@ -1,36 +1,14 @@
 ---
-layout: page
+layout: rest_api
 title: route-ids-for-agency Method
+description: Retrieve the list of all route ids for a particular agency.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/40.json?key=TEST
+example_response_file: route-ids-for-agency-40.json
 ---
-
-Retrieve the list of all route ids for a particular agency.
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/40.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/40.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references/>
-        <list>
-          <string>40_510</string>
-          <string>40_511</string>
-          <string>40_513</string>
-          <string>...</string>
-        </list>
-        <limitExceeded>false</limitExceeded>
-      </data>
-    </response>
 
 ## Request Parameters
 
-* id - the id of the agency, encoded directly in the URL:
+* `id` - the id of the agency, encoded directly in the URL:
     * `http://api.pugetsound.onebusaway.org/api/where/route-ids-for-agency/[ID GOES HERE].xml?key=TEST`
 
 ## Response

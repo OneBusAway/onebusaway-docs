@@ -1,39 +1,18 @@
 ---
-layout: page
+layout: rest_api
 title: stops-for-location Method
+description: Search for stops near a specific location, optionally by stop code.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key=TEST&lat=47.653435&lon=-122.305641
+example_response_file: stops-for-location.json
 ---
-
-Search for stops near a specific location, optionally by stop code
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key=TEST&amp;lat=47.653435&amp;lon=-122.305641](http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key=TEST&amp;lat=47.653435&amp;lon=-122.305641)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="listWithReferences">
-        <references>...</references>
-        <list>
-          <stop>...</stop>
-          <!-- More stops -->
-        </list>
-        <limitExceeded>true</limitExceeded>
-        <outOfRange>false</outOfRange>
-      </data>
-    </response>
 
 ## Request Parameters
 
-* lat - The latitude coordinate of the search center
-* lon - The longitude coordinate of the search center
-* radius - The search radius in meters (optional)
-* latSpan/lonSpan - An alternative to `radius` to set the search bounding box (optional)
-* query	- A specific stop code to search for (optional)
+* `lat` - The latitude coordinate of the search center
+* `lon` - The longitude coordinate of the search center
+* `radius` - The search radius in meters (optional)
+* `latSpan`/`lonSpan` - An alternative to `radius` to set the search bounding box (optional)
+* `query`	- A specific stop code to search for (optional)
 
 If you just specify a lat,lon search location, the `stops-for-location` method will just return nearby stops.  If you specify an optional `query` parameter, we'll search for nearby stops with the specified code.  This is the primary method from going from a user-facing stop code like "75403" to the actual underlying stop id unique to a stop for a particular transit agency.
 

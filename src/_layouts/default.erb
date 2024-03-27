@@ -1,5 +1,9 @@
-<!doctype html>
-<html lang="<%= site.locale %>" class='h-full'>
+<!DOCTYPE html>
+<html lang="<%= site.locale %>"
+      x-data="{ themeMode: window.localStorage.getItem('mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') }"
+      :class="{'dark':themeMode=='dark','hidden':!themeMode}"
+      :data-theme="themeMode"
+      class='hidden h-full'>
   <head>
     <%= render "head", locals: { metadata: site.metadata, title: data.title } %>
   </head>
@@ -7,8 +11,7 @@
     <div class="w-full">
       <div class="h-full lg:ml-72 xl:ml-80">
         <header
-          class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex"
-          >
+          class="contents lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex">
           <div id="navigation-sidebar"class="contents lg:pointer-events-auto lg:block lg:w-72 lg:overflow-y-auto lg:border-r lg:border-zinc-900/10 xl:w-80 lg:dark:border-white/10">
             <div class="hidden lg:flex sticky top-0 z-20 py-2 px-6 backdrop-blur-sm dark:backdrop-blur bg-white/[var(--bg-opacity-light)] dark:bg-zinc-900/[var(--bg-opacity-dark)]" style="--bg-opacity-light:0.5;--bg-opacity-dark:0.2">
               <%= render 'site_logo' %>
@@ -23,13 +26,13 @@
         <div class="relative flex h-full flex-col px-4 pt-14 sm:px-6 lg:px-8">
           <main class="flex-auto">
             <article class="flex h-full flex-col pb-10 pt-16">
-              <div class="flex-auto prose dark:prose-invert break-words [html_:where(&>*)]:mx-auto [html_:where(&>*)]:max-w-2xl [html_:where(&>*)]:lg:mx-[calc(50%-min(50%,theme(maxWidth.lg)))] [html_:where(&>*)]:lg:max-w-3xl">
+              <div class="flex-auto [html_:where(&>*)]:mx-auto [html_:where(&>*)]:max-w-2xl [html_:where(&>*)]:lg:mx-[calc(50%-min(50%,theme(maxWidth.lg)))] [html_:where(&>*)]:lg:max-w-3xl">
                 <%= render "bg_checkerboard" %>
-                <h1><%= data.title %></h1>
                 <%= content %>
               </div>
             </article>
           </main>
+          <div class="hidden sidebar text-xs p-4 2xl:flex flex-col fixed top-24 right-12 w-fit max-w-72 h-full"></div>
           <%= render "footer", locals: { metadata: site.metadata } %>
         </div>
       </div>

@@ -1,29 +1,10 @@
 ---
-layout: page
+layout: rest_api
 title: current-time Method
+description: Retrieve the current system time.
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/current-time.json?key=TEST
+example_response_file: current-time.json
 ---
-
-Retrieve the current system time
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/current-time.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/current-time.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="time">
-        <references/>
-        <time>
-          <time>1270614730908</time>
-          <readableTime>2010-04-06T21:32:10-07:00</readableTime>
-        </time>
-      </data>
-    </response>
 
 ## Response
 

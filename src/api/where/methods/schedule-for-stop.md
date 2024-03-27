@@ -1,64 +1,16 @@
 ---
-layout: page
+layout: rest_api
 title: schedule-for-stop Method
+description: Retrieve the full schedule for a stop on a particular day
+sample_request_url: https://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST
+example_response_file: schedule-for-stop-1_75403.json
 ---
-
-Retrieve the full schedule for a stop on a particular day
-
-## Sample Request
-
-[http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST](http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/1_75403.json?key=TEST)
-
-## Sample Response
-
-    <response>
-      <version>2</version>
-      <code>200</code>
-      <text>OK</text>
-      <currentTime>1270614730908</currentTime>
-      <data class="entryWithReferences">
-        <references>...</references>
-        <entry class="stopSchedule">
-          <date>1270623339481</date>
-          <stopId>1_75403</stopId>
-          <stopRouteSchedules>
-            <stopRouteSchedule>
-              <routeId>1_31</routeId>
-              <stopRouteDirectionSchedules>
-                <stopRouteDirectionSchedule>
-                  <tripHeadsign>Central Magnolia</tripHeadsign>
-                  <scheduleStopTimes>
-                    <scheduleStopTime>
-                      <arrivalTime>1270559769000</arrivalTime>
-                      <departureTime>1270559769000</departureTime>
-                      <serviceId>1_114-WEEK</serviceId>
-                      <tripId>1_11893408</tripId>
-                    </scheduleStopTime>
-                    <!-- More schduleStopTime entries... -->
-                  </scheduleStopTimes>
-                </stopRouteDirectionSchedule>
-              </stopRouteDirectionSchedules>
-              <!-- More stopRouteDirectionSchedule entries -->
-            </stopRouteSchedule>
-            <!-- More stopRouteSchedule entries -->
-          </stopRouteSchedules>
-          <timeZone>America/Los_Angeles</timeZone>
-          <stopCalendarDays>
-            <stopCalendarDay>
-              <date>1276239600000</date>
-              <group>1</group>
-              </stopCalendarDay>
-            <!-- More stopCalendarDay entries -->
-          </stopCalendarDays>
-        </entry>
-      </data>
-    </response>
 
 ## Request Parameters
 
-* id - the stop id to request the schedule for, encoded directly in the URL:
+* `id` - the stop id to request the schedule for, encoded directly in the URL:
 	* `http://api.pugetsound.onebusaway.org/api/where/schedule-for-stop/[ID GOES HERE].xml`
-* date - The date for which you want to request a schedule of the format YYYY-MM-DD (optional, defaults to current date)
+* `date` - The date for which you want to request a schedule of the format YYYY-MM-DD (optional, defaults to current date)
 
 ## Response
 
@@ -70,21 +22,21 @@ We break up the stop time listings in a couple of ways.  First, we split the sto
 
 Finally we get down to the unit of a stop time, as represented by the `<scheduleStopTime/>` element.  Each element has the following set of properties:
 
-* arrivalTime - time in milliseconds since the Unix epoch that the transit vehicle will arrive
-* departureTime - time in milliseconds since the Unix epoch that the transit vehicle will depart
-* tripId - the id for the trip of the scheduled transit vehicle
-* serviceId - the serviceId for the schedule trip (see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html) for more details
+* `arrivalTime` - time in milliseconds since the Unix epoch that the transit vehicle will arrive
+* `departureTime` - time in milliseconds since the Unix epoch that the transit vehicle will depart
+* `tripId` - the id for the trip of the scheduled transit vehicle
+* `serviceId` - the serviceId for the schedule trip (see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html) for more details
 
 In addition to all the `<scheduleStopTime/>` elements, the response also contains `<stopCalendarDay/>` elements which list out all the days that a particular stop has service.  This element has the following properties:
 
-* date - the date of service in milliseconds since the Unix epoch
-* group - we provide a group id that groups `<stopCalendarDay/>` into collections of days with similar service.  For example, Monday-Friday might all have the same schedule and the same group id as result, while Saturday and Sunday have a different weekend schedule, so they'd get their own group id.
+* `date` - the date of service in milliseconds since the Unix epoch
+* `group` - we provide a group id that groups `<stopCalendarDay/>` into collections of days with similar service.  For example, Monday-Friday might all have the same schedule and the same group id as result, while Saturday and Sunday have a different weekend schedule, so they'd get their own group id.
 
 In addition to all the `<scheduleStopTime/>` elements, the main entry also has the following properties:
 
-* date - the active date for the returned calendar
-* stopId - the stop id for the requested stop, which can be used to access the [`<stop/>` element](/api/where/elements/stop) in the `<references/>` section
-* timeZone - the time-zone the stop is located in
+* `date` - the active date for the returned calendar
+* `stopId` - the stop id for the requested stop, which can be used to access the [`<stop/>` element](/api/where/elements/stop) in the `<references/>` section
+* `timeZone` - the time-zone the stop is located in
 
 ### Proposed Additions
 
