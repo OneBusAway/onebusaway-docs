@@ -63,29 +63,18 @@ pre.highlight {
 }
 
 ::-webkit-scrollbar-track {
-  background-color : #686868;
+  @apply dark:bg-[#686868] bg-[#f3f3f3];
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #424242;
+  @apply dark:bg-[#424242] bg-[#848484];
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #848484;
+  @apply dark:bg-[#848484] bg-[#333];
 }
 
 @media (prefers-color-scheme: light) {
-    ::-webkit-scrollbar-track {
-      background-color: #f3f3f3;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #848484;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333;
-    }
 
   .jsoneditor {
     @apply !border-zinc-300;
