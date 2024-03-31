@@ -1,0 +1,102 @@
+/* dark_mode_code for code view */
+.dark div.jsoneditor {
+  @apply border-zinc-600 border-[2px];
+
+}
+
+.dark div.jsoneditor-menu {
+  @apply bg-zinc-950 border-[#ffffff33];
+}
+
+.dark .ace-jsoneditor .ace_scroller {
+  @apply bg-zinc-900;
+}
+
+.dark .ace-jsoneditor .ace_marker-layer .ace_active-line {
+  @apply bg-zinc-700;
+}
+
+.dark .ace_gutter-cell {
+  @apply text-white;
+}
+
+.dark .ace-jsoneditor .ace_gutter-active-line {
+  @apply bg-zinc-950 bg-opacity-80;
+}
+
+.dark .ace-jsoneditor .ace_marker-layer .ace_selection {
+  @apply bg-green-400 bg-opacity-30
+}
+
+.dark .ace_mobile-menu {
+  @apply bg-blue-300;
+}
+
+.dark div.ace_gutter {
+  @apply bg-zinc-800;
+}
+
+.dark .ace_variable {
+  @apply text-white;
+}
+
+.dark .ace_constant.ace_numeric {
+  @apply text-blue-400;
+}
+
+.dark span.ace_string.ace_string {
+  @apply text-green-500;
+}
+
+.dark .jsoneditor-statusbar {
+  @apply bg-zinc-800 border-zinc-600;
+}
+
+/* darkmode_code for view(tree) mode start here*/
+.dark div.jsoneditor-tree,
+.dark div.jsoneditor textarea.jsoneditor-text {
+  @apply bg-zinc-900;
+}
+
+.dark .jsoneditor-navigation-bar {
+  @apply bg-zinc-800 border-zinc-700 text-white;
+
+}
+
+.dark div.jsoneditor-field,
+.dark div.jsoneditor-value {
+  @apply text-white;
+}
+
+.dark div.jsoneditor-frame,
+.dark .jsoneditor-search input {
+  @apply bg-zinc-800 text-zinc-300;
+}
+
+.dark div.jsoneditor-tree div.jsoneditor-date {
+  @apply bg-zinc-300 text-zinc-900;
+}
+
+.dark a.jsoneditor-value.jsoneditor-url {
+  @apply text-green-200;
+}
+
+.dark div.jsoneditor td.jsoneditor-separator {
+  @apply text-[#47f900];
+}
+
+.dark div.jsoneditor-value.jsoneditor-string {
+  @apply text-green-500;
+}
+
+.dark div.jsoneditor-value.jsoneditor-number {
+  @apply text-blue-500;
+}
+
+.dark div.jsoneditor-value.jsoneditor-null {
+  @apply text-yellow-900;
+}
+
+.dark div.jsoneditor-value.jsoneditor-invalid {
+  @apply text-red-800;
+}
