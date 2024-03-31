@@ -1,5 +1,5 @@
 /* If you need to add @import statements, do so up here */
-
+@import './editordarkmode.css';
 @import "jit-refresh.css"; /* triggers frontend rebuilds */
 
 @layer base {
@@ -87,14 +87,6 @@ pre.highlight {
       background: #333;
     }
 
-  .jsoneditor {
-    @apply !border-zinc-300;
-  }
-
-  .jsoneditor-menu {
-    @apply bg-gradient-to-br;
-    @apply from-green-600 to-green-700;
-  }
 }
 
 @tailwind utilities;
