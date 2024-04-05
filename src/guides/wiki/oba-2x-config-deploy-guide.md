@@ -163,9 +163,9 @@ Using the editor, clear out the contents of this file and replace it with:
 
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="${JDBC_URL}" />
-        <property name="username" value="${JDBC_USER}" />
-        <property name="password" value="${JDBC_PASSWORD}" />
+        <property name="url" value="jdbc:mysql://127.0.0.1/oba?characterEncoding=UTF-8" />
+        <property name="username" value="oba" />
+        <property name="password" value="newPassword" />
       </bean>
 
       <bean class="org.onebusaway.container.spring.SystemPropertyOverrideConfigurer">
