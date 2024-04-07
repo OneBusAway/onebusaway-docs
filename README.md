@@ -6,6 +6,10 @@ Welcome to the GitHub project that powers the official [OneBusAway Developer Doc
 
 Want to help improve the documentation? Thank you! You can easily improve the official OneBusAway documentation by modifying the Markdown files that comprise it. We welcome any size of contribution, ranging from typos and corrected links, to brand-new tutorials.
 
+## Import Javadocs from OBA Sites
+
+From the root of the project, run the command `bin/update_javadocs` to see a list of available projects from which Javadocs can be imported.
+
 ## Develop New Features/Fix Bugs
 
 ### Prerequisites
@@ -94,7 +98,7 @@ The website built from this project is deployed automatically to a static hostin
 - For work in progress pull requests, please use the Draft PR feature.
 - Make sure all tests pass and add additional tests for the code you submit.
 - Document your reasoning behind the changes. Explain why you wrote the code in the way you did. The code should explain what it does.
-- If there's an existing issue, reference to it by adding something like `References/Closes/Fixes/Resolves #123`, where 123 is the issue number. 
+- If there's an existing issue, reference to it by adding something like `References/Closes/Fixes/Resolves #123`, where 123 is the issue number.
 - Please fill out the PR Template when making a PR.
 
 > Please note: maintainers may close your PR if it has gone stale or if we don't plan to merge the code.
@@ -118,7 +122,3 @@ This project exists because of all the people who have contributed.
 ## The bottom line
 
 We are all humans trying to work together to improve the community. Let's always be kind and appreciate the importance of making compromises. ❤️
-
-
-
-

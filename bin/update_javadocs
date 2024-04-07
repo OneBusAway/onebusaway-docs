@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'tmpdir'
+
+MODULES = {
+  "onebusaway-gtfs-modules" => (->{ build_gtfs_modules })
+}
+
+def build_gtfs_modules
+  repo_url = 'https://github.com/OneBusAway/onebusaway-gtfs-modules.git'
+  temp_dir = Dir.mktmpdir
+
+  begin
+    # Clone the repository into the temporary directory
+    system("git clone --single-branch --branch gh-pages #{repo_url} #{temp_dir}")
+
+    if $?.success?
+        puts "Repository cloned into temporary directory: #{temp_dir}"
+    else
+        puts "Failed to clone repository."
+        exit
+    end
+
+    archive_path = Dir.chdir(temp_dir) do |path|
+      archive_command = "git archive --format=zip -o gh-pages.zip HEAD"
+      system(archive_command)
+
+      archive_path = File.join(temp_dir, 'gh-pages.zip')
+
+      if $?.success?
+        puts "Archive created successfully: #{archive_path}"
+      else
+        puts "Failed to create archive."
+        exit
+      end
+      archive_path
+    end
+
+    system("unzip -o #{archive_path} -d ./src/modules/onebusaway-gtfs-modules/current")
+  ensure
+    # Clean up the temporary directory
+    FileUtils.remove_entry(temp_dir)
+  end
+end
+
+mod = ARGV[0]&.strip
+lam = MODULES[mod]
+
+if lam
+  lam.call
+else
+  puts "Unknown module: '#{mod}'"
+  puts "Call this script with one of the following options:"
+  MODULES.keys.each {|k| puts "    - #{k}"}
+  exit
+end

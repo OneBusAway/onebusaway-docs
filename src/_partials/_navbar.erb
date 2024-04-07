@@ -35,6 +35,14 @@
     )) %>
 
     <%= render(NavigationSection.new(
+      "Javadocs",
+      children: {
+        "onebusaway-gtfs-modules" => '/modules/onebusaway-gtfs-modules/current/'
+      },
+      current_path: resource.relative_url
+    )) %>
+
+    <%= render(NavigationSection.new(
       "Features",
       children: {
         "Web" => '/features/web',
