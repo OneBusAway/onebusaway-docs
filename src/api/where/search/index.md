@@ -17,5 +17,5 @@ The Search API follows all the conventions of the RESTful API.
 
 The current list of supported Search searches:
 
-* [stop](/api/where/search/stop)
-* [route](/api/where/search/route)
+* [stop](/api/where/methods/search (stop))
+* [route](/api/where/methods/search (route))

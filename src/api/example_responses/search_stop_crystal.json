@@ -1,0 +1,63 @@
+{
+    "code": 200,
+    "currentTime": 1712466666374,
+    "data": {
+      "limitExceeded": false,
+      "list": [
+        {
+          "code": "3695",
+          "direction": "W",
+          "id": "3_14174",
+          "lat": 47.220786,
+          "locationType": 0,
+          "lon": -122.549174,
+          "name": "40th St W & Crystal Pl W",
+          "parent": "",
+          "routeIds": [
+            "3_53"
+          ],
+          "staticRouteIds": [
+            "3_53"
+          ],
+          "wheelchairBoarding": "ACCESSIBLE"
+        }
+      ],
+      "outOfRange": false,
+      "references": {
+        "agencies": [
+          {
+            "disclaimer": "",
+            "email": "",
+            "fareUrl": "https://www.piercetransit.org/PT-fares/",
+            "id": "3",
+            "lang": "en",
+            "name": "Pierce Transit",
+            "phone": "1-253-581-8000",
+            "privateService": false,
+            "timezone": "America/Los_Angeles",
+            "url": "https://www.piercetransit.org"
+          }
+        ],
+        "routes": [
+          {
+            "agencyId": "3",
+            "color": "6cb33f",
+            "description": "",
+            "id": "3_53",
+            "longName": "University Place",
+            "nullSafeShortName": "53",
+            "shortName": "53",
+            "textColor": "000000",
+            "type": 3,
+            "url": "https://www.piercetransit.org/routes/?id=53"
+          }
+        ],
+        "situations": [],
+        "stopTimes": [],
+        "stops": [],
+        "trips": []
+      }
+    },
+    "text": "OK",
+    "version": 2
+  }
