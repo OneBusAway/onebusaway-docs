@@ -24,6 +24,10 @@
 @tailwind base;
 @tailwind components;
 
+.prose h4 {
+  font-weight: 600;
+}
+
 button.DocSearch.DocSearch-Button {
   @apply h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10;
   @apply transition hover:ring-zinc-900/20 lg:flex dark:bg-white/5 dark:text-zinc-400 dark:ring-inset dark:ring-white/10 dark:hover:ring-white/20;
@@ -86,7 +90,6 @@ pre.highlight {
     ::-webkit-scrollbar-thumb:hover {
       background: #333;
     }
-
 }
 
 @tailwind utilities;

@@ -1,0 +1,35 @@
+---
+title: Deployment Guides
+layout: page
+---
+
+<p>
+  This page is the hub for all of our guides and frequently asked questions about
+  deploying OneBusAway for production use.
+</p>
+
+<p>
+  Over time, you can expect to find a variety of guides covering deployment to platforms like
+  Kubernetes, AWS, Google Cloud Platform, Microsoft Azure, and more. For now, if you would like
+  to help, check out our <a href="https://github.com/OneBusAway/onebusaway-docker/issues">onebusaway-docker issue tracker</a>
+  where this work is being coordinated.
+</p>
+
+<h2>Docker Images</h2>
+
+<p>
+  We maintain official OneBusAway Docker images on <a href='https://hub.docker.com/u/opentransitsoftwarefoundation'>Docker Hub</a>.
+  We strongly recommend using a versioned image instead of the `latest` tag. You can learn more about using the Docker images with
+  <a href="https://docs.docker.com/compose/">Docker Compose</a> in the <a href="https://github.com/OneBusAway/onebusaway-docker">onebusaway-docker project README</a>.
+</p>
+
+<h2>Render</h2>
+
+<p>
+  <a href='https://www.render.com'>Render.com</a> is a Platform as a Service (PaaS) provider that can be much easier to work with than AWS, GCP, or Azure while still
+  offering a rich and compelling set of services for creating, orchestrating, and maintaining software using Docker and Render's Infrastructure as Code (IaC) tooling.
+</p>
+
+<p>
+  <a href="/guides/deployment/render">Learn how to deploy OneBusAway on Render →</a>
+</p>
