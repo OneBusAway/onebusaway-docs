@@ -1,0 +1,17 @@
+---
+layout: page
+title: REST API Methods
+---
+
+<ul>
+  <% site.data.rest_api['methods'].each do |k,v| %>
+    <li>
+      <a href="/api/where/methods/<%= k %>">
+        <%= v['name'] || k %>
+      </a>
+      <% if v['description'] %>
+        - <%= v['description'] %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
