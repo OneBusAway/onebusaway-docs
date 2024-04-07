@@ -10,9 +10,10 @@
       children: {
         "Home" => '/',
         "About" => '/about',
+        "Features" => '/features',
         "Downloads" => '/downloads',
         "Getting Help" => '/getting-help',
-        "Release Notes" => '/release-notes'
+        # "Release Notes" => '/release-notes' # April 2024: wildly out of date. hiding until we can fix that.
       },
       current_path: resource.relative_url
     )) %>
@@ -20,16 +21,7 @@
     <%= render(NavigationSection.new(
       "Guides",
       children: {
-        "Ported Wiki Guides" => '/guides/ported-wiki-guides',
-        "Quickstart" => '/guides/quickstart-guide',
-        "Installation" => '/guides/installation-guide',
-        "Transit Data Bundle" => '/guides/transit-data-bundle-guide',
-        "Realtime Config" => '/guides/realtime-configuration-guide',
-        "API Config" => '/guides/api-webapp-configuration-guide',
-        "Phone (IVR) Config" => '/guides/phone-webapp-configuration-guide',
-        "Web Config" => '/guides/webapp-configuration-guide',
-        "Database Config" => '/guides/database-configuration-guide',
-        "Troubleshooting" => '/guides/troubleshooting-guide'
+        "Outdated Guides" => '/guides/outdated'
       },
       current_path: resource.relative_url
     )) %>
@@ -43,27 +35,13 @@
     )) %>
 
     <%= render(NavigationSection.new(
-      "Features",
+      "REST API",
       children: {
-        "Web" => '/features/web',
-        "Phone and SMS" => '/features/phone-and-sms',
-        "Sign Mode" => '/features/sign-mode',
-        "GTFS Realtime" => '/features/gtfs-realtime',
-        "REST API" => '/api/where',
-        "Search API" => '/api/where/search',
+        "About the REST API" => '/api/where',
+        "API Methods" => '/api/where/methods',
+        "API Elements" => '/api/where/elements',
+        "Search" => '/api/where/search',
       },
-      current_path: resource.relative_url
-    )) %>
-
-    <%= render (NavigationSection.new(
-      "REST API Methods",
-      children: site.data.rest_api['methods'].reduce({}) {|acc, kv| k = kv.first; acc[k] = "/api/where/methods/#{k}"; acc },
-      current_path: resource.relative_url
-    )) %>
-
-    <%= render (NavigationSection.new(
-      "REST API Elements",
-      children: site.data.rest_api['elements'].reduce({}) {|acc, kv| k = kv.first; v = kv.last; acc[(v['name'] || k)] = "/api/where/elements/#{k}"; acc },
       current_path: resource.relative_url
     )) %>
   </ul>
