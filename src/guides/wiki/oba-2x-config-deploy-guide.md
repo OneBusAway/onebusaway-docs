@@ -21,16 +21,16 @@ When using this guide, be certain to use the exact same versions of all software
 The minimum system requirements for your server depend on the size of the transit agency that the deployment is for. Failure to select a server with sufficient processing power and, more importantly, memory, will result in the Tomcat service or the server itself needing a reboot several times a day. This guide is written for a small to medium sized municipal transit agency, with about 64 routes, 317 vehicles and 2414 stops. In this guide's deployment, a virtual server with 2.0 GHz of processor power and 2048 MB of memory is being used.
 
 ## Server Operating System
-This guide assumes the end user already knows how to set up a server (virtual or dedicated) using the Debian 9 operating system. You need to start with a clean installation of Debian 9 with nothing extra, not even the Debian desktop environment.
+This guide assumes the end user already knows how to set up a server (virtual or dedicated) using the Ubuntu 22.04 operating system. You need to start with a minimal installation of Ubuntu 22.04 with nothing extra, not even a Ubuntu desktop environment.
 
-When setting up Debian 9 using the installer, be certain to not install any additional components except for the SSH server and standard system utilities. You can likely include more on the server but this guide is written with a clean, lightweight server environment in mind and making your server the same will help ensure success. Also, the less that is running on the server, the more resources available for OneBusAway.
+When setting up Ubuntu using the installer, be certain to not install any additional components except for the SSH server and standard system utilities. You can likely include more on the server but this guide is written with a clean, lightweight server environment in mind and making your server the same will help ensure success. Also, the less that is running on the server, the more resources available for OneBusAway.
 You will need access to the root user to follow this guide. All commands are executed as the root user.
 
 ## Installing Required Software
-Before performing these steps, verify that Debian's Software Repository is up to date. To do this, run the following command.
+Before performing these steps, verify that Ubuntu's Software Repository is up to date. To do this, run the following command.
 `apt-get update`
 
-Using Debian 9, the following software must be installed:
+Using Ubuntu, the following software must be installed:
 ### OpenJDK Runtime Environment 11
 This is the open source version of the Java 11 JDK Runtime Environment. To install it run the following command:
 
@@ -42,7 +42,7 @@ This software is used to serve the OneBusAway web application. To install it, ru
 `apt-get install tomcat8`
 
 ### MySQL Server
-The MySQL Server is used to store OneBusAway user data and API keys. Since Debian no longer has MySQL in its application repository as of Debian 9, it is a little more complicated to install. To install it, run the following commands:
+The MySQL Server is used to store OneBusAway user data and API keys. To install it, run the following commands:
 
     cd ~
     wget https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb
@@ -74,16 +74,18 @@ If you are keen to make changes to the source code of OBA, please see the [Enter
 **Please note:** If you build the binaries instead of downloading them, the paths in the remaining commands in this guide may vary from the actual locations of the built binaries. You will need to adjust the paths in the commands accordingly.
 
 ### Download the Binaries
-You can download pre-compiled binaries for OneBusAway from: http://nexus.onebusaway.org/nexus/content/groups/public/org/onebusaway/. If you wish to browse the repository to handpick the version you want to use, make sure to download the *onebusaway-transit-data-federation-webapp*, *onebusaway-api-webapp* and *onebusaway-enterprise-acta-webapp* files that resulted from the same version build. This can be determined based on the name of the directory which reflects the respective version name of the build (e.g. 2.0.0-SNAPSHOT) that each individual jar or war files are located in. **Note:** Some versions of OBA are not compatible with Tomcat 8 and Java 11, you may need to use an older OS and older version of Java.
+You can download pre-compiled binaries for OneBusAway from the [Downloads](/downloads) page. If you wish to browse the repository to handpick the version you want to use, make sure to download the *onebusaway-transit-data-federation-webapp*, *onebusaway-api-webapp* and *onebusaway-enterprise-acta-webapp* files that resulted from the same version build. This can be determined based on the name of the directory which reflects the respective version name of the build (e.g. 2.0.0-SNAPSHOT) that each individual jar or war files are located in. **Note:** Some versions of OBA are not compatible with Tomcat 8 and Java 11, you may need to use an older OS and older version of Java.
 
 If you have no preference with versions, go for the latest by downloading them with the following commands:
 
     mkdir /oba
     cd /oba
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/2.4.18-cs/onebusaway-transit-data-federation-builder-2.4.18-cs-withAllDependencies.jar
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/2.4.18-cs/onebusaway-transit-data-federation-webapp-2.4.18-cs.war
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/2.4.18-cs/onebusaway-api-webapp-2.4.18-cs.war
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/2.4.18-cs/onebusaway-enterprise-acta-webapp-2.4.18-cs.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/CURRENTVERS/onebusaway-transit-data-federation-builder-CURRENTVERS-withAllDependencies.jar
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/CURRENTVERS/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/CURRENTVERS/onebusaway-api-webapp-CURRENTVERS.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/CURRENTVERS/onebusaway-enterprise-acta-webapp-CURRENTVERS.war
+
+In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ## Download the Transit GTFS Data From the Transit Agency
 Next, you need to download the GTFS Data from the transit agency. With this data, you can build the Transit Data Bundle that OneBusAway will use as a data source. To do this run the following commands in sequence:
@@ -99,11 +101,11 @@ Now, you can build the Transit Data Bundle that OneBusAway will use to display r
 
     cd /oba/gtfs
     java -jar -Xss4m -Xmx1g \
-      /oba/onebusaway-transit-data-federation-builder-2.4.18-cs-withAllDependencies.jar \
+      /oba/onebusaway-transit-data-federation-builder-CURRENTVERS-withAllDependencies.jar \
       /oba/gtfs/gtfs.zip \
       /oba/gtfs
 
-In the above command, replace **gtfs.zip** with the name of the GTFS data file that was downloaded earlier. The extension of the file should end with **.zip**. This process will take a while to run. When it is complete you should see “Shutting down EHCache CacheManager” with no major errors before it.
+In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page. Replace **gtfs.zip** with the name of the GTFS data file that was downloaded earlier. The extension of the file should end with **.zip**. This process will take a while to run. When it is complete you should see “Shutting down EHCache CacheManager” with no major errors before it.
 
 When executing this particular script, you must run it from within the /oba/gtfs directory because it puts the built files in the current active directory of the command line. To avoid this problem, be certain to execute all of the commands in this step.
 
@@ -135,9 +137,11 @@ To prepare for deployment, we need to stop the Tomcat 8 service. To do this run 
 
     mkdir /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
     cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    mv /oba/onebusaway-transit-data-federation-webapp-2.4.18-cs.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.4.18-cs.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-2.4.18-cs.war
+    mv /oba/onebusaway-transit-data-federation-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
+
+In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
@@ -206,9 +210,11 @@ In the above XML code, you will need to replace newPassword in the SQL settings 
 
     mkdir /var/lib/tomcat8/webapps/onebusaway-api-webapp
     cd /var/lib/tomcat8/webapps/onebusaway-api-webapp
-    mv /oba/onebusaway-api-webapp-2.4.18-cs.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.4.18-cs.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-2.4.18-cs.war
+    mv /oba/onebusaway-api-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
+
+In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
@@ -299,7 +305,7 @@ In the above XML code, you will need to replace newPassword in the SQL settings 
     </beans>
     
 
-Take note of the second-last bean in the XML. This is an API key for testing purposes. It is very important to either change the key or remove it entirely before making your OBA installation live. If you want to allow users to connect to your OBA instance with the various OBA apps, you must include additional beans that have the default API keys for the respective app. You can get the code for these beans from this file before you replace its contents.
+Take note of the second-to-last bean in the XML. This is an API key for testing purposes. It is very important to either change the key or remove it entirely before making your OBA installation live. If you want to allow users to connect to your OBA instance with the various OBA apps, you must include additional beans that have the default API keys for the respective app. You can get the code for these beans from this file before you replace its contents.
 
 In the above XML code you will also need to replace newPassword in the SQL settings with the password you chose for the oba user.
 
@@ -309,9 +315,11 @@ In the above XML code you will also need to replace newPassword in the SQL setti
 
     rm -rf /var/lib/tomcat8/webapps/ROOT/*
     cd /var/lib/tomcat8/webapps/ROOT
-    mv /oba/onebusaway-enterprise-acta-webapp-2.4.18-cs.war /var/lib/tomcat8/webapps/ROOT/
-    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.4.18-cs.war
-    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-2.4.18-cs.065008-42.war
+    mv /oba/onebusaway-enterprise-acta-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/ROOT/
+    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.065008-42.war
+
+In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
