@@ -114,7 +114,7 @@ _(In the opinion of the author, this part of the process is unnecessarily comple
 1. [Install Docker Desktop](https://www.docker.com/get-started/)
 2. Launch Docker Desktop and log in to Docker through the app.
 3. Search for `onebusaway-bundle-builder` (See screenshot below.)
-4. Select the most recent versioned tag (at the time of the writing of this document, the version was `2.4.18-cs-v1.0.0`)
+4. Select the most recent versioned tag (at the time of the writing of this document, the version was `2.4.18-cs-v1.1.0`)
 5. Click the _Pull_ button in the search UI.
 6. Switch to the _Images_ tab on the left side navigation pane.
 7. Under the _Actions_ column next to your bundle-builder image, click the ▶ button (i.e. the _Play_ button)
