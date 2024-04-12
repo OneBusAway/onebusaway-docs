@@ -83,3 +83,12 @@ pre.highlight {
 }
 
 @tailwind utilities;
+
+/* Prevent headings from getting hidden when directly accessing sections with ids: */
+:target:before {
+    content: "";
+    display: block;
+    height: 80px;
+    margin-top: -80px; 
+}
+
