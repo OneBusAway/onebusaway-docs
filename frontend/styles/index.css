@@ -67,29 +67,19 @@ pre.highlight {
 }
 
 ::-webkit-scrollbar-track {
-  background-color : #686868;
+  @apply dark:bg-zinc-800 bg-[#f3f3f3];
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #424242;
+  @apply dark:bg-zinc-600 bg-[#c2c2c2];
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #848484;
+  @apply dark:bg-zinc-400 bg-zinc-400;
 }
 
-@media (prefers-color-scheme: light) {
-    ::-webkit-scrollbar-track {
-      background-color: #f3f3f3;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #848484;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333;
-    }
+::-webkit-scrollbar-thumb:active {
+  @apply dark:bg-zinc-200 bg-zinc-500;
 }
 
 @tailwind utilities;
