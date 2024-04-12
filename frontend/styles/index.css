@@ -1,5 +1,5 @@
 /* If you need to add @import statements, do so up here */
-
+@import './editordarkmode.css';
 @import "jit-refresh.css"; /* triggers frontend rebuilds */
 
 @layer base {
@@ -23,6 +23,10 @@
 /* Set up Tailwind imports */
 @tailwind base;
 @tailwind components;
+
+.prose h4 {
+  font-weight: 600;
+}
 
 button.DocSearch.DocSearch-Button {
   @apply h-8 w-full items-center gap-2 rounded-full bg-white pl-2 pr-3 text-sm text-zinc-500 ring-1 ring-zinc-900/10;
@@ -63,27 +67,19 @@ pre.highlight {
 }
 
 ::-webkit-scrollbar-track {
-  @apply dark:bg-[#686868] bg-[#f3f3f3];
+  @apply dark:bg-zinc-800 bg-[#f3f3f3];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply dark:bg-[#424242] bg-[#848484];
+  @apply dark:bg-zinc-600 bg-[#c2c2c2];
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply dark:bg-[#848484] bg-[#333];
+  @apply dark:bg-zinc-400 bg-zinc-400;
 }
 
-@media (prefers-color-scheme: light) {
-
-  .jsoneditor {
-    @apply !border-zinc-300;
-  }
-
-  .jsoneditor-menu {
-    @apply bg-gradient-to-br;
-    @apply from-green-600 to-green-700;
-  }
+::-webkit-scrollbar-thumb:active {
+  @apply dark:bg-zinc-200 bg-zinc-500;
 }
 
 @tailwind utilities;

@@ -19,32 +19,9 @@ export function enableScrollToTop() {
 export function setupSidebar() {
   const h1Elements = document.querySelectorAll('h1');
   const h2Elements = document.querySelectorAll('article h2');
-  const sidebar = document.querySelector('.sidebar');
 
-  function appendSidebarItem(textContent, tagName) {
-    const newItem = document.createElement('a');
-    newItem.textContent = textContent;
-    if (tagName === 'h1') {
-      newItem.classList.add('sidebar-item', 'text-green-500');
-    }
-    else if (tagName === 'h2') {
-      newItem.classList.add('sidebar-item-h2', 'text-gray-500', 'hover:text-green-400', 'ml-4', 'cursor-pointer');
-    }
-    sidebar.appendChild(newItem);
-
-    newItem.addEventListener('click', function() {
-      const currentVersion = newItem.textContent;
-      const headings = document.querySelectorAll('h2');
-      let targetElement = null;
-      headings.forEach(function(heading) {
-        if (heading.textContent.trim() === currentVersion.trim()) {
-          targetElement = heading;
-        }
-      });
-      if (targetElement) {
-        window.scrollTo(0, targetElement.offsetTop - 100);
-      }
-    });
+  if (h2Elements.length == 0) {
+    return;
   }
 
   h1Elements.forEach(function (element) {
@@ -67,3 +44,30 @@ export function saveAndRestoreNavigationPosition() {
     console.log('clicked')
   });
 };
+
+function appendSidebarItem(textContent, tagName) {
+  const sidebar = document.querySelector('.sidebar');
+  const newItem = document.createElement('a');
+  newItem.textContent = textContent;
+  if (tagName === 'h1') {
+    newItem.classList.add('sidebar-item', 'text-green-500', 'block');
+  }
+  else if (tagName === 'h2') {
+    newItem.classList.add('sidebar-item-h2', 'text-gray-500', 'hover:text-green-400', 'ml-4', 'block', 'cursor-pointer');
+  }
+  sidebar.appendChild(newItem);
+
+  newItem.addEventListener('click', function() {
+    const currentVersion = newItem.textContent;
+    const headings = document.querySelectorAll('h2');
+    let targetElement = null;
+    headings.forEach(function(heading) {
+      if (heading.textContent.trim() === currentVersion.trim()) {
+        targetElement = heading;
+      }
+    });
+    if (targetElement) {
+      window.scrollTo(0, targetElement.offsetTop - 100);
+    }
+  });
+}
