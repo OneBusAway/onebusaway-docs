@@ -1,0 +1,17 @@
+---
+layout: page
+title: REST API Elements
+---
+
+<ul>
+  <% site.data.rest_api['elements'].each do |k,v| %>
+    <li>
+      <a href="/api/where/elements/<%= k %>">
+        <%= v['name'] || k %>
+      </a>
+      <% if v['description'] %>
+        - <%= v['description'] %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
