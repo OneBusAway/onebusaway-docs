@@ -31,11 +31,13 @@ export function setupSidebar() {
   h2Elements.forEach(function (element) {
     appendSidebarItem(element.textContent, 'h2');
   });
-  
+
   const h2Items = document.querySelectorAll('.sidebar-item-h2');
   h2Items.forEach(item => {
     item.style.paddingTop = '10px';
   });
+
+  window.addEventListener('scroll', highlightSidebarItem);
 }
 
 function appendSidebarItem(textContent, tagName) {
@@ -44,30 +46,18 @@ function appendSidebarItem(textContent, tagName) {
   newItem.textContent = textContent;
   if (tagName === 'h1') {
     newItem.classList.add('sidebar-item', 'text-green-500', 'block');
-  }
-  else if (tagName === 'h2') {
+  } else if (tagName === 'h2') {
     newItem.classList.add('sidebar-item-h2', 'text-gray-500', 'hover:text-green-400', 'ml-4', 'block', 'cursor-pointer');
   }
   sidebar.appendChild(newItem);
 
-  newItem.addEventListener('click', function() {
+  newItem.addEventListener('click', function () {
     const allSidebarItems = document.querySelectorAll('.sidebar a');
-      allSidebarItems.forEach(function(item) {
-        item.style.color = ''; // Reset color
-        item.style.fontWeight='';
-      });
-
-      // Change color of clicked item
-      if(tagName=='h2'){
-        newItem.style.color = '#34D399';
-        newItem.style.fontWeight='bold';
-      }
-
 
     const currentVersion = newItem.textContent;
     const headings = document.querySelectorAll('h2');
     let targetElement = null;
-    headings.forEach(function(heading) {
+    headings.forEach(function (heading) {
       if (heading.textContent.trim() === currentVersion.trim()) {
         targetElement = heading;
       }
@@ -75,8 +65,47 @@ function appendSidebarItem(textContent, tagName) {
     if (targetElement) {
       window.scrollTo(0, targetElement.offsetTop - 100);
     }
-  }); 
+  });
 }
+
+function highlightSidebarItem() {
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
+
+  const h2Items = document.querySelectorAll('.sidebar-item-h2');
+  h2Items.forEach((item, index) => {
+    const sectionId = item.textContent.trim().toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const sectionTop = section.offsetTop;
+
+      let nextSectionTop = Infinity;
+      if (index < h2Items.length - 1) {
+        const nextItem = h2Items[index + 1];
+        const nextSectionId = nextItem.textContent.trim().toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+        const nextSection = document.getElementById(nextSectionId);
+        if (nextSection) {
+          nextSectionTop = nextSection.offsetTop;
+        }
+      }
+
+      const sectionMiddle = sectionTop + section.offsetHeight / 2;
+      let shouldHighlight = false;
+      if (scrollPosition >= sectionTop - windowHeight / 3 && scrollPosition < nextSectionTop - windowHeight / 3) {
+        shouldHighlight = true;
+      } else if (scrollPosition >= sectionTop - 200 && scrollPosition >= nextSectionTop - windowHeight / 3 && index === h2Items.length - 1) {
+        shouldHighlight = true;
+      }
+      if (shouldHighlight) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    }
+  });
+}
+window.addEventListener('scroll', highlightSidebarItem);
+
 
 export function saveAndRestoreNavigationPosition() {
   var scrollPosition = sessionStorage.getItem('scrollPosition');
