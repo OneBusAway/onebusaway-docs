@@ -3,11 +3,6 @@ title: Configuration and Deployment Guide for v2.x
 layout: page
 ---
 
-<div class='bg-blue-50 border-blue-500 dark:bg-slate-800 p-4 rounded-md'>
-    <div><strong>Original location</strong>: <a href='https://github.com/OneBusAway/onebusaway/wiki/Configuration-and-Deployment-Guide-for-v2.x'>https://github.com/OneBusAway/onebusaway/wiki/Configuration-and-Deployment-Guide-for-v2.x</a></div>
-    <div><strong>Last updated</strong>: April 2024</div>
-</div>
-
 This guide is designed to provide a comprehensive deployment method for users who wish to set up a simple OneBusAway application with minimal configurations. It is primarily intended for use cases that would need to be more permanent than just using the quickstart version of OneBusAway. Unlike quickstart, this solution boots with the server automatically with no additional configuration required.
 
 Note that unless there's a good reason to configure and deploy manually, the official Docker image should be used.
@@ -36,29 +31,25 @@ This is the open source version of the Java 11 JDK Runtime Environment. To insta
 
 `apt-get install openjdk-11-jdk`
 
-### Tomcat 8
+### Tomcat 9
 This software is used to serve the OneBusAway web application. To install it, run the following command:
 
-`apt-get install tomcat8`
+`apt-get install tomcat9`
 
 ### MySQL Server
 The MySQL Server is used to store OneBusAway user data and API keys. To install it, run the following commands:
 
     cd ~
-    wget https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb
-    apt-get install gdebi-core
-    gdebi mysql-apt-config_0.8.6-1_all.deb
-    apt-get update
-    apt-get install mysql-server
+    sudo apt install mysql-server
 
 During the install process, you will be prompted to create a password for the root MySQL user. Take note of the password you set as it will be needed later.
 
 ## Configure Tomcat to use More Memory
 By default, Tomcat uses a very small amount of memory. This is usually not enough memory to run OneBusAway. To fix this run the following commands:
 
-`nano /etc/default/tomcat8`
+`nano /etc/default/tomcat9`
 
-Change the line that says `-Djava.awt.headless=true -XX:+UseConcMarkSweepGC` to `JAVA_OPTS="-Djava.awt.headless=true -Xss4m -Xmx2g -XX:+UseConcMarkSweepGC"`
+Change the line that says `JAVA_OPTS="-Djava.awt.headless=true"` to `JAVA_OPTS="-Djava.awt.headless=true -Xss4m -Xmx2g -XX:+UseConcMarkSweepGC"`
 
 Note the **Xmx** variable. This variable is used to indicate to Tomcat exactly how much memory it is allowed to use. You may need to tweak this variable dependent on the size of the transit agency.
 Also note the **Xss** variable. This variable is used to indicate to Tomcat the maximum stack size it is allowed to have. You may also need to tweak this variable dependent on the size of the transit agency.
@@ -74,7 +65,7 @@ If you are keen to make changes to the source code of OBA, please see the [Enter
 **Please note:** If you build the binaries instead of downloading them, the paths in the remaining commands in this guide may vary from the actual locations of the built binaries. You will need to adjust the paths in the commands accordingly.
 
 ### Download the Binaries
-You can download pre-compiled binaries for OneBusAway from the [Downloads](/downloads) page. If you wish to browse the repository to handpick the version you want to use, make sure to download the *onebusaway-transit-data-federation-webapp*, *onebusaway-api-webapp* and *onebusaway-enterprise-acta-webapp* files that resulted from the same version build. This can be determined based on the name of the directory which reflects the respective version name of the build (e.g. 2.0.0-SNAPSHOT) that each individual jar or war files are located in. **Note:** Some versions of OBA are not compatible with Tomcat 8 and Java 11, you may need to use an older OS and older version of Java.
+You can download pre-compiled binaries for OneBusAway from the [Downloads](/downloads) page. If you wish to browse the repository to handpick the version you want to use, make sure to download the *onebusaway-transit-data-federation-webapp*, *onebusaway-api-webapp* and *onebusaway-enterprise-acta-webapp* files that resulted from the same version build. This can be determined based on the name of the directory which reflects the respective version name of the build (e.g. 2.0.0-SNAPSHOT) that each individual jar or war files are located in. **Note:** Some versions of OBA are not compatible with Tomcat 9 and Java 11, you may need to use an older OS and older version of Java.
 
 If you have no preference with versions, go for the latest by downloading them with the following commands:
 
@@ -113,44 +104,45 @@ When executing this particular script, you must run it from within the /oba/gtfs
 Next, we need the MySQL Connector Java Library. This will allow OneBusAway to use the MySQL database. You can download the library from [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/). To do this, run the following commands in sequence:
 
     cd /oba
-    wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.3.0.tar.gz
-    tar -zxvf mysql-connector-java-8.3.0.tar.gz
-    mv mysql-connector-java-8.3.0/mysql-connector-java-8.3.0-bin.jar .
-    rm -rf mysql-connector-java-8.3.0.tar.gz
-    rm -rf mysql-connector-java-8.3.0
+    wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.3.0.tar.gz
+    tar -zxvf mysql-connector-j-8.3.0.tar.gz
+    mv mysql-connector-j-8.3.0/mysql-connector-j-8.3.0.jar .
+    rm -rf mysql-connector-j-8.3.0.tar.gz
+    rm -rf mysql-connector-j-8.3.0
 
 ## Create the MySQL Database
-Now, you can create the database that OneBusAway will use to store user and API data. To do this, run the following command:
+Now, you can create the database that OneBusAway will use to store user and API data. To do this, run the following commands:
 
-    mysql -p -e "CREATE DATABASE oba; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost' IDENTIFIED BY 'newPassword';"
+    sudo mysql -p -e "CREATE DATABASE oba;"
+    mysql -p -e "CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword'; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost'; FLUSH PRIVILEGES;"
 
 In the above commands, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
 
-## Stop the Tomcat 8 Service
-To prepare for deployment, we need to stop the Tomcat 8 service. To do this run the following command:
+## Stop the Tomcat 9 Service
+To prepare for deployment, we need to stop the Tomcat 9 service. To do this run the following command:
 
-`service tomcat8 stop`
+`service tomcat9 stop`
 
 ## Deploy and Configure the OneBusAway Transit Data Federation Webapp
 
 ### Copy The Files
 
-    mkdir /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    mv /oba/onebusaway-transit-data-federation-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
+    mkdir /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp
+    cd /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp
+    mv /oba/onebusaway-transit-data-federation-webapp-CURRENTVERS.war /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp
+    jar xvf /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-CURRENTVERS.war
 
 In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
-    cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/lib
-    cp /oba/mysql-connector-java-8.3.0-bin.jar .
+    cd /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/lib
+    cp /oba/mysql-connector-j-8.3.0.jar .
 
 ### Configure the OneBusAway Transit Data Federation Webapp
 
-`nano /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/classes/data-sources.xml`
+`nano /var/lib/tomcat9/webapps/onebusaway-transit-data-federation-webapp/WEB-INF/classes/data-sources.xml`
 
 Using the editor, clear out the contents of this file and replace it with:
 
@@ -208,22 +200,22 @@ In the above XML code, you will need to replace newPassword in the SQL settings 
 
 ### Copy The Files
 
-    mkdir /var/lib/tomcat8/webapps/onebusaway-api-webapp
-    cd /var/lib/tomcat8/webapps/onebusaway-api-webapp
-    mv /oba/onebusaway-api-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
+    mkdir /var/lib/tomcat9/webapps/onebusaway-api-webapp
+    cd /var/lib/tomcat9/webapps/onebusaway-api-webapp
+    mv /oba/onebusaway-api-webapp-CURRENTVERS.war /var/lib/tomcat9/webapps/onebusaway-api-webapp/
+    jar xvf /var/lib/tomcat9/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat9/webapps/onebusaway-api-webapp/onebusaway-api-webapp-CURRENTVERS.war
 
 In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
-    cd /var/lib/tomcat8/webapps/onebusaway-api-webapp/WEB-INF/lib
-    cp /oba/mysql-connector-java-8.3.0-bin.jar .
+    cd /var/lib/tomcat9/webapps/onebusaway-api-webapp/WEB-INF/lib
+    cp /oba/mysql-connector-j-8.3.0.jar .
 
 ### Configure the OneBusAway API Webapp
 
-`nano /var/lib/tomcat8/webapps/onebusaway-api-webapp/WEB-INF/classes/data-sources.xml`
+`nano /var/lib/tomcat9/webapps/onebusaway-api-webapp/WEB-INF/classes/data-sources.xml`
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans
@@ -303,7 +295,6 @@ In the above command, note **CURRENTVERS**. Replace these with the current versi
         </property>
       </bean>
     </beans>
-    
 
 Take note of the second-to-last bean in the XML. This is an API key for testing purposes. It is very important to either change the key or remove it entirely before making your OBA installation live. If you want to allow users to connect to your OBA instance with the various OBA apps, you must include additional beans that have the default API keys for the respective app. You can get the code for these beans from this file before you replace its contents.
 
@@ -313,22 +304,22 @@ In the above XML code you will also need to replace newPassword in the SQL setti
 
 ### Copy The Files
 
-    rm -rf /var/lib/tomcat8/webapps/ROOT/*
-    cd /var/lib/tomcat8/webapps/ROOT
-    mv /oba/onebusaway-enterprise-acta-webapp-CURRENTVERS.war /var/lib/tomcat8/webapps/ROOT/
-    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.war
-    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.065008-42.war
+    rm -rf /var/lib/tomcat9/webapps/ROOT/*
+    cd /var/lib/tomcat9/webapps/ROOT
+    mv /oba/onebusaway-enterprise-acta-webapp-CURRENTVERS.war /var/lib/tomcat9/webapps/ROOT/
+    jar xvf /var/lib/tomcat9/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.war
+    rm -rf /var/lib/tomcat9/webapps/ROOT/onebusaway-enterprise-acta-webapp-CURRENTVERS.065008-42.war
 
 In the above command, note **CURRENTVERS**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
 
 ### Copy the MySQL Driver
 
-    cd /var/lib/tomcat8/webapps/ROOT/WEB-INF/lib
-    cp /oba/mysql-connector-java-8.3.0-bin.jar .
+    cd /var/lib/tomcat9/webapps/ROOT/WEB-INF/lib
+    cp /oba/mysql-connector-j-8.3.0.jar .
 
 ### Configure the OneBusAway API Webapp
 
-`nano /var/lib/tomcat8/webapps/ROOT/WEB-INF/classes/data-sources.xml`
+`nano /var/lib/tomcat9/webapps/ROOT/WEB-INF/classes/data-sources.xml`
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans
@@ -359,9 +350,9 @@ In the above command, note **CURRENTVERS**. Replace these with the current versi
       <!-- Database Configuration -->
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="${JDBC_URL}" />
-        <property name="username" value="${JDBC_USER}" />
-        <property name="password" value="${JDBC_PASSWORD}" />
+        <property name="url" value="jdbc:mysql://127.0.0.1/oba?characterEncoding=UTF-8" />
+        <property name="username" value="oba" />
+        <property name="password" value="newPassword" />
       </bean>
 
       <alias name="dataSource" alias="mutableDataSource" />
@@ -392,17 +383,17 @@ In the above command, note **CURRENTVERS**. Replace these with the current versi
 
 In the above XML code, you will need to replace newPassword in the SQL settings with the password you chose for the oba user.
 
-## Start the Tomcat8 Service
-You can start the Tomcat8 Service to see if everything worked. In a second SSH window you may want to run the following command so that you can watch the console output of the Tomcat8 service as OneBusAway starts up for the first time:
+## Start the tomcat9 Service
+You can start the tomcat9 Service to see if everything worked. In a second SSH window you may want to run the following command so that you can watch the console output of the tomcat9 service as OneBusAway starts up for the first time:
 
-`tail -f /var/log/tomcat8/catalina.out`
+`tail -f /var/log/tomcat9/catalina.out`
 
-To start the Tomcat8 Service, run this command:
+To start the tomcat9 Service, run this command:
 
-`service tomcat8 start`
+`service tomcat9 start`
 
 ## Check all of the Services.
-OBA v2 uses multiple different services to make sure each one is working correctly you should be able to visit:
+OBA v2 uses multiple different services. To make sure each one is working correctly, you should be able to visit:
 * http://myoba.example.com:8080/routes
 * http://myoba.example.com:8080/onebusaway-transit-data-federation-webapp/
 * http://myoba.example.com:8080/onebusaway-api-webapp/api/where/agencies-with-coverage.json?key=TEST
