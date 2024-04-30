@@ -3,11 +3,9 @@ title: Configuration and Deployment Guide for v2.x
 layout: page
 ---
 
-`<%= site.metadata.oba_version %>`
-
 This guide is designed to provide a comprehensive deployment method for users who wish to set up a simple OneBusAway application with minimal configurations. It is primarily intended for use cases that would need to be more permanent than just using the quickstart version of OneBusAway. Unlike quickstart, this solution boots with the server automatically with no additional configuration required.
 
-Note that unless there's a good reason to configure and deploy manually, the official Docker image should be used.
+Note that unless there's a good reason to configure and deploy manually, the official Docker image should always be used.
 
 ## Note on Software Versions
 
@@ -93,12 +91,10 @@ If you have no preference with versions, go for the latest by downloading them w
 
     mkdir /oba
     cd /oba
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/`<%= site.metadata.oba_version %>`/onebusaway-transit-data-federation-builder-`<%= site.metadata.oba_version %>`-withAllDependencies.jar
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/`<%= site.metadata.oba_version %>`/onebusaway-transit-data-federation-webapp-`<%= site.metadata.oba_version %>`.war
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/`<%= site.metadata.oba_version %>`/onebusaway-api-webapp-`<%= site.metadata.oba_version %>`.war
-    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/`<%= site.metadata.oba_version %>`/onebusaway-enterprise-acta-webapp-`<%= site.metadata.oba_version %>`.war
-
-In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-builder/<%= site.metadata.oba_version %>/onebusaway-transit-data-federation-builder-<%= site.metadata.oba_version %>-withAllDependencies.jar
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-transit-data-federation-webapp/<%= site.metadata.oba_version %>/onebusaway-transit-data-federation-webapp-<%= site.metadata.oba_version %>.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-api-webapp/<%= site.metadata.oba_version %>/onebusaway-api-webapp-<%= site.metadata.oba_version %>.war
+    wget https://repo.camsys-apps.com/releases/org/onebusaway/onebusaway-enterprise-acta-webapp/<%= site.metadata.oba_version %>/onebusaway-enterprise-acta-webapp-<%= site.metadata.oba_version %>.war
 
 ## Download the Transit GTFS Data From the Transit Agency
 Next, you need to download the GTFS Data from the transit agency. With this data, you can build the Transit Data Bundle that OneBusAway will use as a data source. To do this run the following commands in sequence:
@@ -114,11 +110,11 @@ Now, you can build the Transit Data Bundle that OneBusAway will use to display r
 
     cd /oba/gtfs
     java -jar -Xss4m -Xmx1g \
-      /oba/onebusaway-transit-data-federation-builder-`<%= site.metadata.oba_version %>`-withAllDependencies.jar \
+      /oba/onebusaway-transit-data-federation-builder-<%= site.metadata.oba_version %>-withAllDependencies.jar \
       /oba/gtfs/gtfs.zip \
       /oba/gtfs
 
-In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these with the current version, found at the top of the [Downloads](/downloads) page. Replace **gtfs.zip** with the name of the GTFS data file that was downloaded earlier. The extension of the file should end with **.zip**. This process will take a while to run. When it is complete you should see “Shutting down EHCache CacheManager” with no major errors before it.
+In the above command, replace **gtfs.zip** with the name of the GTFS data file that was downloaded earlier. The extension of the file should end with **.zip**. This process will take a while to run. When it is complete you should see “Shutting down EHCache CacheManager” with no major errors before it.
 
 When executing this particular script, you must run it from within the /oba/gtfs directory because it puts the built files in the current active directory of the command line. To avoid this problem, be certain to execute all of the commands in this step.
 
@@ -150,11 +146,9 @@ To prepare for deployment, we need to stop the Tomcat 8 service. To do this run 
 
     mkdir /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
     cd /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    mv /oba/onebusaway-transit-data-federation-webapp-`<%= site.metadata.oba_version %>`.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-`<%= site.metadata.oba_version %>`.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-`<%= site.metadata.oba_version %>`.war
-
-In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
+    mv /oba/onebusaway-transit-data-federation-webapp-<%= site.metadata.oba_version %>.war /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-<%= site.metadata.oba_version %>.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-transit-data-federation-webapp/onebusaway-transit-data-federation-webapp-<%= site.metadata.oba_version %>.war
 
 ### Copy the MySQL Driver
 
@@ -223,11 +217,9 @@ In the above XML code, you will need to replace newPassword in the SQL settings 
 
     mkdir /var/lib/tomcat8/webapps/onebusaway-api-webapp
     cd /var/lib/tomcat8/webapps/onebusaway-api-webapp
-    mv /oba/onebusaway-api-webapp-`<%= site.metadata.oba_version %>`.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
-    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-`<%= site.metadata.oba_version %>`.war
-    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-`<%= site.metadata.oba_version %>`.war
-
-In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
+    mv /oba/onebusaway-api-webapp-<%= site.metadata.oba_version %>.war /var/lib/tomcat8/webapps/onebusaway-api-webapp/
+    jar xvf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-<%= site.metadata.oba_version %>.war
+    rm -rf /var/lib/tomcat8/webapps/onebusaway-api-webapp/onebusaway-api-webapp-<%= site.metadata.oba_version %>.war
 
 ### Copy the MySQL Driver
 
@@ -327,11 +319,9 @@ In the above XML code you will also need to replace newPassword in the SQL setti
 
     rm -rf /var/lib/tomcat8/webapps/ROOT/*
     cd /var/lib/tomcat8/webapps/ROOT
-    mv /oba/onebusaway-enterprise-acta-webapp-`<%= site.metadata.oba_version %>`.war /var/lib/tomcat8/webapps/ROOT/
-    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-`<%= site.metadata.oba_version %>`.war
-    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-`<%= site.metadata.oba_version %>`.065008-42.war
-
-In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these with the current version, found at the top of the [Downloads](/downloads) page.
+    mv /oba/onebusaway-enterprise-acta-webapp-<%= site.metadata.oba_version %>.war /var/lib/tomcat8/webapps/ROOT/
+    jar xvf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-<%= site.metadata.oba_version %>.war
+    rm -rf /var/lib/tomcat8/webapps/ROOT/onebusaway-enterprise-acta-webapp-<%= site.metadata.oba_version %>.065008-42.war
 
 ### Copy the MySQL Driver
 
@@ -404,12 +394,12 @@ In the above command, note **`<%= site.metadata.oba_version %>`**. Replace these
 
 In the above XML code, you will need to replace newPassword in the SQL settings with the password you chose for the oba user.
 
-## Start the tomcat8 Service
-You can start the tomcat8 Service to see if everything worked. In a second SSH window you may want to run the following command so that you can watch the console output of the tomcat8 service as OneBusAway starts up for the first time:
+## Start the Tomcat8 Service
+You can start the Tomcat8 Service to see if everything worked. In a second SSH window you may want to run the following command so that you can watch the console output of the Tomcat8 service as OneBusAway starts up for the first time:
 
 `tail -f /var/log/tomcat8/catalina.out`
 
-To start the tomcat8 Service, run this command:
+To start the Tomcat8 Service, run this command:
 
 `service tomcat8 start`
 
