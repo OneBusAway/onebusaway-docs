@@ -131,7 +131,7 @@ Now, you can create the database that OneBusAway will use to store user and API 
 
     mysql -p -e "CREATE DATABASE oba; CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword'; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost'; FLUSH PRIVILEGES;"
 
-In the above command, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. If prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
+In the above command, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL. If you did not set a password, enter the user password of your Ubuntu account.
 
 ## Stop the Tomcat 8 Service
 To prepare for deployment, we need to stop the Tomcat 8 service. To do this run the following command:
