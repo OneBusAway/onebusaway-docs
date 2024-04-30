@@ -22,10 +22,12 @@ When setting up Ubuntu using the installer, be certain to not install any additi
 You will need access to the root user to follow this guide. All commands are executed as the root user.
 
 ## Installing Required Software
-Before performing these steps, verify that Ubuntu's Software Repository is up to date. To do this, run the following command.
+Before performing these steps, verify that Ubuntu's Software Repository is up to date. To do this, run the following command:
+
 `apt-get update`
 
-Using Ubuntu, the following software must be installed:
+Using Ubuntu 22.04, the following software must be installed:
+
 ### OpenJDK Runtime Environment 11
 This is the open source version of the Java 11 JDK Runtime Environment. To install it, run the following command:
 
@@ -45,7 +47,7 @@ This software is used to serve the OneBusAway web application. Since this Ubuntu
     rm /etc/apt/sources.list.d/bionic.list
     apt-get update
 
-Note that after the sixth command above, put in these lines:
+Note that after the sixth command above, these lines should be added to the empty file:
 
     [Service]
     Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"`
@@ -125,12 +127,11 @@ Next, we need the MySQL Connector Java Library. This will allow OneBusAway to us
     rm -rf mysql-connector-j-8.3.0
 
 ## Create the MySQL Database
-Now, you can create the database that OneBusAway will use to store user and API data. To do this, run the following commands:
+Now, you can create the database that OneBusAway will use to store user and API data. To do this, run the following command:
 
-    mysql -p -e "CREATE DATABASE oba;"
-    mysql -p -e "CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword'; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost'; FLUSH PRIVILEGES;"
+    mysql -p -e "CREATE DATABASE oba; CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword'; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost'; FLUSH PRIVILEGES;"
 
-In the above commands, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
+In the above command, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. If prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
 
 ## Stop the Tomcat 8 Service
 To prepare for deployment, we need to stop the Tomcat 8 service. To do this run the following command:
