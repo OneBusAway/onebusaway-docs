@@ -3,6 +3,8 @@ title: Configuration and Deployment Guide for v2.x
 layout: page
 ---
 
+`<%= site.metadata.oba_version %>`
+
 This guide is designed to provide a comprehensive deployment method for users who wish to set up a simple OneBusAway application with minimal configurations. It is primarily intended for use cases that would need to be more permanent than just using the quickstart version of OneBusAway. Unlike quickstart, this solution boots with the server automatically with no additional configuration required.
 
 Note that unless there's a good reason to configure and deploy manually, the official Docker image should be used.
