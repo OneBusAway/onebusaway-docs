@@ -34,7 +34,7 @@ This is the open source version of the Java 11 JDK Runtime Environment. To insta
 `apt-get install openjdk-11-jdk`
 
 ### Tomcat 8
-This software is used to serve the OneBusAway web application. Since this Ubuntu version does not have Tomcat8 in its application repository, it is a little more complicated to install. To install it, run the following commands:
+This software is used to serve the OneBusAway web application. Since Ubuntu 22.04 does not have Tomcat8 in its application repository, a workaround is to install it from an older Ubuntu repository. To install it, run the following commands:
 
     echo "deb http://archive.ubuntu.com/ubuntu/ bionic universe" | tee /etc/apt/sources.list.d/bionic.list
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
@@ -57,8 +57,12 @@ The MySQL Server is used to store OneBusAway user data and API keys. To install 
 
     cd ~
     apt-get install mysql-server
+    mysql
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'newPassword';
+    FLUSH PRIVILEGES;
+    exit
 
-During the install process, you might be prompted to create a password for the root MySQL user. If prompted, take note of the password you set as it will be needed later.
+In the above command, replace **newPassword** with something secure. This will be the password for the MySQL root user. Make sure to take note of the password you set because it will be needed later.
 
 ## Configure Tomcat to use More Memory
 By default, Tomcat uses a very small amount of memory. This is usually not enough memory to run OneBusAway. To fix this, run the following commands:
