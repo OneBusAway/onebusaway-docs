@@ -16,9 +16,9 @@ When using this guide, be certain to use the exact same versions of all software
 The minimum system requirements for your server depend on the size of the transit agency that the deployment is for. Failure to select a server with sufficient processing power and, more importantly, memory, will result in the Tomcat service or the server itself needing a reboot several times a day. This guide is written for a small to medium sized municipal transit agency, with about 64 routes, 317 vehicles and 2414 stops. In this guide's deployment, a virtual server with 2.0 GHz of processor power and 2048 MB of memory is being used.
 
 ## Server Operating System
-This guide assumes the end user already knows how to set up a server (virtual or dedicated) using the Ubuntu 22.04 operating system. You need to start with a minimal installation of Ubuntu 22.04 with nothing extra, not even a Ubuntu desktop environment.
+This guide assumes the end user already knows how to set up a server (virtual or dedicated) using the Ubuntu 22.04 operating system. You need to start with a minimal installation of Ubuntu 22.04 with nothing additional, not even a Ubuntu desktop environment.
 
-When setting up Ubuntu using the installer, be certain to not install any additional components except for the SSH server and standard system utilities. You can likely include more on the server but this guide is written with a clean, lightweight server environment in mind and making your server the same will help ensure success. Also, the less that is running on the server, the more resources available for OneBusAway.
+When setting up Ubuntu using the installer, be certain to not install any additional components except for the SSH server and standard system utilities. You can likely include more on the server, but this guide is written with a clean, lightweight server environment in mind and making your server the same will help ensure success. The less that is running on the server, the more resources available for OneBusAway.
 You will need access to the root user to follow this guide. All commands are executed as the root user.
 
 ## Installing Required Software
@@ -34,7 +34,7 @@ This is the open source version of the Java 11 JDK Runtime Environment. To insta
 `apt-get install openjdk-11-jdk`
 
 ### Tomcat 8
-This software is used to serve the OneBusAway web application. Since Ubuntu 22.04 does not have Tomcat8 in its application repository, a workaround is to install it from an older Ubuntu repository. To install it, run the following commands:
+This software is used to serve the OneBusAway web application. As Ubuntu 22.04 does not have Tomcat8 in its application repository, a workaround is to install it from an older Ubuntu repository. To install it, run the following commands:
 
     echo "deb http://archive.ubuntu.com/ubuntu/ bionic universe" | tee /etc/apt/sources.list.d/bionic.list
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
@@ -47,7 +47,7 @@ This software is used to serve the OneBusAway web application. Since Ubuntu 22.0
     rm /etc/apt/sources.list.d/bionic.list
     apt-get update
 
-Note that after the sixth command above, these lines should be added to the empty file:
+After the sixth command above, these lines should be added to the empty file:
 
     [Service]
     Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64"`
@@ -62,7 +62,7 @@ The MySQL Server is used to store OneBusAway user data and API keys. To install 
     FLUSH PRIVILEGES;
     exit
 
-In the above command, replace **newPassword** with something secure. This will be the password for the MySQL root user. Make sure to take note of the password you set because it will be needed later.
+In the above command, replace **newPassword** with something secure. This is the password for the MySQL root user. Make sure to take note of the password you set because it will be needed later.
 
 ## Configure Tomcat to use More Memory
 By default, Tomcat uses a very small amount of memory. This is usually not enough memory to run OneBusAway. To fix this, run the following commands:
@@ -75,10 +75,10 @@ Note the **Xmx** variable. This variable is used to indicate to Tomcat exactly h
 Also note the **Xss** variable. This variable is used to indicate to Tomcat the maximum stack size it is allowed to have. You may also need to tweak this variable dependent on the size of the transit agency.
 
 ## Acquiring the Binaries
-Now that all of the required supporting software is installed, you must either download the binaries from OneBusAway or we must compile and build the binaries from the source code.
+Now that all of the required supporting software is installed, you must either download the binaries from OneBusAway or you must compile and build the binaries from the source code.
 
 ### Compile and Build the Binaries
-It is recommended that you **do not** attempt to compile and download the binaries if you are not going to make any changes to OneBusAway's source code. If you just want to install it, skip this and proceed to the Download the Binaries step.
+It is recommended that you **do not** attempt to compile and download the binaries if you are not going to make any changes to OneBusAway's source code. If you simply want to install it, skip this and proceed to the Download the Binaries step.
 
 If you are keen to make changes to the source code of OBA, please see the [Enterprise Webapp Configuration](https://github.com/OneBusAway/onebusaway-application-modules/wiki/Enterprise-Webapp-Configuration).
 
@@ -119,7 +119,7 @@ In the above command, replace **gtfs.zip** with the name of the GTFS data file t
 When executing this particular script, you must run it from within the /oba/gtfs directory because it puts the built files in the current active directory of the command line. To avoid this problem, be certain to execute all of the commands in this step.
 
 ## Download the MySQL Connector Java Library
-Next, we need the MySQL Connector Java Library. This will allow OneBusAway to use the MySQL database. You can download the library from [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/). To do this, run the following commands in sequence:
+Next, you need the MySQL Connector Java Library. This will allow OneBusAway to use the MySQL database. You can download the library from [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/). To do this, run the following commands in sequence:
 
     cd /oba
     wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-8.3.0.tar.gz
@@ -133,10 +133,10 @@ Now, you can create the database that OneBusAway will use to store user and API 
 
     mysql -p -e "CREATE DATABASE oba; CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword'; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost'; FLUSH PRIVILEGES;"
 
-In the above command, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL.
+In the above command, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the password of the MySQL root user that you set while installing MySQL, earlier in this guide.
 
 ## Stop the Tomcat 8 Service
-To prepare for deployment, we need to stop the Tomcat 8 service. To do this run the following command:
+To prepare for deployment, you need to stop the Tomcat 8 service. To do this run the following command:
 
 `service tomcat8 stop`
 
@@ -395,7 +395,7 @@ In the above XML code you will also need to replace newPassword in the SQL setti
 In the above XML code, you will need to replace newPassword in the SQL settings with the password you chose for the oba user.
 
 ## Start the Tomcat8 Service
-You can start the Tomcat8 Service to see if everything worked. In a second SSH window you may want to run the following command so that you can watch the console output of the Tomcat8 service as OneBusAway starts up for the first time:
+You can start the Tomcat8 Service to see if everything worked. In a second SSH window, you may run the following command so that you can watch the console output of the Tomcat8 service as OneBusAway starts up for the first time:
 
 `tail -f /var/log/tomcat8/catalina.out`
 
