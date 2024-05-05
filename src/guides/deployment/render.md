@@ -9,11 +9,10 @@ Unless your needs are highly complex, or you have already evaluated and rejected
 
 ## Overview
 
-A basic OneBusAway deployment requires three separate services:
+A basic OneBusAway deployment requires two separate services:
 
 * MySQL Database - [PlanetScale](https://www.planetscale.com)
 * Docker container hosting - [Render](https://www.render.com)
-* Transit data bundle creation from a GTFS zip file - build locally and upload
 
 ## MySQL Database - PlanetScale
 
@@ -83,6 +82,8 @@ Next, click the _Deploy to Render_ button below. It will start the process of cr
 
 #### Key/Value pairs:
 
+* `TZ` - required. The timezone for the server must match the timezone specified in your agency.txt file. Technically, this is only required for GTFS-RT support.
+* `GTFS_URL` - optional. The URL of your transit agency's GTFS data zip file. Specifying this will allow the transit data bundle to be built automatically.
 * Database:
     * `JDBC_URL` - required. The JDBC connection URL we retrieved from PlanetScale.
     * `JDBC_USER` - required. The MySQL database username from PlanetScale.
@@ -100,102 +101,6 @@ Next, click the _Deploy to Render_ button below. It will start the process of cr
 For the purposes of this tutorial, we will skip setting up GTFS-RT. Fill in the `JDBC_*` fields and click the _Apply_ button. The _Apply_ button will disappear and an indefinite progress indicator will appear next to the _Create web service_ label, but otherwise the page will remain unchanged for potentially several minutes. There's nothing to worry about.
 
 <img src="/images/guides/render/07-create-web-service.png" alt="" class="max-w-[600px]">
-
-## Create the transit data bundle
-
-Open a new tab and navigate to the [Render Dashboard](https://dashboard.render.com). You should see a new, running container for your OBA API server. Click on the API server entry.
-
-<img src="/images/guides/render/08-dashboard.png" alt="" class="max-w-[600px]">
-
-### Prepare the transit data bundle locally
-
-_(In the opinion of the author, this part of the process is unnecessarily complex and can stand to be improved. This is currently the hardest part of the deployment, but you can get through it by following the instructions precisely!)_
-
-1. [Install Docker Desktop](https://www.docker.com/get-started/)
-2. Launch Docker Desktop and log in to Docker through the app.
-3. Search for `onebusaway-bundle-builder` (See screenshot below.)
-4. Select the most recent versioned tag (at the time of the writing of this document, the version was `2.4.18-cs-v1.1.0`)
-5. Click the _Pull_ button in the search UI.
-6. Switch to the _Images_ tab on the left side navigation pane.
-7. Under the _Actions_ column next to your bundle-builder image, click the ▶ button (i.e. the _Play_ button)
-8. On the _Run a new container_ dialog, expand _Optional Settings_.
-    * _Container name_: `oba-bundle-builder` - this is optional, but recommended.
-    * Under _Volumes_, set _Host path_ to a location of your choosing by clicking the '...' button and choosing a location. **Important**: this will be the location of the transit data bundle output. It is strongly recommended that you create a new, empty folder and choose that. For example, create a new folder on your Desktop named `oba_bundle`
-    * Under _Volumes_, set _Container path_ to `/bundle`
-    * Under _Environment variables_, set _Variable_ to `GTFS_URL` and `Value` to the URL for your static GTFS feed as a Zip file. e.g. `https://unitrans.ucdavis.edu/media/gtfs/Unitrans_GTFS.zip`.
-9. Click the _Run_ button.
-
-#### Step 3: Docker Desktop Search UI
-
-This is the screenshot that corresponds to step 3 above.
-
-<img src="/images/guides/render/10-docker-desktop-search.png" alt="" class="max-w-[600px]">
-
-#### Step 8: Docker Desktop _Run a new container_ dialog
-
-This is the screenshot that corresponds to step 8 above.
-
-<img src="/images/guides/render/11-docker-run-container.png" alt="" class="max-w-[600px]">
-
-### Inspect Docker Logs
-
-If everything works, you will see log output from the Docker container that looks similar to the screenshot below. The logs will indicate that the Docker container has read the static GTFS data and created an optimized static transit data bundle for OneBusAway.
-
-<img src="/images/guides/render/12-docker-logs.png" alt="" class="max-w-[600px]">
-
-### Inspect the file output
-
-More important than the Docker log output is what the container has written to your filesystem. Go to the `oba_bundle` folder on your Desktop, or wherever you chose as the file destination on your computer, and make sure that it looks similar to the screenshot below. The full list of files should be something similar to:
-
-* `BlockLayoverIndices.obj`
-* `BlockTripIndices.obj`
-* `CalendarServiceData.obj`
-* `CanonicalRoute.obj`
-* `FrequencyBlockTripIndices.obj`
-* `NarrativeProvider.obj`
-* `RouteSearchIndex`
-* `ShapeGeospatialIndexData.obj.gz`
-* `StopSearchIndex`
-* `TransitGraph.obj`
-* `WrongWayConcurrencies.obj`
-* `gtfs.zip`
-* `org_onebusaway_transit_data.log`
-* `org_onebusaway_transit_data.properties`
-* `org_onebusaway_transit_data.script`
-* `org_onebusaway_transit_data.tmp`
-
-<img src="/images/guides/render/13-finder.png" alt="" class="max-w-[600px]">
-
-## Upload the transit data bundle
-
-_(Alternatively, you can gzip the files, store the .tar.gz file on a publicly accessible server (AWS S3, etc.), and then download the file from within the server using `wget`. If this all makes sense to you, it might be faster and easier than using Magic Wormhole.)_
-
-It is recommended that you use the [Magic Wormhole](https://magic-wormhole.readthedocs.io/en/latest/) utility to transfer the transit data bundle to the server. Learn how here: [Install Magic Wormhole on your local computer](https://magic-wormhole.readthedocs.io/en/latest/welcome.html#installation). Magic Wormhole is already installed in your Docker container.
-
-From your local computer:
-
-1. Open a terminal and navigate to your `oba_bundle` folder (i.e. `cd` _into_ the folder).
-2. Create a zip file containing the loose files: `zip bundle.zip *`
-3. Send the file with Magic Wormhole: `wormhole send bundle.zip`
-4. Magic Wormhole will print out a command to run from the receiving computer, like `wormhole receive 8-challenge-pineapple` (not a real example.)
-5. Copy the _full_ receive command.
-
-From your Docker container:
-
-1. Go back to your web browser where you had set up your OBA server container on Render.
-2. Click on the Shell tab on the left-hand side. You'll see that you now have a terminal into your live, running Docker container. (See screenshot below.)
-3. Run the command `cd /bundle` to navigate to the location where we will upload your transit data bundle.
-4. Run the `wormhole receive` command you copied in the earlier step, and confirm that you want to receive the `bundle.zip` file.
-5. Run `unzip bundle.zip` and verify that you received all of the files with the `ls` command.
-6. Click on the _Manual Deploy_ dropdown near the top right corner of the web page and then click on _Restart service_. (See screenshot below.)
-
-#### Step 2: Docker container terminal
-
-<img src="/images/guides/render/09-shell.png" alt="" class="max-w-[600px]">
-
-#### Step 6: Restart Docker container
-
-<img src="/images/guides/render/14-restart-container.png" alt="" class="max-w-[600px]">
 
 ## Validate the Server
 
