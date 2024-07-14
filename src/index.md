@@ -11,6 +11,10 @@ You can find download links to the prebuilt binaries on our [Downloads](/downloa
 
 Details on all releases can be found in the [Release Notes](/release-notes).
 
+## Official SDKs
+
+We now publish official SDKs in several languages! <a href="/api/sdk">Visit our SDK page to learn more</a>.
+
 ## Help us improve our documentation!
 
 This is a living website that needs help from the entire OneBusAway community:
