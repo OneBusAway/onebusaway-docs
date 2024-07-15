@@ -102,6 +102,12 @@
 
         "vehicles-for-agency": {
             "description": "get active vehicles for an agency"
+        },
+        "search-stop": {
+            "description": "helps to find the stops based on the name/keywords"
+        },
+        "search-route": {
+            "description": "helps to find the routes based on the name/keywords"
         }
     },
 
