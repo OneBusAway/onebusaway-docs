@@ -15,3 +15,4 @@ Our guides for configuring, maintaining, and troubleshooting OneBusAway are in d
 * [Web Config](/guides/webapp-configuration-guide)
 * [Database Config](/guides/database-configuration-guide)
 * [Troubleshooting](/guides/troubleshooting-guide)
+* * [Changelog](/CHANGELOG.md)
