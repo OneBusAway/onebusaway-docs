@@ -109,6 +109,10 @@ The website built from this project is deployed automatically to a static hostin
 - Don't repeadetely tag someone(may be it is not the right time to review your PR), be patient.
 - Do not 'resolve conversation' unnecessary raised by a community member or any workflow tools(codeclimate or hound) as they may have some purpose, try to resolve the request changes and if any help wanted tag a community member to give views about that.
 
+## Changelog
+
+We maintain a changelog to keep track of notable changes to the documentation and API. You can find the changelog [here](CHANGELOG.md).
+
 
 ### Code Contributors
 
