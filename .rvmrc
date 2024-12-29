@@ -1,1 +1,1 @@
-rvm use 3.2.0@onebusaway-docs --create
+rvm use 3.4.1@onebusaway-docs --create
