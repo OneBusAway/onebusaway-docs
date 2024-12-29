@@ -19,7 +19,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # If you need to upgrade/switch Bridgetown versions, change the line below
 # and then run `bundle update bridgetown`
-gem "bridgetown", "~> 1.3.2"
+gem "bridgetown", "~> 1.3.4"
 
 # Uncomment to add file-based dynamic routing to your project:
 # gem "bridgetown-routes", "~> 1.3.2"
