@@ -4,12 +4,30 @@ title: Downloading the Software
 ---
 
 <div class="space-y-4">
-  <p>You can download pre-built binaries from Cambridge Systematics's Maven Repository.</p>
+  <h2>
+    Hang on a second!
+  </h2>
+
   <p>
-    <strong>Current Version:</strong>
-    <code><%= site.metadata.oba_version %></code>
-    (Released <%= site.metadata.oba_version_release_date %>)
+    Before you download the software, consider whether you should be using a prebuilt Docker image
+    instead of the raw software. The Docker image is easier to install and maintain.
   </p>
+
+  <p>
+    You can find more information about our Docker images on the <a href="/guides/deployment">Deployment page</a>.
+  </p>
+
+  <h2>Newest Versions</h2>
+
+  <p>
+    The newest versions of the OneBusAway software is available for download from
+    <a href="https://central.sonatype.com/search?q=org.onebusaway">Maven Central</a>.
+  </p>
+
+  <p>The newest versions all have the suffix <code>-otsf</code>.</p>
+
+  <h2>Unsupported, Older Versions</h2>
+  <p>Older binaries can be downloaded from the Cambridge Systematics Maven repository:</p>
 
   <ul class='list-disc ml-4'>
     <% site.data.application_modules.each do |k,v| %>

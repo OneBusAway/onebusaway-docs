@@ -5,15 +5,13 @@ layout: page
 
 This is the official documentation for all the application modules the make up the [OneBusAway](http://onebusaway.org) web application and API framework.
 
-**Current Version:** <code><%= site.metadata.oba_version %></code> (Released <%= site.metadata.oba_version_release_date %>)
+## Download OBA
 
 You can find download links to the prebuilt binaries on our [Downloads](/downloads) page.
 
-Details on all releases can be found in the [Release Notes](/release-notes).
-
 ## Official SDKs
 
-We now publish official SDKs in several languages! <a href="/api/sdk">Visit our SDK page to learn more</a>.
+We now publish official SDKs in several languages! [Visit our SDK page to learn more](/api/sdk).
 
 ## Help us improve our documentation!
 

@@ -8,7 +8,6 @@ title: OneBusAway Developers
 tagline: Real-time transit data and so much more.
 email: info@onebusaway.org
 oba_version: 2.5.12-cs
-oba_version_release_date: May 3, 2024
 description: >-
   OneBusAway is a suite of open source transit information tools that enable transit agencies to provide real-time vehicle
   locations, alerts, and arrival information to riders, with iOS and Android apps, a web platform, and robust APIs, as
