@@ -26,7 +26,7 @@ Steps to Build
 mkdir ~/src
 cd ~/src
 git clone https://github.com/OneBusAway/onebusaway-application-modules.git
-cd onebusaway-applicaton-modules
+cd onebusaway-application-modules
 mvn clean install
 ```
 
