@@ -5,7 +5,7 @@ layout: page
 
 <div class='bg-blue-50 border-blue-500 dark:bg-slate-800 p-4 rounded-md'>
     <div><strong>Original location</strong>: <a href='https://github.com/OneBusAway/onebusaway-application-modules/wiki'>https://github.com/OneBusAway/onebusaway-application-modules/wiki</a></div>
-    <div><strong>Last updated</strong>: January 2025</div>
+    <div><strong>Last updated</strong>: February 2025</div>
 </div>
 
 Welcome to OneBusAway!
@@ -14,14 +14,14 @@ OneBusAway Application modules are a suite of modules that assist in providing C
 
 ## Building OneBusAway Application Modules
 
-v2.1 is intended for java11 on a Unix/Linux or mac platform.  As preconditions these instruction assume you have installed:
-* a recent git version
-* Maven 3.9.x
+v2.1 is intended for Java 11 or later on a Unix/Linux or macOS platform. Ensure you have the following prerequisites installed:
+* Git (latest version)
+* Maven 3.9.x or later
 * Java 11 (1.11.x) or later
 * MySQL 8.0 or compatible alternative (e.g., PostgreSQL)
 
 
-Steps to Build
+Clone the Repository
 ```bash
 mkdir ~/src
 cd ~/src
@@ -50,11 +50,11 @@ mysql> CREATE DATABASE onebusaway;
 mysql> \q
 ```
 
-### Configuring the Admin Console
+### Configure Apache Tomcat for Admin Console
 
 Tomcat Setup
 
-1. Download and extract the latest version of Tomcat 10.x from  [Apache Tomcat](https://downloads.apache.org/tomcat/).
+1. Download and extract the latest version of Tomcat 9.x or 10.x from  [Apache Tomcat](https://downloads.apache.org/tomcat/).
 
 
 In a bash terminal:
@@ -62,13 +62,15 @@ In a bash terminal:
 ```
 mkdir ~/tomcat
 cd ~/tomcat
-wget https://downloads.apache.org/tomcat/tomcat-10/v10.1.0/bin/apache-tomcat-10.1.0.zip
+wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.80/bin/apache-tomcat-9.0.80.zip
 mkdir admin
 cd admin
 unzip ../apache-tomcat-10.1.0.zip
 ```
 
 2. Deploy the onebusaway-admin-webapp:
+
+Ensure you've run mvn clean install before copying .war files, otherwise target/ won't exist.
 
 In a bash terminal:
 ```
