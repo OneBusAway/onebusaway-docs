@@ -16,8 +16,6 @@ layout: page
   
   * `onebusaway-gtfs-transformer` - Tools for transforming GTFS data
   
-  * `onebusaway-gtfs-transformer-cli` - Command-line utility for transforming GTFS - see [the full documentation](/projects/onebusaway-gtfs-modules/onebusaway-gtfs-transformer-cli).
-
   * `onebusaway-gtfs-merge` - Tools for merging GTFS data
   
   * `onebusaway-gtfs-merge-cli` - Command-line utility for merging GTFS feeds - see [the full documentation](/projects/onebusaway-gtfs-modules/onebusaway-gtfs-merge-cli).
@@ -55,15 +53,6 @@ There are automatically generated docker images available at [https://registry.h
 
 Contributions to image-specific documentation are welcome.
 
-### `onebusaway-gtfs-transformer-cli`
-
-See [the full documentation](./onebusaway-gtfs-transformer-cli.md) for more configuration options.
-
-For example, assuming that all the following files are in the `/path/to/local/data/directory` directory, to run the `remove-matching-route.rule` rule against `gtfs-data.zip` to generate `gtfs-data-out.zip` you can use:
-```bash
-docker run -v /path/to/local/data/directory:/data --rm opentransitsoftwarefoundation/onebusaway-gtfs-transformer-cli:4.4.0 --transform=/data/remove-matching-route.rule /data/gtfs-data.zip /data/gtfs-data-out.zip
-```
-The `gtfs-data-out.zip` file will be in the `/path/to/local/data/directory` directory.
 
 ## Example Code
 
