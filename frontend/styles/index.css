@@ -92,3 +92,6 @@ pre.highlight {
     margin-top: -80px; 
 }
 
+.active {
+  color: #34D399;
+}
