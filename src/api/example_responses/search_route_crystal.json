@@ -1,0 +1,45 @@
+{
+    "code": 200,
+    "currentTime": 1712466541608,
+    "data": {
+      "limitExceeded": false,
+      "list": [
+        {
+          "agencyId": "20",
+          "color": "7C8076",
+          "description": "",
+          "id": "20_97",
+          "longName": "Crystal Springs",
+          "nullSafeShortName": "97",
+          "shortName": "97",
+          "textColor": "000000",
+          "type": 3,
+          "url": "http://www.kitsaptransit.com/service/routed-buses/97-crystal-springs"
+        }
+      ],
+      "outOfRange": false,
+      "references": {
+        "agencies": [
+          {
+            "disclaimer": "",
+            "email": "kitsapride@kitsaptransit.com",
+            "fareUrl": "http://www.kitsaptransit.com/fares/fares",
+            "id": "20",
+            "lang": "en",
+            "name": "Kitsap Transit",
+            "phone": "(800) 501-7433",
+            "privateService": false,
+            "timezone": "America/Los_Angeles",
+            "url": "http://www.kitsaptransit.com"
+          }
+        ],
+        "routes": [],
+        "situations": [],
+        "stopTimes": [],
+        "stops": [],
+        "trips": []
+      }
+    },
+    "text": "OK",
+    "version": 2
+  }
