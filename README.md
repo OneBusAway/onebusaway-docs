@@ -87,19 +87,25 @@ bin/bridgetown console
 The website built from this project is deployed automatically to a static hosting service on [Render](https://www.render.com). Please contact the maintainers with any questions.
 ## Creating an issue.
 
-- Check if the issue you are going to propose is not duplicate of another issue.
-- Open a new issue according to type i.e., if issue is a bug open a new issue by clicking on `Get Started` in the scope of `Bug Report`.
-- Give a precise and meaningful name of the issue.
-- Describe your issue as good as possible that may ease the process of issue-reviewing by a community member.
+- Search existing issues before creating a new one.
+- Provide clear reproduction steps.
+- Include screenshots if relevant.
 
-## Create a pull request
+## Development Workflow.
 
-- Try to keep the pull requests small. A pull request should try its very best to address only a single concern.
-- For work in progress pull requests, please use the Draft PR feature.
-- Make sure all tests pass and add additional tests for the code you submit.
-- Document your reasoning behind the changes. Explain why you wrote the code in the way you did. The code should explain what it does.
-- If there's an existing issue, reference to it by adding something like `References/Closes/Fixes/Resolves #123`, where 123 is the issue number.
-- Please fill out the PR Template when making a PR.
+1. Fork the repository.
+2. Create a feature branch.
+3. Make your changes.
+4. Test locally.
+5. Commit with a clear message.
+6. Push to your fork.
+
+## Create a pull request.
+
+- Ensure your branch is up to date.
+- Keep changes focused and small.
+- Add a meaningful title and description.
+- Reference related issues if applicable.
 
 > Please note: maintainers may close your PR if it has gone stale or if we don't plan to merge the code.
 
