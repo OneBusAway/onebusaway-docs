@@ -2,6 +2,17 @@
 
 Welcome to the GitHub project that powers the official [OneBusAway Developer Documentation](http://developer.onebusaway.org).
 
+## Quick Start
+
+Clone the repository:
+
+```sh
+git clone https://github.com/OneBusAway/onebusaway-docs.git
+cd onebusaway-docs
+bundle install
+yarn install
+bin/bridgetown start
+
 ## Improve the Documentation
 
 Want to help improve the documentation? Thank you! You can easily improve the official OneBusAway documentation by modifying the Markdown files that comprise it. We welcome any size of contribution, ranging from typos and corrected links, to brand-new tutorials.
