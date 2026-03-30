@@ -12,6 +12,7 @@ cd onebusaway-docs
 bundle install
 yarn install
 bin/bridgetown start
+```
 
 ## Improve the Documentation
 
