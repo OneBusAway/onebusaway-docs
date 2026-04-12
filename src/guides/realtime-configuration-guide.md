@@ -39,6 +39,37 @@ GTFS-realtime data-sources from different agencies in the same system.
 You must provide both a `TripUpdates` feed and a `VehiclePositions` feed in order for OneBusAway to report vehicle positions.
 Without a `TripUpdates` feed OneBusAway will discard the vehicle positions.
 
+## Multiple GTFS-realtime Feeds
+
+If you are running a multi-agency instance of OneBusAway, you can configure multiple `GtfsRealtimeSource` beans in
+your `data-sources.xml` file — one for each agency.  Each bean should specify its own `agencyId` so that OneBusAway
+can correctly match incoming real-time data to the right agency's static schedule data.
+
+Here is an example with two agencies, based on a real-world deployment combining HART and PSTA in the Tampa Bay area:
+
+~~~
+<!-- Agency 1: HART -->
+<bean class="org.onebusaway.transit_data_federation.impl.realtime.gtfs_realtime.GtfsRealtimeSource">
+  <property name="tripUpdatesUrl" value="http://realtime.prod.obahart.org:8088/trip-updates" />
+  <property name="vehiclePositionsUrl" value="http://realtime.prod.obahart.org:8088/vehicle-positions" />
+  <property name="refreshInterval" value="15" />
+  <property name="agencyId" value="Hillsborough Area Regional Transit" />
+</bean>
+
+<!-- Agency 2: PSTA -->
+<bean class="org.onebusaway.transit_data_federation.impl.realtime.gtfs_realtime.GtfsRealtimeSource">
+  <property name="tripUpdatesUrl" value="http://ridepsta.net/gtfsrt/trips" />
+  <property name="vehiclePositionsUrl" value="http://ridepsta.net/gtfsrt/vehicles" />
+  <property name="alertsUrl" value="http://ridepsta.net/gtfsrt/alerts" />
+  <property name="refreshInterval" value="15" />
+  <property name="agencyId" value="PSTA" />
+</bean>
+~~~
+
+If the two agencies share any stops, you will want to merge them so that riders see arrivals from both agencies on a
+single stop page.  See the [transit data bundle guide](/guides/transit-data-bundle-guide) for more information on
+stop merging.
+
 ## SIRI VM
 
 We support [SIRI](https://www.siri-cen.eu) out of the box, including support for vehicle monitoring (VM) and situation
