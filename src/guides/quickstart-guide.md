@@ -53,6 +53,8 @@ Running OneBusAway is a two-step process:
 
 You can perform these two steps either using our simple GUI configuration tool or from the command-line.
 
+**Note:** Replace `onebusaway-quickstart-assembly.war` in the commands below with the actual filename you downloaded, for example `onebusaway-quickstart-assembly-1.1.19-api-webapp.war`.
+
 ## Using the GUI
 
 Simply double-click the downloaded `.war` file and follow the on-screen steps.
