@@ -273,7 +273,7 @@ In the above XML code you will need to replace newPassword in the SQL settings w
       </bean>
     </beans>
 
-Take note of the second-to-last bean in the XML. This is an API key for testing purposes. It is very important to either change the key or remove it entirely before making your OBA installation live. If you want to allow users to connect to your OBA instance with the various OBA apps, you must include additional beans that have the default API keys for the respective app. You can get the code for these beans from this file before you replace its contents.
+Take note of the last bean in the XML. This is an API key for testing purposes. It is very important to either change the key or remove it entirely before making your OBA installation live. If you want to allow users to connect to your OBA instance with the various OBA apps, you must include additional beans that have the default API keys for the respective app. You can get the code for these beans from this file before you replace its contents.
 
 Also, in the above XML code you will need to replace newPassword in the SQL settings with the password you chose for the oba user.
 
