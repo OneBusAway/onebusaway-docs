@@ -112,7 +112,7 @@ In the preceding command, replace **http://transitagency.example.com/gtfs.zip** 
 Now it is time to build the Transit Data Bundle that OneBusAway will use to display route and schedule information. To do this run the following command:
 
     cd /oba/gtfs
-    java -jar -Xss4m -Xmx1g \
+    java -Xss4m -Xmx1g -jar \
       /oba/onebusaway-transit-data-federation-builder-2.5.12-cs-withAllDependencies.jar \
       /oba/gtfs/gtfs.zip \
       /oba/gtfs
