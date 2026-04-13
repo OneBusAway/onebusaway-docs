@@ -134,9 +134,12 @@ Next we need the MySQL Connector Java Library. This will allow OneBusAway to use
 
 ## Create the MySQL Database
 
-Now we are going to create the database that OneBusAway will use to store user and API data. To do this run the following command:
+Now we are going to create the database that OneBusAway will use to store user and API data. To do this run the following commands:
 
-    mysql -p -e "CREATE DATABASE oba; GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost' IDENTIFIED BY 'newPassword';"
+    mysql -p -e "CREATE DATABASE oba;"
+    mysql -p -e "CREATE USER 'oba'@'localhost' IDENTIFIED BY 'newPassword';"
+    mysql -p -e "GRANT ALL PRIVILEGES ON oba.* TO 'oba'@'localhost';"
+    mysql -p -e "FLUSH PRIVILEGES;"
 
 In the above commands, replace **newPassword** with something secure. This will be the password for the MySQL user oba who will only have access to the database oba. When prompted for a password, enter the root password you set earlier.
 
