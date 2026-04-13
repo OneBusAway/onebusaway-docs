@@ -80,6 +80,10 @@
             "description": "get the set of stops and paths of travel for a particular route"
         },
 
+        "stops-for-agency": {
+            "description": "get a list of all stops for an agency"
+        },
+
         "trip-details": {
             "description": "get extended details for a specific trip"
         },
