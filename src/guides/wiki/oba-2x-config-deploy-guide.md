@@ -105,7 +105,7 @@ Next we need to download the GTFS Data from the transit agency. With this data w
     cd /oba/gtfs
     wget http://transitagency.example.com/gtfs.zip
 
-In the proceeding command, replace **http://transitagency.example.com/gtfs.zip** with the full URL of the GTFS from your respective transit agency. Take note of the actual file name being downloaded, as it will be needed later.
+In the preceding command, replace **http://transitagency.example.com/gtfs.zip** with the full URL of the GTFS from your respective transit agency. Take note of the actual file name being downloaded, as it will be needed later.
 
 ## Build the Transit Data Bundle
 
