@@ -44,6 +44,8 @@ Without a `TripUpdates` feed OneBusAway will discard the vehicle positions.
 If you are running a multi-agency instance of OneBusAway, you can configure multiple `GtfsRealtimeSource` beans in
 your `data-sources.xml` file — one for each agency.  Each bean should specify its own `agencyId` so that OneBusAway
 can correctly match incoming real-time data to the right agency's static schedule data.
+The `agencyId` value must match the `agency_id` field in your bundled GTFS data exactly — you can find this value
+in the `agency.txt` file of your GTFS feed.
 
 Here is an example with two agencies, based on a real-world deployment combining HART and PSTA in the Tampa Bay area:
 
@@ -53,7 +55,7 @@ Here is an example with two agencies, based on a real-world deployment combining
   <property name="tripUpdatesUrl" value="http://realtime.prod.obahart.org:8088/trip-updates" />
   <property name="vehiclePositionsUrl" value="http://realtime.prod.obahart.org:8088/vehicle-positions" />
   <property name="refreshInterval" value="15" />
-  <property name="agencyId" value="Hillsborough Area Regional Transit" />
+  <property name="agencyId" value="HART" />
 </bean>
 
 <!-- Agency 2: PSTA -->
