@@ -49,13 +49,13 @@ The MySQL Server is used to store OneBusAway user data and API keys. To install 
 
     apt-get install mysql-server
 
-After installation, run the following to set the root password manually, as newer versions of MySQL no longer prompt you to set one during install:
+After installation, run the following to set the root password manually while keeping MySQL's default authentication plugin:
 
     mysql -u root
 
 Once in the MySQL shell, run:
 
-    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_root_password';
+    ALTER USER 'root'@'localhost' IDENTIFIED BY 'your_root_password';
     FLUSH PRIVILEGES;
     EXIT;
 
