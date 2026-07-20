@@ -16,6 +16,7 @@ import {
 } from "./page_navigation";
 
 import { enableDocSearch } from "./search";
+import { renderMermaidDiagrams } from "./mermaid_diagrams";
 
 // Import all JavaScript & CSS files from src/_components
 import components from "$components/**/*.{js,jsx,js.rb,css}"
@@ -24,6 +25,7 @@ console.info("Bridgetown is loaded!")
 
 document.addEventListener("DOMContentLoaded", function(event) {
   copyHeadingDirectLinks();
+  renderMermaidDiagrams(); // must run before highlighting so mermaid fences aren't treated as code blocks
   enableCodeHighlighting();
   insertCodeSnippetCopyButtons();
   initializeJSONEditor();
