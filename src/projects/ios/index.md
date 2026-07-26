@@ -1,0 +1,440 @@
+---
+title: OneBusAway for iOS
+layout: page
+---
+
+# Source Code
+
+All source code for this project can be [found on GitHub](https://github.com/onebusaway/onebusaway-ios), made available under the Apache 2.0 license.
+
+# URL Schemes & Deep Linking
+
+This document describes every URL the OneBusAway iOS app (OBAKit) can *receive*, and the
+URLs it *generates* for other apps and for sharing.
+
+There are four inbound mechanisms:
+
+| Mechanism | Transport | Handled by |
+|---|---|---|
+| Custom URL scheme | `onebusaway://…` | `URLSchemeRouter` → `Application.application(_:open:options:)` |
+| Universal Links | `https://…` on an associated domain | `AppLinksRouter` → `Application.application(_:continue:restorationHandler:)` |
+| `NSUserActivity` (Handoff / Siri / Spotlight) | activity type + `userInfo` | `AppLinksRouter.route(userActivity:)` |
+| Alarm push notifications | APNs payload (`AlarmPushBody`) | `Application.pushService(_:received:)` |
+
+The first three funnel through `SceneDelegate` (`Apps/Shared/CommonClient/SceneDelegate.m`), which
+forwards `willConnectToSession:options:` (cold launch), `scene:openURLContexts:` (warm), and
+`scene:continueUserActivity:` to the corresponding `Application` methods. OneBusAway's
+`AppDelegate.m` also implements `application:openURL:options:` and
+`application:continueUserActivity:restorationHandler:` as fallbacks pointing at the same
+`Application` methods; KiedyBus's `AppDelegate` implements neither. In practice the scene path is
+what runs.
+
+**The scene callbacks discard their return values** — `scene:openURLContexts:` and
+`scene:continueUserActivity:` are `void`, so the `BOOL` that `Application` returns goes nowhere.
+An unhandled URL is silently dropped *inside the app*; the app cannot decline it back to iOS, and
+there is no Safari fallback for an unmatched Universal Link once the app has claimed the domain.
+
+Push-driven navigation is not URL-based, but it shares the cold-launch machinery: a fired alarm
+sets the same `pendingStopID` stash that `view-stop` uses.
+
+---
+
+## 1. Custom URL scheme
+
+### Registered schemes
+
+Each white-label app declares its own scheme in two places, and both must agree:
+
+* `CFBundleURLTypes` → `CFBundleURLSchemes` (what iOS registers)
+* `OBAKitConfig` → `ExtensionURLScheme` (what the app and its extensions read back at runtime,
+  via `Bundle.extensionURLScheme`)
+
+| App | Scheme | Bundle ID | Defined in |
+|---|---|---|---|
+| OneBusAway | `onebusaway` | `org.onebusaway.iphone` | `Apps/OneBusAway/project.yml` |
+| KiedyBus | `kiedybus` | `pl.kiedybus.iphone` | `Apps/KiedyBus/project.yml` |
+
+All examples below use `onebusaway://`; substitute your app's scheme.
+
+### Supported hosts
+
+Routing switches on the URL's **host** only (`URLSchemeRouter.decodeURLType(from:)`). Two hosts
+are supported; anything else returns `nil` and the URL is dropped.
+
+One gate sits in front of the router: `application(_:open:options:)` returns `false` immediately
+if `OBAKitConfig.ExtensionURLScheme` is missing from the bundle. That value is only ever *used*
+for encoding, but its absence disables custom-scheme decoding entirely.
+
+| Host | Purpose |
+|---|---|
+| `view-stop` | Open a stop's page |
+| `add-region` | Add (and switch to) a custom region |
+
+---
+
+### `view-stop`
+
+Opens the stop page for a given stop. This is the link the widget and the Trip Live Activity
+use to get back into the app.
+
+```
+onebusaway://view-stop?stopID=1_75403&regionID=1
+```
+
+| Parameter | Required | Type | Notes |
+|---|---|---|---|
+| `stopID` | ✅ | string | The stop's agency-qualified ID (e.g. `1_75403`). Percent-encode it; agency IDs are opaque and can contain reserved characters. |
+| `regionID` | ✅ | integer | Must parse as an `Int` or the whole URL is rejected. |
+
+**Note the casing.** The parameters are `stopID` and `regionID` — camelCase, *not*
+`stop_id`/`region_id`. (The class doc comment on `URLSchemeRouter` shows the snake_case form;
+that comment is wrong. The code, `encodeViewStop(stopID:regionID:)`, and the tests all use
+camelCase.)
+
+**Rejection rules** — the URL is ignored entirely (returns `nil`) if:
+
+* `stopID` is absent
+* `regionID` is absent, or is not parseable as an integer
+
+An **empty** `stopID` (`stopID=`) is *accepted* and decodes to an empty string; navigation then
+fails downstream rather than at parse time.
+
+**Behavior on open:**
+
+* If the UI is up, the app navigates straight to the stop via `ViewRouter.navigateTo(stopID:from:)`.
+* On a cold launch (no root view controller yet), the stop ID is stashed in `pendingStopID` and
+  drained once the root UI loads. This is the same stash the fired-alarm push path uses.
+* `regionID` is parsed and validated but **not currently acted on** — the app does not switch
+  regions to honor it. The stop is looked up in whatever region is currently active. Passing a
+  `regionID` for a non-current region will fail to load the stop.
+
+**Generated by:**
+
+* `OBAWidget/Widgets/OBAWidgetEntryView.swift` — each bookmark row's `Link(destination:)`
+* `OBAWidget/Widgets/TripLiveActivity.swift` — the Live Activity's `.widgetURL()`
+
+Both build the URL with `URLSchemeRouter.encodeViewStop(stopID:regionID:)`, which percent-encodes
+values correctly. Prefer that API over hand-assembling strings.
+
+---
+
+### `add-region`
+
+Adds a custom region to the app and switches to it. Intended for agencies and testers pointing
+the app at a non-standard OBA server.
+
+```
+onebusaway://add-region
+    ?name=REGION_NAME
+    &oba-url=ENCODED_OBA_URL
+    &otp-url=ENCODED_OTP_URL
+    &sidecar-url=ENCODED_SIDECAR_URL
+    &umami-url=ENCODED_UMAMI_URL
+    &umami-id=UMAMI_WEBSITE_ID
+```
+
+| Parameter | Required | Type | Notes |
+|---|---|---|---|
+| `name` | ✅ | string | Human-readable region name. Any non-nil value is accepted, including empty. |
+| `oba-url` | ✅ | URL | Base URL of the OneBusAway REST server. Must be well-formed. |
+| `otp-url` | — | URL | OpenTripPlanner server, for trip planning. |
+| `sidecar-url` | — | URL | Obaco sidecar base URL — powers alarms, Universal Links, and other onebusaway.co features. |
+| `umami-url` | — | URL | Umami analytics server. |
+| `umami-id` | — | string | Umami website ID. Whitespace-trimmed; blank becomes `nil`. |
+
+#### Validation
+
+A value counts as a valid URL when it is non-blank, parses via `URL(string:)`, **and** either has
+a scheme or begins with `/` (a bare path like `/api/oba` is accepted). Bare hostnames with no
+scheme (`oba.example.com`) and strings with spaces (`not a valid url`) are rejected.
+
+* **Required parameters:** if `name` is missing, or `oba-url` is missing/blank/invalid, decoding
+  produces `.addRegion(nil)`. The app routes to the Map tab and shows an alert:
+  *"The provided region URL is invalid or does not point to a functional OBA server."*
+* **Optional parameters:** missing or invalid values degrade silently to `nil`. An invalid
+  `otp-url` does not prevent the region from being added.
+
+Validation here is well-formedness only. **Nothing in the deep-link path ever contacts
+`oba-url`**, so a syntactically valid URL pointing at a dead or non-OBA host is added without
+complaint. (The in-app *Add Custom Region* form does live-validate the base URL on save, via
+`RegionPickerCoordinator.fetchAgenciesWithCoverage(baseURL:)`; the deep-link path does not.)
+
+#### Umami is both-or-nothing
+
+Analytics are configured only when **both** a valid `umami-url` and a non-blank `umami-id` are
+present. Any partial pair — URL without ID, ID without URL, valid ID with an invalid URL — yields
+no analytics config. The raw `umamiURL` / `umamiID` fields on `AddRegionURLData` can dangle; always
+read `AddRegionURLData.umamiAnalytics` instead, which encodes the rule.
+
+#### Percent-encoding
+
+Every value must be percent-encoded. An unencoded `&` inside a nested URL **terminates that
+value** — the remainder parses as separate, ignored query items. This is expected behavior, and
+there are tests pinning it.
+
+```
+# Wrong — sidecar-url silently truncates to https://obaco.example.com/api?a=1
+onebusaway://add-region?name=X&oba-url=https://oba.example.com&sidecar-url=https://obaco.example.com/api?a=1&b=2
+
+# Right
+onebusaway://add-region?name=X&oba-url=https%3A%2F%2Foba.example.com&sidecar-url=https%3A%2F%2Fobaco.example.com%2Fapi%3Fa%3D1%26b%3D2
+```
+
+#### Behavior on open
+
+1. Route to the Map tab.
+2. Call `getAgenciesWithCoverage()` to derive the new region's map center, then overwrite the span
+   with 2° latitude/longitude (an assignment, not a widening — it can narrow the region as easily
+   as expand it). If the call fails, the invalid-region alert is shown; if it returns no agencies,
+   the flow returns silently and nothing is added.
+3. Build a `Region` and add it via `RegionPickerCoordinator.add(customRegion:)`, then set it as
+   the current region.
+
+The region's `contactEmail` is hardcoded to `example@example.com` for deep-link-created regions.
+
+> **The coverage call in step 2 hits the wrong server.** It goes through
+> `Application.apiService`, which `CoreApplication.refreshRESTAPIService()` builds from
+> `regionsService.currentRegion` — the region the user is on *now*, not `regionData.obaURL`. So
+> the new region's map bounds are derived from the outgoing region's coverage area, and if no
+> region is currently selected, `apiService` is `nil` and the add silently no-ops.
+
+---
+
+## 2. Universal Links
+
+### Associated domains
+
+Declared in `Apps/OneBusAway/project.yml` under `com.apple.developer.associated-domains`:
+
+* `applinks:onebusaway.co`
+* `applinks:www.onebusaway.co`
+* `applinks:sidecar.onebusaway.org`
+
+**KiedyBus declares no associated domains**, so Universal Links are inert in that app. It also
+ships no sidecar URL, which means `AppLinksRouter` cannot generate share links there either
+(see below).
+
+### Trip deep links
+
+The only web URL shape the app can decode:
+
+```
+https://{sidecar-host}/regions/{regionID}/stops/{stopID}/trips
+    ?trip_id=…&service_date=…&stop_sequence=…
+    [&title=…][&vehicle_id=…][&destination_stop_id=…]
+```
+
+The path is matched with a case-insensitive, **unanchored** regex,
+`/regions/(?<region>.*)/stops/(?<stop>.*)/trips`, via `firstMatch`. `decode(url:)` inspects the
+path only — it never checks the scheme or host. Any URL whose path merely *contains* that shape
+decodes, including `/foo/regions/1/stops/2/trips/bar`. The associated-domains entitlement is the
+only thing restricting which hosts can reach this code. The greedy `.*` groups also capture oddly
+on multi-segment paths.
+
+| Parameter | Required | Type | Notes |
+|---|---|---|---|
+| `trip_id` | ✅ | string | Trip identifier. |
+| `service_date` | ✅ | number | Unix epoch **seconds** as a `TimeInterval` — the app emits a decimal (e.g. `1698307200.0`) and parses with `TimeInterval(_:)`. |
+| `stop_sequence` | ✅ | integer | Index of the stop within the trip. |
+| `title` | — | string | Display title. Defaults to the literal `"???"` when absent. The app's own `encode(arrivalDeparture:region:)` never emits this, so shared links show `???` until the trip loads. |
+| `vehicle_id` | — | string | Vehicle identifier. |
+| `destination_stop_id` | — | string | Where the rider intends to get off. See [issue #449](https://github.com/OneBusAway/onebusaway-ios/issues/449). Currently decoded but **never emitted and never read** — no call site passes it to `encode`, and nothing consumes the decoded value. |
+
+`{regionID}` must parse as an `Int`. If any required piece is missing or malformed, `decode(url:)`
+returns `nil` and the link is silently dropped.
+
+Decoded links become an `ArrivalDepartureDeepLink` and are dispatched through
+`AppLinksRouter.showArrivalDepartureDeepLink`. That handler fetches the trip through
+`Application.apiService` — the current region's — and never reads `deepLink.regionID`, so a trip
+link shared from another region fails to load exactly like a cross-region `view-stop` link.
+
+Outbound trip links have exactly one entry point: `StopViewController.shareTripStatus`. The newer
+`StopPageViewController` has no share affordance, so on the new-stop-page path there is currently
+no way to generate one.
+
+### Stop links (outbound only)
+
+`AppLinksRouter.url(for:region:)` builds `https://{sidecar-host}/regions/{regionID}/stops/{stopID}`
+and attaches it to the stop's `NSUserActivity.webpageURL` for Handoff. **There is no matching
+decoder** — that path does not match the trips regex, so a stop URL arriving as a Universal Link
+is not handled by the app. Only the Handoff/`NSUserActivity` path (below) opens stops.
+
+### Base URL
+
+All generated web links hang off `Region.sidecarBaseURL` for the **current** region, while the
+`regionID` in the path comes from the region passed as an argument. Both `url(for:region:)` and
+`encode(arrivalDeparture:region:)` mix the two this way, so they disagree whenever those regions
+differ. When the current region has no sidecar URL, `AppLinksRouter` returns `nil` and no share
+URL or `webpageURL` is produced at all.
+
+---
+
+## 3. `NSUserActivity` (Handoff, Siri, Spotlight)
+
+Two activity types, namespaced by bundle ID. Both must be listed in the app's
+`NSUserActivityTypes` Info.plist key or `UserActivityBuilder` fails to initialize and no
+activities are published — and, since `route(userActivity:)` bails when the builder is `nil`,
+neither type routes either. `NSUserActivityTypeBrowsingWeb` is checked *before* that guard, so
+Universal Links keep working even when the builder is absent.
+
+| Activity type | OneBusAway | KiedyBus |
+|---|---|---|
+| Stop | `org.onebusaway.iphone.user_activity.stop` | `pl.kiedybus.iphone.user_activity.stop` |
+| Trip | `org.onebusaway.iphone.user_activity.trip` | `pl.kiedybus.iphone.user_activity.trip` |
+
+### Stop activity
+
+`userInfo` keys (all required, per `requiredUserInfoKeys`):
+
+| Key | Type |
+|---|---|
+| `stopID` | `String` |
+| `regionID` | `Int` |
+
+Also sets `webpageURL` to the stop web link, marks the activity eligible for Handoff, search, and
+Siri prediction, with suggested phrase *"Show me my bus"*, and a persistent identifier of
+`region_{regionID}_stop_{stopID}`.
+
+**Routing requires `regionID` to equal the current region's identifier.** A handed-off stop from
+another region is rejected outright. When it matches, the app fetches the stop from the API and
+presents it via `AppLinksRouter.showStopHandler`.
+
+### Trip activity
+
+`userInfo` keys:
+
+| Key | Type | Required |
+|---|---|---|
+| `regionID` | `Int` | ✅ |
+| `serviceDate` | `Date` | ✅ |
+| `stopID` | `String` | ✅ |
+| `stopSequence` | `Int` | ✅ |
+| `tripID` | `String` | ✅ |
+| `vehicleID` | `String` | — |
+
+Trip routing ignores `userInfo` entirely and re-decodes `activity.webpageURL` through the
+Universal Link path above — so a trip activity without a `webpageURL` (i.e. a region with no
+sidecar URL) cannot be routed.
+
+### Web browsing activities
+
+An activity of type `NSUserActivityTypeBrowsingWeb` is routed by its `webpageURL` through the
+same trip decoder.
+
+---
+
+## 4. Outbound URLs (app → other apps)
+
+### Maps
+
+`AppInterop` builds walking-directions URLs:
+
+| Target | URL |
+|---|---|
+| Google Maps | `comgooglemaps://?daddr={lat},{lon}&directionsmode=walking` |
+| Apple Maps | `http://maps.apple.com/?daddr={lat},{lon}&dirflg=w` |
+
+### Fare payment apps
+
+The regions server supplies a bare **scheme string** (`paymentiOSAppURLScheme`), not a URL. The
+app synthesizes the link itself in `Region.paymentAppDeepLinkURL`:
+
+```
+{paymentiOSAppURLScheme}://onebusaway
+```
+
+So `onebusaway` is the host OBA hands to third-party fare apps — an outbound contract those apps
+have to be built against. `FarePayments` opens it when `canOpenURL` reports the app is installed;
+otherwise it presents an `SKStoreProductViewController` for `Region.paymentiOSAppStoreIdentifier`
+(an in-app sheet, not an `itms-apps://` URL).
+
+### `LSApplicationQueriesSchemes`
+
+`canOpenURL` only works for schemes declared up front. OneBusAway declares:
+
+```
+fb, twitter, comgooglemaps, fb313213768708402HART,
+org.sdmts.riderapp.compassmobile.payments, org.sdmts.pronto, co.bytemark.tgt
+```
+
+Adding support for a new fare-payment app means adding its scheme to this list in
+`Apps/OneBusAway/project.yml`. KiedyBus declares none.
+
+### Other outbound URLs
+
+Not deep links into other apps' content, but worth knowing about:
+
+| Scheme / URL | Source |
+|---|---|
+| `tel:` | `OBAKit/Vehicles/VehicleDetailSheet.swift` (`tel:`), `OBAKitCore/Models/REST/References/Agency.swift` (`tel://` — inconsistent, but both work) |
+| `mailto:` | `OBAKit/Vehicles/VehicleDetailSheet.swift` |
+| `UIApplication.openSettingsURLString` | `OBAKit/Mapping/MapViewController.swift` |
+| Donation portal | `OBAKit/Donations/DonationModel.swift`, plus `OBAKitConfig.Donations.DonationManagementPortal` |
+| More-tab links | `OBAKit/Settings/MoreViewController.swift` — `OBAKitConfig.MoreTab.CustomLinks` and `DevelopURL` |
+| External survey URLs | `OBAKit/Surveys/ExternalSurveyLauncher.swift` |
+
+The widget's App Intents (`OBAWidget/Main/OBAAppIntents.swift`, `RefreshButton.swift`) are
+configuration and refresh intents only — they do not open the app, so they are not an entry point.
+
+---
+
+## 5. Testing deep links
+
+```bash
+# Custom scheme, against a booted simulator
+xcrun simctl openurl booted 'onebusaway://view-stop?stopID=1_75403&regionID=1'
+
+xcrun simctl openurl booted 'onebusaway://add-region?name=Test%20Region&oba-url=https%3A%2F%2Foba.example.com'
+
+# Universal Link (opens Safari unless the app claims the domain)
+xcrun simctl openurl booted 'https://onebusaway.co/regions/1/stops/1_75403/trips?trip_id=1_1234&service_date=1698307200.0&stop_sequence=5'
+```
+
+Note that Universal Links only route into the app when the associated-domains entitlement is
+active and Apple's `apple-app-site-association` file has been fetched — that generally means a
+properly signed build, not a simulator smoke test.
+
+---
+
+## 6. Known quirks
+
+* **`add-region` derives map bounds from the wrong server** — `apiService` is built from the
+  *current* region, not the incoming `oba-url`. See the callout in §1.
+* **The scheme itself is never validated on the way in.** `URLSchemeRouter.decodeURLType(from:)`
+  switches on host alone, so any scheme reaching the app with a `view-stop` or `add-region` host
+  is honored. iOS's scheme registration is the only gate — yet a *missing*
+  `OBAKitConfig.ExtensionURLScheme` disables decoding entirely, even though the value is only
+  used for encoding.
+* **The Universal Link regex is unanchored and host-blind** — any path containing
+  `/regions/N/stops/X/trips` decodes.
+* **`regionID` is decoded but unused** on both `view-stop` and trip deep links. Neither switches
+  regions; both look up their target in the current region and fail if it lives elsewhere.
+* **`title` is decoded but never encoded** for trip links; shared links display `???`.
+* **`destination_stop_id` is decoded but never encoded and never read** — a dead parameter on both
+  ends.
+* **`AppLinksRouter` mixes region sources** — path `regionID` from the argument, host from the
+  current region's `sidecarBaseURL`.
+* **`URLSchemeRouter`'s class doc comment uses stale parameter names** (`region_id`, `stop_id`).
+  The real names are `stopID` and `regionID`.
+* **`add-region` regions get a placeholder contact email** (`example@example.com`).
+* **`AppLinksRouterDeepLinkFormatTests` doesn't exercise `AppLinksRouter`** — it builds and parses
+  `URLComponents` by hand, so it pins nothing about the router's actual encode/decode behavior.
+
+---
+
+## Source map
+
+| Concern | File |
+|---|---|
+| Custom scheme encode/decode | `OBAKitCore/DeepLinks/URLSchemeRouter.swift` |
+| Universal Links + activity routing | `OBAKit/DeepLinks/AppLinksRouter.swift` |
+| `NSUserActivity` construction | `OBAKit/DeepLinks/UserActivityBuilder.swift` |
+| Outbound map URLs | `OBAKit/DeepLinks/AppInterop.swift` |
+| Inbound dispatch | `OBAKit/Orchestration/Application.swift` |
+| `apiService` construction (current region) | `OBAKitCore/Orchestration/CoreApplication.swift` |
+| Scene plumbing | `Apps/Shared/CommonClient/SceneDelegate.m` |
+| App-delegate fallbacks | `Apps/OneBusAway/AppDelegate.m` |
+| Fare-payment scheme synthesis | `OBAKitCore/Models/Region.swift`, `OBAKit/Settings/FarePayments.swift` |
+| Trip deep link model | `OBAKitCore/Models/UserData/ArrivalDepartureDeepLink.swift` |
+| Scheme/entitlement config | `Apps/OneBusAway/project.yml`, `Apps/KiedyBus/project.yml` |
+| Tests | `OBAKitTests/Modeling/DeepLinks/` |
