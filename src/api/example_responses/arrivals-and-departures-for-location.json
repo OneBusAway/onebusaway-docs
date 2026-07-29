@@ -1,0 +1,121 @@
+{  
+  "version": 2,  
+  "code": 200,  
+  "text": "OK",  
+  "currentTime": 1270614730908,  
+  "data": {  
+    "references": {  
+      "agencies": [  
+        {  
+          "id": "1",  
+          "name": "Metro Transit",  
+          "url": "http://metro.kingcounty.gov",  
+          "timezone": "America/Los_Angeles",  
+          "lang": "en",  
+          "phone": "(206) 553-3000",  
+          "fareUrl": "http://metro.kingcounty.gov/tops/fares/fare-tickets.htm"  
+        }  
+      ],  
+      "routes": [  
+        {  
+          "id": "1_10",  
+          "shortName": "10",  
+          "longName": "Downtown to U District",  
+          "description": "",  
+          "type": 3,  
+          "url": "http://metro.kingcounty.gov/schedules/010.pdf",  
+          "agencyId": "1",  
+          "color": "003399"  
+        }  
+      ],  
+      "stops": [  
+        {  
+          "id": "1_75403",  
+          "lat": 47.653,  
+          "lon": -122.307,  
+          "name": "University Way NE & NE 45th St",  
+          "code": "75403",  
+          "locationType": 0,  
+          "wheelchairBoarding": 1,  
+          "routeIds": ["1_10", "1_49", "1_65"]  
+        }  
+      ],  
+      "trips": [  
+        {  
+          "id": "1_12345",  
+          "routeId": "1_10",  
+          "serviceId": "1_Weekday",  
+          "tripHeadsign": "U District",  
+          "tripShortName": "",  
+          "directionId": 0,  
+          "blockId": "1_100",  
+          "shapeId": "1_10_0",  
+          "wheelchairAccessible": 1  
+        }  
+      ],  
+      "situations": []  
+    },  
+    "entry": {  
+      "class": "stopsWithArrivalsAndDepartures",  
+      "stopIds": ["1_75403"],  
+      "arrivalsAndDepartures": [  
+        {  
+          "tripId": "1_12345",  
+          "serviceDate": 1270614730000,  
+          "vehicleId": "1_4001",  
+          "stopId": "1_75403",  
+          "stopSequence": 15,  
+          "blockTripSequence": 0,  
+          "totalStopsInTrip": 30,  
+          "routeId": "1_10",  
+          "routeShortName": "10",  
+          "routeLongName": "Downtown to U District",  
+          "tripHeadsign": "U District",  
+          "arrivalEnabled": true,  
+          "departureEnabled": true,  
+          "scheduledArrivalTime": 1270614730000,  
+          "scheduledDepartureTime": 1270614730000,  
+          "predictedArrivalTime": 1270614750000,  
+          "predictedDepartureTime": 1270614750000,  
+          "predicted": true,  
+          "distanceFromStop": 150.5,  
+          "numberOfStopsAway": 2,  
+          "historicalOccupancy": 0,  
+          "occupancyStatus": null,  
+          "status": "default",  
+          "tripStatus": {  
+            "activeTripId": "1_12345",  
+            "blockId": "1_100",  
+            "closestStop": "1_75402",  
+            "closestStopTimeOffset": 30,  
+            "distanceAlongBlock": 5000.0,  
+            "lastUpdateTime": 1270614720000,  
+            "nextStop": "1_75403",  
+            "nextStopTimeOffset": 60,  
+            "orientation": 45.0,  
+            "phase": "IN_PROGRESS",  
+            "position": {  
+              "lat": 47.6525,  
+              "lon": -122.3065  
+            },  
+            "predicted": true,  
+            "scheduleDeviation": 120,  
+            "serviceDate": 1270614730000,  
+            "situationIds": [],  
+            "totalDistanceAlongBlock": 10000.0,  
+            "vehicleId": "1_4001"  
+          },  
+          "situationIds": []  
+        }  
+      ],  
+      "nearbyStopIds": [  
+        {  
+          "stopId": "1_75414",  
+          "distanceFromQuery": 63.30975615515593  
+          }  
+      ],  
+      "situationIds": [],  
+      "limitExceeded": false  
+    }  
+  }  
+}

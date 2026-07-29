@@ -12,6 +12,10 @@
             "description": "details about a specific arrival/departure at a stop"
         },
 
+        "arrivals-and-departures-for-location": {
+            "description": "get current arrivals and departures near a location"
+        },
+
         "arrivals-and-departures-for-stop": {
             "description": "get current arrivals and departures for a stop"
         },
