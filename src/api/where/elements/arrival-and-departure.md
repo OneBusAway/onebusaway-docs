@@ -7,6 +7,7 @@ The `<arrivalAndDeparture/>` element captures information about the arrival and 
 
 * [arrivals-and-departures-for-stop](/api/where/methods/arrivals-and-departures-for-stop)
 * [arrival-and-departure-for-stop](/api/where/methods/arrival-and-departure-for-stop)
+* [arrivals-and-departures-for-location](/api/where/methods/arrivals-and-departures-for-location)
 
 ## Example
 
