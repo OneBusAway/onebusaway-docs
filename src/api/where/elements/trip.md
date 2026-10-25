@@ -3,7 +3,7 @@ layout: page
 title: Trip Element
 ---
 
-The `<trip/>` element models trips in OneBusAway. Trips are directly mapped from entries in the [GTFS trips.txt](http://code.google.com/transit/spec/transit_feed_specification.html#trips_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
+The `<trip/>` element models trips in OneBusAway. Trips are directly mapped from entries in the [GTFS trips.txt](https://gtfs.org/documentation/schedule/reference/#tripstxt) file from the GTFS feeds that power an API instance.
 
 ## Example
 
@@ -19,7 +19,7 @@ The `<trip/>` element models trips in OneBusAway. Trips are directly mapped from
 
 ## Details
 
-The fields of the trip element closely match the fields defined for trips in the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#trips_txt___Field_Definitions).
+The fields of the trip element closely match the fields defined for trips in the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#tripstxt).
 
 A few important details:
 
