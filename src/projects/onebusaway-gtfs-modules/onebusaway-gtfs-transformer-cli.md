@@ -41,7 +41,7 @@ layout: page
 ## Introduction
 
 The `onebusaway-gtfs-transformer-cli` command-line application is a simple command-line tool for transforming
-[GTFS](https://developers.google.com/transit/gtfs) feeds.
+[GTFS](https://gtfs.org/documentation/schedule/reference/) feeds.
 
 ### Requirements
 
@@ -113,7 +113,7 @@ rule matches against entities:
 ```
 
 Here, the match snippet at minimum requires a `file` property that specifies the type of GTFS entity to match.
-Any file name defined in the [GTFS specification](https://developers.google.com/transit/gtfs/reference#FeedFiles)
+Any file name defined in the [GTFS specification](https://gtfs.org/documentation/schedule/reference/)
 can be used.
 
 You can specify additional properties and values to match against as needed.  Again, use the field names defined for
@@ -253,7 +253,7 @@ In the following example, only route B15 will be retained, along with all the st
 {"op":"retain", "match":{"file":"routes.txt", "route_short_name":"B15"}}
 ```
 
-By default, we retain across [block_id](https://developers.google.com/transit/gtfs/reference#trips_block_id_field) values
+By default, we retain across [block_id](https://gtfs.org/documentation/schedule/reference/#tripstxt) values
 specified in trips.txt.  That means if a particular trip is retained (perhaps because its parent route is retained),
 and the trip specifies a block_id, then all the trips referencing that block_id will be retained as well, along with
 their own routes, stop times, and shapes.  This can potentially lead to unexpected results if you retain one route and

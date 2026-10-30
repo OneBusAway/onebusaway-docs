@@ -6,7 +6,7 @@ layout: page
 ## Introduction
 
 The `onebusaway-gtfs-merge-cli` command-line application is a simple command-line tool for merging
-[GTFS](https://developers.google.com/transit/gtfs) feeds. 
+[GTFS](https://gtfs.org/documentation/schedule/reference/) feeds.
 
 ## Getting the Application
 
@@ -114,4 +114,4 @@ Putting it all together, here is what the command-line options for the applicati
 
 ```
 --file=routes.txt --fuzzyDuplicates --file=calendar.txt --renameDuplicates
-```     
+```

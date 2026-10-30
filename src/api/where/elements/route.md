@@ -3,7 +3,7 @@ layout: page
 title: Route Element
 ---
 
-The `<route/>` element models agencies in OneBusAway.  Routes are directly mapped from entries in the [GTFS routes.txt](http://code.google.com/transit/spec/transit_feed_specification.html#routes_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
+The `<route/>` element models agencies in OneBusAway.  Routes are directly mapped from entries in the [GTFS routes.txt](https://gtfs.org/documentation/schedule/reference/#routestxt) file from the GTFS feeds that power an API instance.
 
 ## Example
 
@@ -21,7 +21,7 @@ The `<route/>` element models agencies in OneBusAway.  Routes are directly mappe
 
 ## Details
 
-The fields of the route element closely match the fields defined for routes in the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#routes_txt___Field_Definitions).
+The fields of the route element closely match the fields defined for routes in the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#routestxt).
 
 A few important details:
 

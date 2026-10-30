@@ -15,9 +15,9 @@ The [OneBusAway application suite](https://github.com/OneBusAway/onebusaway-appl
 
 ## Tools and Libraries
 
-We provide a number of libraries and tools for working with [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/) data:
+We provide a number of libraries and tools for working with [GTFS-realtime](https://gtfs.org/documentation/realtime/reference/) data:
 
-* [**onebusaway-gtfs-realtime-api**](https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki) - a set of Java classes generated from the [GTFS-realtime Protocol Buffer spec](https://developers.google.com/transit/gtfs-realtime/gtfs-realtime-proto) that allow you to produce and consume raw GTFS-realtime data.
+* [**onebusaway-gtfs-realtime-api**](https://github.com/OneBusAway/onebusaway-gtfs-realtime-api/wiki) - a set of Java classes generated from the [GTFS-realtime Protocol Buffer spec](https://gtfs.org/documentation/realtime/proto/) that allow you to produce and consume raw GTFS-realtime data.
 * [**onebusaway-gtfs-realtime-exporter**](https://github.com/OneBusAway/onebusaway-gtfs-realtime-exporter/wiki) provides a simple library to assist in sharing GTFS-realtime data.
 * [**onebusaway-gtfs-realtime-from-siri-cli**](https://github.com/OneBusAway/onebusaway-gtfs-realtime-from-siri-cli/wiki) provides a command-line tool for converting [SIRI](https://www.siri-cen.eu) real-time data into GTFS-realtime.
 * [**onebusaway-gtfs-realtime-from-nextbus-cli**](https://github.com/OneBusAway/onebusaway-gtfs-realtime-from-nextbus-cli/wiki) provide a command-line tool for converting [NextBus API](https://retro.umoiq.com/xmlFeedDocs/NextBusXMLFeed.pdf) real-time data into GTFS-realtime.

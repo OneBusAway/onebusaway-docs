@@ -8,7 +8,7 @@ information.
 
 ## GTFS-realtime
 
-We support [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime) out of the box, including support for trip updates,
+We support [GTFS-realtime](https://gtfs.org/documentation/realtime/reference/) out of the box, including support for trip updates,
 vehicle positions, and alerts.  To add support, create a
 `GtfsRealtimeSource` bean in your `data-sources.xml` file.  Then specify URLs for the three different types of GTFS-realtime data as
 properties of the bean.  Here is a full example:
@@ -88,7 +88,7 @@ bean in your `data-sources.xml` file.  Then specify the URL for your real-time d
 ## Custom Implementation
 
 Interested in adapting your own real-time system to OneBusAway?  The best option is to create an adapter between your system
-and an existing specification like [GTFS-realtime](http://code.google.com/transit/realtime/) or [SIRI](https://www.siri-cen.eu)
+and an existing specification like [GTFS-realtime](https://gtfs.org/documentation/realtime/reference/) or [SIRI](https://www.siri-cen.eu)
 and then use OneBusAway's native support for those formats.
 
 However, if that's not going to cut it, you can create your own custom real-time data-source plugin to OneBusAway.  This

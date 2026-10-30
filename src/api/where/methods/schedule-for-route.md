@@ -21,10 +21,10 @@ The intent of this response is to mimic a traditional schedule-table format for 
 The header information is:
 * `<routeId/>` - the route being looked into -  this information is presented in the format `[agency]_[routeIdentifier]`
 * `<scheduleDate/>` - the date being looked at  -  the date of service in milliseconds since the Unix epoch
-* `<serviceIds>` - the Service Ids which contain that route and are live on the specified date -  for more information see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html)
+* `<serviceIds>` - the Service Ids which contain that route and are live on the specified date -  for more information see the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#calendartxt)
 
 The entry also has concentrated schedule information in the form of `stopTripGrouping`s. Each grouping includes:
-* `directionId` - the direction the trips are heading -  for more information see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html)
+* `directionId` - the direction the trips are heading -  for more information see the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#tripstxt)
 * `tripHeadsign` - the trip headsign - a string indicting the destination of the trip
 * `stopIds` - an ordered list of stop Ids - Each id is of the format `[agency]_[stopIdentifier]`
 * `tripIds` - a list of trip Ids that matched by shared direction - Each `tripId` is of the format `[agency]_[tripIdentifier]`

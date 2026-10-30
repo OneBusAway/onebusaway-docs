@@ -4,7 +4,7 @@ layout: page
 ---
 
 
-  We provide a Java library for reading and writing [ GTFS](https://developers.google.com/transit/gtfs) feeds, including database support.
+  We provide a Java library for reading and writing [GTFS](https://gtfs.org/documentation/schedule/reference/) feeds, including database support.
   
   The library is broken up into a few key modules:
   

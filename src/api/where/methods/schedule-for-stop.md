@@ -25,7 +25,7 @@ Finally we get down to the unit of a stop time, as represented by the `<schedule
 * `arrivalTime` - time in milliseconds since the Unix epoch that the transit vehicle will arrive
 * `departureTime` - time in milliseconds since the Unix epoch that the transit vehicle will depart
 * `tripId` - the id for the trip of the scheduled transit vehicle
-* `serviceId` - the serviceId for the schedule trip (see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html) for more details
+* `serviceId` - the serviceId for the schedule trip (see the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#calendartxt) for more details)
 
 In addition to all the `<scheduleStopTime/>` elements, the response also contains `<stopCalendarDay/>` elements which list out all the days that a particular stop has service.  This element has the following properties:
 

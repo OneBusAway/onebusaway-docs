@@ -3,7 +3,7 @@ layout: page
 title: Agency Element
 ---
 
-The `<agency/>` element models agencies in OneBusAway.  Agencies are directly mapped from entries in the [GTFS agency.txt](http://code.google.com/transit/spec/transit_feed_specification.html#agency_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
+The `<agency/>` element models agencies in OneBusAway.  Agencies are directly mapped from entries in the [GTFS agency.txt](https://gtfs.org/documentation/schedule/reference/#agencytxt) file from the GTFS feeds that power an API instance.
 
 ## Example
 
@@ -19,7 +19,7 @@ The `<agency/>` element models agencies in OneBusAway.  Agencies are directly ma
 
 ## Details
 
-The fields of the agency element closely match the fields defined for agencies in the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#agency_txt___Field_Definitions).
+The fields of the agency element closely match the fields defined for agencies in the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#agencytxt).
 
 A few important details:
 

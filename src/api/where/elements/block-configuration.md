@@ -5,7 +5,7 @@ title: blockConfiguration Element
 
 A `<blockConfiguration/>` captures a sequence of block trips active on a particular service date.  Recall that a block is a sequence of linked trips operated by the same vehicle.  Unfortunately, that set of trips is not always the same.  For example, the last trip of a block may typically be active, but might be left of during a holiday.
 
-To help model these situations correctly, we have the concept of a block configuration: a sequence of block trips that are active for a particular block on a particular service date.  The active service date is determined by the combination of active and inactive service ids on that date.  See the [`<trip/>`](/api/where/elements/trip) element and the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#trips_txt___Field_Definitions) for more discussion of service ids and how they determine when a trip is active.
+To help model these situations correctly, we have the concept of a block configuration: a sequence of block trips that are active for a particular block on a particular service date.  The active service date is determined by the combination of active and inactive service ids on that date.  See the [`<trip/>`](/api/where/elements/trip) element and the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#tripstxt) for more discussion of service ids and how they determine when a trip is active.
 
 In addition to service id information, the block configuration contains the list of active block trips.
 
@@ -68,5 +68,5 @@ A stop time is a more general notion of a scheduled stop along a trip:
 * stopId -  id of the referenced [`<stop/>`](/api/where/elements/stop) element
 * arrivalTime - time, in seconds from the start of the service date
 * departureTime - time, in seconds from the start of the service date
-* pickupType - see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#stop_times_txt___Field_Definitions)
-* dropOffType - see the [GTFS spec](http://code.google.com/transit/spec/transit_feed_specification.html#stop_times_txt___Field_Definitions)
+* pickupType - see the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#stop_timestxt)
+* dropOffType - see the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#stop_timestxt)

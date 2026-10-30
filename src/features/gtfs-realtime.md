@@ -3,7 +3,7 @@ layout: page
 title: GTFS Realtime Support
 ---
 
-OneBusAway for the [GTFS Realtime](https://developers.google.com/transit/gtfs-realtime/) data format in multiple ways:
+OneBusAway for the [GTFS Realtime](https://gtfs.org/documentation/realtime/reference/) data format in multiple ways:
 
 * **Input:** OneBusAway can import realtime data in the GTFS Realtime format, as described in the
   [Realtime Configuration Guide](/guides/realtime-configuration-guide).

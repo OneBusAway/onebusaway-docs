@@ -3,7 +3,7 @@ layout: page
 title: Stop Element
 ---
 
-The `<stop/>` element models stops in OneBusAway.  Stops are directly mapped from entries in the [GTFS stops.txt](http://code.google.com/transit/spec/transit_feed_specification.html#stops_txt___Field_Definitions) file from the GTFS feeds that power an API instance.
+The `<stop/>` element models stops in OneBusAway.  Stops are directly mapped from entries in the [GTFS stops.txt](https://gtfs.org/documentation/schedule/reference/#stopstxt) file from the GTFS feeds that power an API instance.
 
 ## Example
 
@@ -24,7 +24,7 @@ The `<stop/>` element models stops in OneBusAway.  Stops are directly mapped fro
 
 ## Details
 
-The fields of the stop element closely match the fields defined for stops in the [http://code.google.com/transit/spec/transit_feed_specification.html#stops_txt___Field_Definitions GTFS spec].
+The fields of the stop element closely match the fields defined for stops in the [GTFS spec](https://gtfs.org/documentation/schedule/reference/#stopstxt).
 
 A few important details:
 

@@ -6,7 +6,7 @@ layout: page
 ## Introduction
 
   The `onebusaway-gtfs-hibernate-cli` command-line utility is a simple command-line tool for loading a
-[GTFS](https://developers.google.com/transit/gtfs) feed into a database.
+[GTFS](https://gtfs.org/documentation/schedule/reference/) feed into a database.
 
 ## Getting the Application
 
@@ -51,4 +51,3 @@ using the command-line arguments specified below.
   * `--username=...` : JDBC connection username
   
   * `--password=...` : JDBC connection password
-  

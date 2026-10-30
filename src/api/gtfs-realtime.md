@@ -3,7 +3,7 @@ layout: page
 title: GTFS-Realtime Export API
 ---
 
-OneBusAway provides an API for exporting data in the [GTFS-realtime](https://developers.google.com/transit/gtfs-realtime/)
+OneBusAway provides an API for exporting data in the [GTFS-realtime](https://gtfs.org/documentation/realtime/reference/)
 format.  It supports all three major GTFS-realtime datatypes:
 
 * alerts

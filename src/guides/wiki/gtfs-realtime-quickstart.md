@@ -195,8 +195,8 @@ If you want to get your hands dirty with the code, head over to the [OBA Develop
 
 Also, see how to configure OneBusAway to consume other [other real-time transit data formats][14].
 
-[1]: https://developers.google.com/transit/gtfs/
-[2]: https://developers.google.com/transit/gtfs-realtime/
+[1]: https://gtfs.org/documentation/schedule/reference/
+[2]: https://gtfs.org/documentation/realtime/reference/
 [3]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [4]: http://www.bart.gov/schedules/developers/gtfs.aspx
 [5]: http://www.bart.gov/schedules/developers/gtfs-realtime.aspx
