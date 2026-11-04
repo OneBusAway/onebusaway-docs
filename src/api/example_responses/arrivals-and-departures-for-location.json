@@ -26,6 +26,26 @@
           "url": "http://metro.kingcounty.gov/schedules/010.pdf",
           "agencyId": "1",
           "color": "003399"
+        },
+        {
+          "id": "1_49",
+          "shortName": "49",
+          "longName": "Broadway to University District",
+          "description": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/049.pdf",
+          "agencyId": "1",
+          "color": "003399"
+        },
+        {
+          "id": "1_65",
+          "shortName": "65",
+          "longName": "Jackson Park to University District",
+          "description": "",
+          "type": 3,
+          "url": "http://metro.kingcounty.gov/schedules/065.pdf",
+          "agencyId": "1",
+          "color": "003399"
         }
       ],
       "stops": [
@@ -36,7 +56,7 @@
           "name": "University Way NE & NE 45th St",
           "code": "75403",
           "locationType": 0,
-          "wheelchairBoarding": 1,
+          "wheelchairBoarding": "ACCESSIBLE",
           "routeIds": ["1_10", "1_49", "1_65"]
         },
         {
@@ -46,7 +66,7 @@
           "name": "Stevens Way & Benton Ln",
           "code": "75414",
           "locationType": 0,
-          "wheelchairBoarding": 1,
+          "wheelchairBoarding": "ACCESSIBLE",
           "routeIds": ["1_10"]
         }
       ],
@@ -57,10 +77,9 @@
           "serviceId": "1_Weekday",
           "tripHeadsign": "U District",
           "tripShortName": "",
-          "directionId": 0,
+          "directionId": "0",
           "blockId": "1_100",
-          "shapeId": "1_10_0",
-          "wheelchairAccessible": 1
+          "shapeId": "1_10_0"
         }
       ],
       "situations": []

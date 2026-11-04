@@ -12,7 +12,7 @@ Get current arrivals and departures for stops identified by a specific location 
 
 * `lat` - The latitude coordinate of the search center (required)
 * `lon` - The longitude coordinate of the search center (required)
-* `radius` - The search radius in meters, up to a maximum of 20,000 meters (20 km). The server constructs a rectangular bounding box around the coordinate with this radius, rather than a circle; stops near the corners of the box may be slightly farther away than the radius. Either `radius` or both `latSpan` and `lonSpan` is required; if none is provided, the search area has zero size and returns no stops.
+* `radius` - The search radius in meters, up to a maximum of 20,000 meters (20 km). The server constructs a rectangular bounding box around the coordinate with this radius, rather than a circle; stops near the corners of the box may be up to about 1.41 times the radius from the center (clients can apply a distance filter when needed). Either `radius` or both `latSpan` and `lonSpan` is required; if none is provided, the search area has zero size and returns no stops.
 * `latSpan`/`lonSpan` - Sets the search bounding box as an alternative to `radius`, specified in degrees of latitude and longitude (e.g. `latSpan=0.01&lonSpan=0.01`). Each span defines the full width of the search box centered on `lat` and `lon`. Both must be provided together.
 * `time` - By default, the method returns the status of the system right now. However, the system can also be queried at a specific time. See [timestamps](/api/where/#timestamps) for details on the format of the `time` parameter.
 * `minutesBefore=n` - Include vehicles having arrived or departed in the previous n minutes (default=5)
