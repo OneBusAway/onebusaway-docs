@@ -50,6 +50,16 @@
       ],
       "stops": [
         {
+          "id": "1_75402",
+          "lat": 47.652389,
+          "lon": -122.306305,
+          "name": "Stevens Way & Rainier Vista NE",
+          "code": "75402",
+          "locationType": 0,
+          "wheelchairBoarding": "ACCESSIBLE",
+          "routeIds": ["1_10"]
+        },
+        {
           "id": "1_75403",
           "lat": 47.653,
           "lon": -122.307,

@@ -29,7 +29,7 @@ The response is primarily composed of [`<arrivalAndDeparture/>` elements](/api/w
 
 The `nearbyStopIds` list is designed to capture stops that are very close by (like across the street) for quick navigation. This is sorted by distance and limited by `maxCount`.
 
-Trips will not show up in the results if their schedule relationship is SKIPPED or if there is no active service for the given time window.
+Arrivals at a stop will not show up in the results if that stop's stop-time update has a schedule relationship of SKIPPED or if there is no active service for the given time window.
 
 ### Empty Results
 
